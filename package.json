@@ -8,9 +8,11 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "twit": "^2.2.11"
   },
   "scripts": {
+    "prestart": "cp -f ./cert/localhost.pem ./node_modules/webpack-dev-server/ssl || :",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
