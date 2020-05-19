@@ -1,13 +1,35 @@
 // @flow
 
 import * as React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import { Router } from "@reach/router";
 
-import { LandingPage } from "./components/";
+import { LandingPage, Dashboard } from "./components/";
+import { Provider } from "./store";
+import { requestToken } from "./utils";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <LandingPage />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+// import "./styles.scss";
+
+/**
+ * @function App
+ * @param {Object} props
+ * @returns React.Node
+ */
+
+const App = (): React.Node => {
+  React.useEffect(() => {
+    requestToken();
+  }, []);
+  return (
+    <Provider>
+      <div className="App">
+        <Router>
+          <LandingPage path="/" />
+          <Dashboard path="dashboard" />
+        </Router>
+      </div>
+    </Provider>
+  );
+};
+
+render(<App />, document.getElementById("root"));
