@@ -3,7 +3,7 @@
 const dotenv = require("dotenv").config();
 const Twitter = require("twitter-lite");
 
-const { CONSUMER_KEY, CONSUMER_SECRET } = process.env;
+const { CALLBACK_URL, CONSUMER_KEY, CONSUMER_SECRET } = process.env;
 
 /**
  * @module twitterClient
@@ -29,15 +29,6 @@ exports.handler = async (event, context, callback) => {
         });
         break;
       case "request_token":
-        // TODO refactor
-        let CALLBACK_URL;
-        switch (process.env.NODE_ENV) {
-          case "production":
-            CALLBACK_URL = "https://tidytweets.netlify.app/dashboard";
-            break;
-          default:
-            CALLBACK_URL = "http://localhost:8888/dashboard";
-        }
         response = await twitterClient.getRequestToken(CALLBACK_URL);
         break;
       default:
