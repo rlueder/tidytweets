@@ -3,19 +3,22 @@
 const twitterClient = require("./client");
 
 exports.handler = async (event, context, callback) => {
-  const ENDPOINT = event.queryStringParameters.endpoint;
-  console.log(ENDPOINT);
-
+  const { endpoint, token, verifier } = event.queryStringParameters;
   try {
     let response;
-    switch (ENDPOINT) {
+    switch (endpoint) {
       case "access_token":
-        response = await twitterClient.getAccessToken();
+        response = await twitterClient.getAccessToken({
+          oauth_token: token,
+          oauth_verifier: verifier,
+        });
         break;
       case "request_token":
         const CALLBACK_URL = "http://localhost:8888/dashboard"; // replace CALLBACK_URL in PROD
         response = await twitterClient.getRequestToken(CALLBACK_URL);
         break;
+      case "verify_credentials":
+        response = await twitterClient.get("account/verify_credentials");
       default:
       // no default
     }

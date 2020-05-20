@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "localforage": "^1.7.3",
     "react": "^16.13.1",
     "react-copy-write": "^0.8.0",
     "react-dom": "^16.13.1",
@@ -36,6 +37,8 @@
     ]
   },
   "devDependencies": {
+    "flow": "^0.2.3",
+    "flow-typed": "^3.1.0",
     "node-sass": "^4.14.1"
   }
 }

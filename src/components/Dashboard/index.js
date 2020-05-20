@@ -1,37 +1,52 @@
 // @flow
 
-import * as React from "react";
-import { useLocation } from "@reach/router";
+import React, { Fragment, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "@reach/router";
+import localforage from "localforage";
 
-import { Consumer, createSelector, mutate } from "../../store";
+import { LogIn, LogOut } from "../index";
+import { mutate } from "../../store";
+import { getAccessToken, getSearchParams } from "../../utils/";
 
 import "./styles.scss";
 
-type Props = {};
+type Props = {
+  username: string,
+};
+
+// TODO add Log Out button
 
 const Dashboard = (props: Props) => {
-  const selectSession = createSelector((state) => state.session);
+  const { token, username } = props;
 
-  const OAUTH_VERIFIER = new URLSearchParams(useLocation().search).get(
-    "oauth_verifier"
-  );
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // React.useEffect(() => {
-  // TODO dispatch request to oauth/access_token
-  // }, []);
+  useEffect(() => {
+    const SEARCH_PARAMS = new URLSearchParams(location.search);
+    const { token, verifier } = getSearchParams(SEARCH_PARAMS);
+    if (token && verifier) {
+      getAccessToken(token, verifier);
+    }
+  }, [location]);
 
   return (
     <div className="Dashboard">
+      <Link to="/">
+        <p>TidyTweets</p>
+      </Link>
       <p>Dashboard</p>
-
-      <Consumer select={[selectSession]}>
-        {(session) => (
-          <React.Fragment>
-            <div>{session.oauth_token}</div>
-            <div>{OAUTH_VERIFIER}</div>
-          </React.Fragment>
-        )}
-      </Consumer>
+      {!username ? (
+        <Fragment>
+          <div>Not authenticated.</div>
+          <LogIn token={token} />
+        </Fragment>
+      ) : (
+        <Fragment>
+          <div>{username}</div>
+          <LogOut />
+        </Fragment>
+      )}
     </div>
   );
 };

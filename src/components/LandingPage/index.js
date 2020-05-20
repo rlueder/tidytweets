@@ -1,37 +1,36 @@
 // @flow
 
-import * as React from "react";
+import React, { Fragment } from "react";
 import { useNavigate } from "@reach/router";
 
-import { Consumer, createSelector } from "../../store";
+import { LogIn, LogOut } from "../index";
 
 import "./styles.scss";
 
-type Props = {};
+type Props = {
+  token: string,
+  username: string,
+};
 
 const LandingPage = (props: Props): React.Node => {
+  const { token, username } = props;
   const navigate = useNavigate();
-  const selectSession = createSelector((state) => state.session);
-
   return (
     <div className="LandingPage">
-      <p>TidyTweets</p>
-      <Consumer select={[selectSession]}>
-        {(session) => (
-          <button
-            onClick={() =>
-              session.oauth_callback_confirmed === "true"
-                ? navigate(
-                    `https://api.twitter.com/oauth/authorize?oauth_token=${session.oauth_token}`,
-                    { replace: true }
-                  )
-                : null
-            }
-          >
-            Authorize TidyTweets
+      {username ? (
+        <div>
+          <h1>{`Welcome back, ${username}!`}</h1>
+          <button onClick={() => navigate("/dashboard")}>
+            Continue do Dashboard
           </button>
-        )}
-      </Consumer>
+          <LogOut />
+        </div>
+      ) : (
+        <Fragment>
+          <p>TidyTweets</p>
+          <LogIn token={token} />
+        </Fragment>
+      )}
     </div>
   );
 };

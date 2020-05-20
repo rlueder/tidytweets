@@ -4,17 +4,17 @@ import { mutate } from "../store";
 
 /**
  * @async
- * @function requestToken
+ * @function getRequestToken
  */
 
-const requestToken = async () => {
+const getRequestToken = async () => {
   fetch("/.netlify/functions/twitter-client?endpoint=request_token")
     .then((response) => response.json())
     .then((data) => {
       mutate((draft) => {
-        draft.session = data;
+        draft.request = data;
       });
     });
 };
 
-export default requestToken;
+export default getRequestToken;
