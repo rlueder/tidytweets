@@ -52,8 +52,8 @@ const App = (): React.Node => {
               <Router>
                 <LandingPage
                   path="/"
-                  username={access.screen_name}
                   token={request.oauth_token}
+                  username={access.screen_name}
                 />
                 <Dashboard
                   path="/dashboard"

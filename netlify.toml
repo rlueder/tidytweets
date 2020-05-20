@@ -3,3 +3,12 @@
 
 [[plugins]]
     package = "@netlify/plugin-functions-install-core"
+
+## Redirects
+## https://docs.netlify.com/routing/redirects/
+
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
+    
