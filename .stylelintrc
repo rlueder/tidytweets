@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-recommended-scss",
+    "./node_modules/prettier-stylelint/config.js"
+  ],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "order/properties-alphabetical-order": true
+  }
+}
