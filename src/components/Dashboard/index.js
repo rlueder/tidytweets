@@ -4,7 +4,9 @@ import React, { Fragment, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "@reach/router";
 import localforage from "localforage";
 
-import { LogIn, LogOut } from "../index";
+import { Header, LogIn, LogOut } from "../index";
+import { Analytics, Following, Lists } from "./components";
+
 import { mutate } from "../../store";
 import { getAccessToken, getSearchParams } from "../../utils/";
 
@@ -13,8 +15,6 @@ import "./styles.scss";
 type Props = {
   username: string,
 };
-
-// TODO add Log Out button
 
 const Dashboard = (props: Props) => {
   const { token, username } = props;
@@ -32,10 +32,7 @@ const Dashboard = (props: Props) => {
 
   return (
     <div className="Dashboard">
-      <Link to="/">
-        <p>TidyTweets</p>
-      </Link>
-      <p>Dashboard</p>
+      <Header />
       {!username ? (
         <Fragment>
           <div>Not authenticated.</div>
@@ -43,8 +40,14 @@ const Dashboard = (props: Props) => {
         </Fragment>
       ) : (
         <Fragment>
-          <div>{username}</div>
-          <LogOut />
+          <main>
+            <div className="Layout">
+              <Following />
+              <Analytics />
+              <Lists />
+            </div>
+          </main>
+          <footer></footer>
         </Fragment>
       )}
     </div>

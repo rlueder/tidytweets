@@ -9,7 +9,7 @@ import { LandingPage, Dashboard } from "./components/";
 import { Consumer, createSelector, mutate, Provider } from "./store";
 import { getRequestToken } from "./utils";
 
-// import "./styles.scss";
+import "./assets/styles/styles.scss";
 
 localforage.config({
   driver: localforage.LOCALSTORAGE,

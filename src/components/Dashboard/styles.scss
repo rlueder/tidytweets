@@ -1,3 +1,75 @@
 .Dashboard {
   //
 }
+
+.Analytics {
+  align-items: center;
+  border: 1px solid rgba(#fff, 0.15);
+  border-width: 0 1px;
+  display: flex;
+  justify-content: center;
+}
+
+.Analytics--blank {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  svg {
+    margin-bottom: 1rem;
+  }
+}
+
+.Layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.Following,
+.Lists {
+  // background-color: rgba(#000, 0.05);
+  height: 100vh;
+}
+
+.Friend {
+  border: 1px solid rgba(#fff, 0.15);
+  border-width: 1px 0;
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 3fr;
+  padding: 1rem;
+  position: relative;
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+
+  .Button {
+    background-color: #999;
+    border: none;
+    color: #fff;
+    height: 2rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 5rem;
+    -webkit-appearance: none;
+
+    &:hover {
+      backtround-color: #000;
+      cursor: pointer;
+    }
+  }
+}
+
+.Friend__avatar {
+  border: 1px solid #999;
+  border-radius: 50%;
+  height: 4rem;
+  width: 4rem;
+}
