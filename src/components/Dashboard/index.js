@@ -1,26 +1,24 @@
 // @flow
 
 import React, { Fragment, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "@reach/router";
-import localforage from "localforage";
+import { useLocation } from "@reach/router";
 
-import { Header, LogIn, LogOut } from "../index";
+import { Header, LogIn } from "../index";
 import { Analytics, Following, Lists } from "./components";
-
-import { mutate } from "../../store";
 import { getAccessToken, getSearchParams } from "../../utils/";
 
 import "./styles.scss";
 
 type Props = {
+  friends: Array<number>,
+  token: string,
   username: string,
 };
 
 const Dashboard = (props: Props) => {
-  const { token, username } = props;
+  const { friends, token, username } = props;
 
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const SEARCH_PARAMS = new URLSearchParams(location.search);
@@ -42,7 +40,7 @@ const Dashboard = (props: Props) => {
         <Fragment>
           <main>
             <div className="Layout">
-              <Following />
+              <Following friends={friends} username={username} />
               <Analytics />
               <Lists />
             </div>

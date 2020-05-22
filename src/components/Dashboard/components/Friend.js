@@ -4,7 +4,9 @@ import * as React from "react";
 
 import { Button } from "../../index";
 
-type Props = {};
+type Props = {
+  data: Object,
+};
 
 /**
  * @function Friend
@@ -12,20 +14,24 @@ type Props = {};
  */
 
 const Friend = (props: Props) => {
+  const { data } = props;
+
+  console.log(data);
+
   return (
     <div className="Friend">
       <div>
         <div className="Friend__avatar">
-          {/* <img alt="Avatar" src="" /> */}
+          <img alt="Avatar" src={data.profile_image_url_https} />
         </div>
       </div>
       <div>
         <div className="Friend__id">
-          <h1>Jordan Mechner</h1>
-          <h2>@jmechner</h2>
+          <h1>{data.name}</h1>
+          <h2>@{data.screen_name}</h2>
         </div>
         <div className="Friend__descrption">
-          <p>Making games, books, movies, and keeping a journal since 1982.</p>
+          <p>{data.description}</p>
         </div>
       </div>
       <Button label="Unfollow" />

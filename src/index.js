@@ -23,6 +23,7 @@ localforage.config({
 
 const App = (): React.Node => {
   const selectAccess = createSelector((state) => state.access);
+  const selectFriends = createSelector((state) => state.friends);
   const selectRequest = createSelector((state) => state.request);
 
   useEffect(() => {
@@ -45,8 +46,8 @@ const App = (): React.Node => {
 
   return (
     <Provider>
-      <Consumer select={[selectAccess, selectRequest]}>
-        {(access, request) => {
+      <Consumer select={[selectAccess, selectFriends, selectRequest]}>
+        {(access, friends, request) => {
           return (
             <div className="App">
               <Router>
@@ -56,6 +57,7 @@ const App = (): React.Node => {
                   username={access.screen_name}
                 />
                 <Dashboard
+                  friends={friends}
                   path="/dashboard"
                   token={request.oauth_token}
                   username={access.screen_name}

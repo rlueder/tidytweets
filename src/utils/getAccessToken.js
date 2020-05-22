@@ -3,11 +3,14 @@
 import localforage from "localforage";
 import { mutate } from "../store";
 
+import { getUserInfo, getFriendsIds } from "./index";
+
 /**
  * @async
  * @function getAccessToken
  * @param {string} TOKEN
  * @param {string} VERIFIER
+ * @returns {Object} data
  */
 
 const getAccessToken = async (TOKEN, VERIFIER) => {
@@ -21,6 +24,11 @@ const getAccessToken = async (TOKEN, VERIFIER) => {
         draft.access = data;
         draft.request = {};
       });
+      return data;
+    })
+    .then((data) => {
+      getUserInfo(data.screen_name);
+      getFriendsIds(data.screen_name);
     });
 };
 

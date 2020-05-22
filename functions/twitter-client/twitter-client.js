@@ -18,11 +18,22 @@ const twitterClient = new Twitter({
 });
 
 exports.handler = async (event, context, callback) => {
-  const { endpoint, token, verifier } = event.queryStringParameters;
+  const { endpoint, screen_name } = event.queryStringParameters;
+
+  const bearer = await twitterClient.getBearerToken();
+
+  const userClient = new Twitter({
+    bearer_token: bearer.access_token,
+    consumer_key: CONSUMER_KEY,
+    consumer_secret: CONSUMER_SECRET,
+  });
+
   try {
     let response;
     switch (endpoint) {
+      // OAuth Requests
       case "access_token":
+        const { token, verifier } = event.queryStringParameters;
         response = await twitterClient.getAccessToken({
           oauth_token: token,
           oauth_verifier: verifier,
@@ -30,6 +41,28 @@ exports.handler = async (event, context, callback) => {
         break;
       case "request_token":
         response = await twitterClient.getRequestToken(CALLBACK_URL);
+        break;
+      // User Requests
+      case "friends_ids":
+        const { count } = event.queryStringParameters;
+        response = await userClient.get("/friends/ids", {
+          count: count,
+          screen_name: screen_name,
+        });
+        break;
+      case "users_lookup":
+        const { user_id } = event.queryStringParameters;
+        response = await userClient.get("/users/lookup", {
+          include_entities: false,
+          screen_name: screen_name,
+          user_id: user_id,
+        });
+        break;
+      case "users_show":
+        response = await userClient.get("/users/show", {
+          include_entities: false,
+          screen_name: screen_name,
+        });
         break;
       default:
       // no default
@@ -39,7 +72,6 @@ exports.handler = async (event, context, callback) => {
       body: JSON.stringify(response),
     };
   } catch (err) {
-    console.log(err);
     return {
       statusCode: 500,
       body: JSON.stringify({ msg: err.message }),

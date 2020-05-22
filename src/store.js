@@ -10,5 +10,14 @@ import createState from "react-copy-write";
 
 export const { Provider, Consumer, createSelector, mutate } = createState({
   access: {},
+  friends: {
+    data: [],
+    ids: [],
+    loading: false,
+  },
   request: {},
+  user: {
+    data: {},
+    loading: false,
+  },
 });

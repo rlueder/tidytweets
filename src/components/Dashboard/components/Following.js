@@ -1,11 +1,16 @@
 // @flow
 
-import * as React from "react";
+import React, { useEffect } from "react";
 
 import { Filter } from "../../index";
 import { Friend } from "./index";
 
-type Props = {};
+import { getFriendsInfo } from "../../../utils";
+
+type Props = {
+  friends: Array<number>,
+  username: string,
+};
 
 /**
  * @function Following
@@ -14,10 +19,20 @@ type Props = {};
  */
 
 const Following = (props: Props) => {
+  const { friends, username } = props;
+
+  useEffect(() => {
+    getFriendsInfo(username, friends.ids);
+  }, [friends, username]);
+
   return (
     <div className="Following">
       <Filter />
-      <Friend />
+      {friends.data && friends.data.length
+        ? friends.data.map((friend) => (
+            <Friend data={friend} key={friend.id_str} />
+          ))
+        : null}
     </div>
   );
 };
