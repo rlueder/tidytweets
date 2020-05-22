@@ -3,6 +3,8 @@
 import * as React from "react";
 import { useNavigate } from "@reach/router";
 
+import { Button } from "../index";
+
 type Props = {
   token: string,
 };
@@ -17,16 +19,15 @@ const LogIn = (props: Props) => {
   const { token } = props;
   const navigate = useNavigate();
   return (
-    <button
+    <Button
+      label="Log In"
       onClick={() =>
         navigate(
           `https://api.twitter.com/oauth/authorize?oauth_token=${token}`,
           { replace: true }
         )
       }
-    >
-      Log In
-    </button>
+    />
   );
 };
 

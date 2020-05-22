@@ -3,6 +3,8 @@
 import { mutate } from "../store";
 import chunk from "lodash/chunk";
 
+import { fetchPaginatedFriendsInfo } from "./index";
+
 /**
  * @async
  * @function getFriendsInfo
@@ -12,32 +14,12 @@ import chunk from "lodash/chunk";
  */
 
 const getFriendsInfo = async (SCREEN_NAME: string, USER_ID: Array<number>) => {
-  //
-  const fetchPaginatedFriendsInfo = async (
-    SCREEN_NAME: string,
-    USER_ID: string
-  ): Object => {
-    const response = await fetch(
-      `/.netlify/functions/twitter-client?endpoint=users_lookup&screen_name=${SCREEN_NAME}&user_id=${CHUNKS[0]}`
-    );
-    if (!response.ok) {
-      Promise.reject(new Error("fail")).then(
-        () => null,
-        () => null
-      );
-      throw Error(response.status.toString());
-    }
-    return response.json();
-  };
-
-  const CHUNKS = chunk(USER_ID, 50);
-  let ALL_REQUESTS = [];
-  for (const CHUNK of CHUNKS) {
-    ALL_REQUESTS.push(fetchPaginatedFriendsInfo(CHUNK.join(",")));
+  let PROMISES = [];
+  for (const CHUNK of chunk(USER_ID, 50)) {
+    PROMISES.push(fetchPaginatedFriendsInfo(SCREEN_NAME, CHUNK.join(",")));
   }
-
   try {
-    const response = await Promise.all(ALL_REQUESTS);
+    const response = await Promise.all(PROMISES);
     if (response.length) {
       mutate((draft) => {
         draft.friends = {

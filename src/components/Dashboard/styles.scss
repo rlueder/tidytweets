@@ -1,3 +1,6 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
 .Dashboard {
   //
 }
@@ -21,15 +24,21 @@
 }
 
 .Layout {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  display: flex;
+  height: calc(100vh - 3rem - 1px);
+  justify-content: center;
 }
 
-.Following,
-.Lists {
-  // background-color: rgba(#000, 0.05);
-  height: 100vh;
+.Following {
+  @extend %scrollbar;
+  height: 20rem;
+  width: 50%;
   overflow-y: scroll;
+}
+
+.Following__intro {
+  font-size: 2rem;
 }
 
 .Friend {

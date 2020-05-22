@@ -15,9 +15,6 @@ type Props = {
 
 const Friend = (props: Props) => {
   const { data } = props;
-
-  console.log(data);
-
   return (
     <div className="Friend">
       <div>
@@ -34,7 +31,10 @@ const Friend = (props: Props) => {
           <p>{data.description}</p>
         </div>
       </div>
-      <Button label="Unfollow" />
+      <Button
+        label="Unfollow"
+        onClick={() => console.log(`Unfollow ${data.screen_name}`)}
+      />
     </div>
   );
 };

@@ -2,6 +2,8 @@
 
 import React, { Fragment } from "react";
 import { useNavigate } from "@reach/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import { LogIn, LogOut } from "../index";
 
@@ -27,10 +29,19 @@ const LandingPage = (props: Props): React.Node => {
         </div>
       ) : (
         <Fragment>
-          <p>TidyTweets</p>
-          <LogIn token={token} />
+          <div className="LandingPage__logo">
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+            <h1>TidyTweets</h1>
+          </div>
+          <div>
+            <p>Tidy up your Following list on Twitter.</p>
+            <LogIn token={token} />
+          </div>
         </Fragment>
       )}
+      <footer>
+        Copyleft <span>©</span> 2020. Some rights reserved.
+      </footer>
     </div>
   );
 };

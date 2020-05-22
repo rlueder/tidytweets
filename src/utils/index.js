@@ -1,5 +1,7 @@
 // @flow
 
+export { default as fetchPaginatedFriendsInfo } from "./fetchPaginatedFriendsInfo";
+
 export { default as getAccessToken } from "./getAccessToken";
 export { default as getFriendsIds } from "./getFriendsIds";
 export { default as getFriendsInfo } from "./getFriendsInfo";

@@ -1,10 +1,16 @@
 // @flow
 
 import React, { Fragment, useEffect } from "react";
+import { hot } from "react-hot-loader/root";
 import { useLocation } from "@reach/router";
 
 import { Header, LogIn } from "../index";
-import { Analytics, Following, Lists } from "./components";
+import {
+  // Analytics,
+  Following,
+  // Lists
+} from "./components";
+
 import { getAccessToken, getSearchParams } from "../../utils/";
 
 import "./styles.scss";
@@ -38,12 +44,8 @@ const Dashboard = (props: Props) => {
         </Fragment>
       ) : (
         <Fragment>
-          <main>
-            <div className="Layout">
-              <Following friends={friends} username={username} />
-              <Analytics />
-              <Lists />
-            </div>
+          <main className="Layout">
+            <Following friends={friends} username={username} />
           </main>
           <footer></footer>
         </Fragment>
@@ -52,4 +54,4 @@ const Dashboard = (props: Props) => {
   );
 };
 
-export default Dashboard;
+export default hot(Dashboard);

@@ -4,6 +4,7 @@ import * as React from "react";
 import localforage from "localforage";
 import { useNavigate } from "@reach/router";
 
+import { Button } from "../index";
 import { mutate } from "../../store";
 
 /**
@@ -14,7 +15,8 @@ import { mutate } from "../../store";
 const LogOut = () => {
   const navigate = useNavigate();
   return (
-    <button
+    <Button
+      label="Log Out"
       onClick={() => {
         localforage.removeItem("access").then(() => {
           mutate((draft) => {
@@ -23,9 +25,7 @@ const LogOut = () => {
           navigate("/");
         });
       }}
-    >
-      Log Out
-    </button>
+    />
   );
 };
 

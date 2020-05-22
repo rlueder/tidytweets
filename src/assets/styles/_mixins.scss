@@ -1,0 +1,33 @@
+@import "../../assets/styles/colors.scss";
+
+/*
+ * Layout Helpers
+ */
+
+%flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/*
+ * Scrollbar
+ */
+
+%scrollbar {
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $blue-base;
+    border-radius: 0;
+    height: 2.5rem;
+    width: 0.5rem;
+  }
+}
