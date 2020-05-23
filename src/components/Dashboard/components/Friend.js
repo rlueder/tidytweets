@@ -27,7 +27,7 @@ const Friend = (props: Props) => {
           <h1>{data.name}</h1>
           <h2>@{data.screen_name}</h2>
         </div>
-        <div className="Friend__descrption">
+        <div className="Friend__description">
           <p>{data.description}</p>
         </div>
       </div>

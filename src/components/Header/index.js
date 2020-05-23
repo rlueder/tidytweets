@@ -14,7 +14,7 @@ const Header = () => {
     <header className="Header">
       <Link to="/">
         <FontAwesomeIcon icon={faTwitter} />
-        <h1>TidyTweeets</h1>
+        <h1>TidyTweets</h1>
       </Link>
       <LogOut />
     </header>

@@ -31,14 +31,41 @@
 }
 
 .Following {
-  @extend %scrollbar;
-  height: 20rem;
-  width: 50%;
-  overflow-y: scroll;
+  // align-items: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  // grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 3rem - 1px);
+  // justify-content: center;
+}
+
+.Following__actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 0 1rem;
 }
 
 .Following__intro {
-  font-size: 2rem;
+  padding-top: 2rem;
+
+  > div {
+    position: relative;
+  }
+
+  p {
+    font-size: 1.75rem;
+    padding: 0 1rem;
+
+    span {
+      color: $blue-base;
+    }
+  }
+}
+
+.Following__list {
+  @extend %scrollbar;
+  overflow-y: scroll;
 }
 
 .Friend {
@@ -78,8 +105,23 @@
 }
 
 .Friend__avatar {
-  border: 1px solid #999;
+  @extend %flex-center;
+  border: 1px solid transparent;
   border-radius: 50%;
   height: 4rem;
+  overflow: hidden;
   width: 4rem;
+
+  img {
+    height: 4rem;
+    width: 4rem;
+  }
+}
+
+.Friend__id {
+  margin-bottom: .5rem;
+}
+
+.Friend__description {
+  font-size: .875rem;
 }

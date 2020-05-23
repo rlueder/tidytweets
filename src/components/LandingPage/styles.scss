@@ -1,14 +1,17 @@
 .LandingPage {
   align-items: center;
+  // background: linear-gradient(90deg, #0F0C29 0%, #302B63 50%, #24243E 100%);
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
+  overflow: hidden;
   position: relative;
   width: 100vw;
 
   .Button {
-    width: 100%;
+    margin-bottom: 1rem;
+    width: 50%;
   }
 
   footer {
@@ -16,12 +19,36 @@
     font-size: .75rem;
     padding: 1rem;
     position: absolute;
-    right: 0;
+    text-align: center;
+    width: 100%;
 
     span {
       display: inline-block;
       transform: scale(-1, 1);
     }
+  }
+
+  h2 {
+    font-weight: normal;
+    margin-bottom: 1rem;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  p {
+    span {
+      font-style: italic;
+    }
+  }
+}
+
+.LandingPage__intro {
+  text-align: center;
+
+  p {
+    margin-bottom: 1rem;
   }
 }
 

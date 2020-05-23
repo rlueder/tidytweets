@@ -37,19 +37,17 @@ const Dashboard = (props: Props) => {
   return (
     <div className="Dashboard">
       <Header />
-      {!username ? (
+      <Following friends={friends} username={username} />
+      {/* {!username ? (
         <Fragment>
           <div>Not authenticated.</div>
           <LogIn token={token} />
         </Fragment>
       ) : (
         <Fragment>
-          <main className="Layout">
-            <Following friends={friends} username={username} />
-          </main>
-          <footer></footer>
+          <Following friends={friends} username={username} />
         </Fragment>
-      )}
+      )} */}
     </div>
   );
 };

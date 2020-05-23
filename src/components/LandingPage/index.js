@@ -5,7 +5,7 @@ import { useNavigate } from "@reach/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-import { LogIn, LogOut } from "../index";
+import { Button, LogIn, LogOut } from "../index";
 
 import "./styles.scss";
 
@@ -20,21 +20,30 @@ const LandingPage = (props: Props): React.Node => {
   return (
     <div className="LandingPage">
       {username ? (
-        <div>
-          <h1>{`Welcome back, ${username}!`}</h1>
-          <button onClick={() => navigate("/dashboard")}>
-            Continue do Dashboard
-          </button>
+        <Fragment>
+          <div className="LandingPage__logo">
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+            <h1>TidyTweets</h1>
+          </div>
+          <h2>
+            Welcome back, <span>{username}</span>!
+          </h2>
+          <Button
+            label="Continue to Dashboard"
+            onClick={() => navigate("/dashboard")}
+          />
           <LogOut />
-        </div>
+        </Fragment>
       ) : (
         <Fragment>
           <div className="LandingPage__logo">
             <FontAwesomeIcon icon={faTwitter} size="2x" />
             <h1>TidyTweets</h1>
           </div>
-          <div>
-            <p>Tidy up your Following list on Twitter.</p>
+          <div className="LandingPage__intro">
+            <p>
+              Tidy up your <span>Following</span> list on Twitter.
+            </p>
             <LogIn token={token} />
           </div>
         </Fragment>

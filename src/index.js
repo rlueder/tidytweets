@@ -21,6 +21,11 @@ localforage.config({
  * @returns React.Node
  */
 
+// TODO
+// - fix bug with missing username prop on LandingPage
+// - confirm before bulk unfollow
+// - add avatar to Header
+
 const App = (): React.Node => {
   const selectAccess = createSelector((state) => state.access);
   const selectFriends = createSelector((state) => state.friends);

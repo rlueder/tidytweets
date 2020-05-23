@@ -3,11 +3,14 @@
 .Button {
   background-color: $blue-base;
   border: none;
+  // border-radius: .25rem;
   color: #fff;
+  font-size: 1rem;
   height: 2.5rem;
+  // line-height: 100%;
   margin: 0;
-  padding: 0 .25rem;
   min-width: 5rem;
+  padding: 0 .75rem;
 
   &:hover {
     background-color: darken($blue-base, 25%);

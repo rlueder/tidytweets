@@ -1,0 +1,29 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/mixins.scss";
+
+.Select {
+  background-color: $blue-base;
+  bottom: 0;
+  display: inline-block;
+  font-size: 1.75rem;
+  height: 2rem;
+  margin-left: .5rem;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+
+
+  ul {
+    height: inherit;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      @extend %flex-center;
+      background-color: $blue-base;
+      height: inherit;
+      padding: 0 .5rem;
+    }
+  }
+}

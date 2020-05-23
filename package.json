@@ -17,7 +17,9 @@
     "lodash.uniq": "^4.5.0",
     "react": "^16.13.1",
     "react-copy-write": "^0.8.0",
+    "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
     "react-hot-loader": "^4.12.21",
     "react-scripts": "3.4.1",
     "twitter-lite": "^0.12.0"
