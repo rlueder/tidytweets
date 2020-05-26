@@ -11,7 +11,9 @@ body {
   background-color: #15202b;
   color: #fff;
   font-family: 'PT Sans', sans-serif;
+  height: inherit;
   margin: 0;
+  width: inherit;
 }
 
 h1,
@@ -19,6 +21,21 @@ h2 {
   margin: 0;
 }
 
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
 p {
   margin: 0;
+}
+
+#root {
+  height: inherit;
+  width: inherit;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
 }

@@ -22,6 +22,14 @@ const getFriendsIds = async (SCREEN_NAME: string, COUNT?: Number = 5000) => {
         };
       });
       return data;
+    })
+    .catch((error) => {
+      mutate((draft) => {
+        draft.friends = {
+          hasError: true,
+          error: error,
+        };
+      });
     });
 };
 

@@ -50,6 +50,11 @@ exports.handler = async (event, context, callback) => {
           screen_name: screen_name,
         });
         break;
+      case "friendships_destroy":
+        response = await userClient.post("/friendships/destroy", {
+          user_id: user_id,
+        });
+        break;
       case "users_lookup":
         const { user_id } = event.queryStringParameters;
         response = await userClient.get("/users/lookup", {

@@ -2,7 +2,11 @@
 @import "../../assets/styles/mixins.scss";
 
 .Dashboard {
-  //
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
 }
 
 .Analytics {
@@ -31,23 +35,25 @@
 }
 
 .Following {
-  // align-items: center;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  // grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
   height: calc(100vh - 3rem - 1px);
-  // justify-content: center;
+  width: 100vw;
 }
 
 .Following__actions {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
   margin-top: 1rem;
   padding: 0 1rem;
 }
 
 .Following__intro {
-  padding-top: 2rem;
+  border-bottom: 1px solid rgba(#fff, .25);
+  box-shadow: 0 .5rem 0 0 rgba(#000, .15);
+  padding: 2rem 0;
 
   > div {
     position: relative;
@@ -57,10 +63,34 @@
     font-size: 1.75rem;
     padding: 0 1rem;
 
-    span {
-      color: $blue-base;
+    &:first-of-type {
+      margin-bottom: 1rem;
     }
   }
+
+  svg {
+    margin-left: .5rem;
+  }
+}
+
+.Following__timeframe {
+  color: #fff;
+  display: inline-block;
+  margin-left: .5rem;
+  text-decoration: underline;
+
+  &:hover {
+    color: $blue-base;
+    cursor: pointer;
+  }
+}
+
+.Following__total {
+  color: $blue-base;
+  display: inline-block;
+  font-size: 1.25em;
+  font-weight: bolder;
+  margin-left: .5rem;
 }
 
 .Following__list {
@@ -76,6 +106,10 @@
   grid-template-columns: 1fr 3fr;
   padding: 1rem;
   position: relative;
+
+  &:hover {
+    background-color: rgba(#000, .15);
+  }
 
   h1 {
     font-size: 1.25rem;
@@ -104,9 +138,9 @@
   }
 }
 
-.Friend__avatar {
+%avatar {
   @extend %flex-center;
-  border: 1px solid transparent;
+  border: 2px solid #fff;
   border-radius: 50%;
   height: 4rem;
   overflow: hidden;
@@ -116,7 +150,18 @@
     height: 4rem;
     width: 4rem;
   }
+
 }
+
+.Friend__avatar {
+  @extend %avatar;
+}
+
+.Friend__avatar--selected {
+  @extend %avatar;
+  background-color: green;
+}
+
 
 .Friend__id {
   margin-bottom: .5rem;

@@ -25,6 +25,8 @@ localforage.config({
 // - fix bug with missing username prop on LandingPage
 // - confirm before bulk unfollow
 // - add avatar to Header
+// - allow user to select individual accounts
+// - after unfollowing remove item from list
 
 const App = (): React.Node => {
   const selectAccess = createSelector((state) => state.access);

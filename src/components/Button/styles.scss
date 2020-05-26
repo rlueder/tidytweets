@@ -1,19 +1,29 @@
 @import "../../assets/styles/colors.scss";
 
-.Button {
-  background-color: $blue-base;
+%button {
   border: none;
-  // border-radius: .25rem;
-  color: #fff;
   font-size: 1rem;
   height: 2.5rem;
-  // line-height: 100%;
   margin: 0;
+  max-width: 13rem;
   min-width: 5rem;
   padding: 0 .75rem;
+
+}
+
+.Button {
+  @extend %button;
+  background-color: $blue-base;
+  color: #fff;
 
   &:hover {
     background-color: darken($blue-base, 25%);
     cursor: pointer;
   }
+}
+
+.Button--disabled {
+  @extend %button;
+  background-color: #999;
+  color: #666;
 }

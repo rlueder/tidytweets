@@ -1,16 +1,19 @@
 // @flow
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import { isBefore, subMonths, subWeeks } from "date-fns";
-import uniq from "lodash.uniq";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+
+import remove from "lodash.remove";
+
 import { useCountUp } from "react-countup";
 import { hot } from "react-hot-loader/root";
 
-import { Button, Filter, Select } from "../../index";
+import { Button } from "../../index";
 import { Friend } from "./index";
 
-import { getFriendsInfo } from "../../../utils";
+import { cycleTimeframes, getInactiveFriends } from "../../../utils";
 
 type Props = {
   friends: Array<number>,
@@ -23,51 +26,70 @@ type Props = {
  * @exports Following
  */
 
+// TODO https://github.com/glennreyes/react-countup
+
 const Following = (props: Props) => {
-  const { friends, username } = props;
+  const { friends } = props;
+
+  const [timeframe, setTimeframe] = useState("week");
+  const [inactive, setInactive] = useState(
+    getInactiveFriends(friends, timeframe)
+  );
+  const [selected, setSelected] = useState([]);
 
   useEffect(() => {
-    getFriendsInfo(username, friends.ids);
-  }, [friends, username]);
+    setInactive(getInactiveFriends(friends, timeframe));
+  }, [friends, timeframe]);
 
-  let INACTIVE_FRIENDS = [];
-  if (friends.data && friends.data.length) {
-    for (let friend of uniq(friends.data)) {
-      if (friend.status && friend.status.created_at) {
-        const ONE_YEAR = subMonths(new Date(), 12);
-        // const ONE_MONTH = subMonths(new Date(), 1);
-        // const ONE_WEEK = subWeeks(new Date(), 1);
-        const TWEET_TIME = new Date(friend.status.created_at).getTime();
-
-        if (isBefore(TWEET_TIME, ONE_YEAR)) {
-          INACTIVE_FRIENDS.push(friend);
-        }
-      }
-    }
-  }
-
-  // const { countUp } = useCountUp({ end: INACTIVE_FRIENDS.length });
+  useEffect(() => {
+    console.log(selected);
+  }, [selected]);
 
   return (
     <div className="Following">
       <div className="Following__intro">
-        <div>
-          <p>
-            You're following <span>{INACTIVE_FRIENDS.length}</span> accounts
-            that have not been active in the last
-          </p>
-          <Select options={["day", "week", "year"]} />
-        </div>
+        <p>
+          You're following
+          <span className="Following__total">{inactive.length}</span> accounts
+          that have not been active in the last
+          <span
+            className="Following__timeframe"
+            onClick={() => cycleTimeframes(timeframe, setTimeframe)}
+          >
+            {timeframe}
+          </span>
+          <FontAwesomeIcon color="#fff" icon={faCalendarAlt} size="xs" />
+        </p>
         <p>What would you want to do next?</p>
         <div className="Following__actions">
-          <Button label="Unfollow all" />
-          <Button label="Cancel" />
+          <Button
+            disabled={selected.length ? false : true}
+            label="Unfollow Selected"
+            onClick={() => console.log(selected)}
+          />
+          <Button
+            label="Unfollow All"
+            onClick={() =>
+              console.log(
+                `Are you sure you want to unfollow ${inactive.length} accounts?`
+              )
+            }
+          />
         </div>
       </div>
       <div className="Following__list">
-        {INACTIVE_FRIENDS && INACTIVE_FRIENDS.length
-          ? INACTIVE_FRIENDS.map((friend, i) => (
-              <Friend data={friend} key={i} />
+        {inactive && inactive.length
+          ? inactive.map((friend, i) => (
+              <Friend
+                data={friend}
+                key={i}
+                selected={selected.includes(friend.id) ? true : false}
+                onClick={(id) => {
+                  setSelected(
+                    !selected.includes(id) ? selected.concat(id) : selected
+                  );
+                }}
+              />
             ))
           : null}
       </div>

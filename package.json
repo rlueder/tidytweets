@@ -14,6 +14,7 @@
     "date-fns": "^2.14.0",
     "localforage": "^1.7.3",
     "lodash.chunk": "^4.2.0",
+    "lodash.remove": "^4.7.0",
     "lodash.uniq": "^4.5.0",
     "react": "^16.13.1",
     "react-copy-write": "^0.8.0",
