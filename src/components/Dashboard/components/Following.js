@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
-import remove from "lodash.remove";
+import difference from "lodash/difference";
 
 import { useCountUp } from "react-countup";
 import { hot } from "react-hot-loader/root";
@@ -13,9 +13,14 @@ import { hot } from "react-hot-loader/root";
 import { Button } from "../../index";
 import { Friend } from "./index";
 
-import { cycleTimeframes, getInactiveFriends } from "../../../utils";
+import {
+  cycleTimeframes,
+  getInactiveFriends,
+  postFriendshipsDestroy,
+} from "../../../utils";
 
 type Props = {
+  access: Object,
   friends: Array<number>,
   username: string,
 };
@@ -29,9 +34,10 @@ type Props = {
 // TODO https://github.com/glennreyes/react-countup
 
 const Following = (props: Props) => {
-  const { friends } = props;
+  const { access, friends, username } = props;
 
   const [timeframe, setTimeframe] = useState("week");
+
   const [inactive, setInactive] = useState(
     getInactiveFriends(friends, timeframe)
   );
@@ -40,10 +46,6 @@ const Following = (props: Props) => {
   useEffect(() => {
     setInactive(getInactiveFriends(friends, timeframe));
   }, [friends, timeframe]);
-
-  useEffect(() => {
-    console.log(selected);
-  }, [selected]);
 
   return (
     <div className="Following">
@@ -54,18 +56,21 @@ const Following = (props: Props) => {
           that have not been active in the last
           <span
             className="Following__timeframe"
-            onClick={() => cycleTimeframes(timeframe, setTimeframe)}
+            onClick={() => {
+              setSelected([]); // clear selections
+              cycleTimeframes(timeframe, setTimeframe);
+            }}
           >
             {timeframe}
+            <FontAwesomeIcon color="#fff" icon={faCalendarAlt} size="xs" />
           </span>
-          <FontAwesomeIcon color="#fff" icon={faCalendarAlt} size="xs" />
         </p>
         <p>What would you want to do next?</p>
         <div className="Following__actions">
           <Button
             disabled={selected.length ? false : true}
             label="Unfollow Selected"
-            onClick={() => console.log(selected)}
+            onClick={() => postFriendshipsDestroy(access, selected)}
           />
           <Button
             label="Unfollow All"
@@ -81,12 +86,15 @@ const Following = (props: Props) => {
         {inactive && inactive.length
           ? inactive.map((friend, i) => (
               <Friend
+                access={access}
                 data={friend}
                 key={i}
                 selected={selected.includes(friend.id) ? true : false}
                 onClick={(id) => {
                   setSelected(
-                    !selected.includes(id) ? selected.concat(id) : selected
+                    !selected.includes(id)
+                      ? selected.concat(id)
+                      : difference(selected, [id])
                   );
                 }}
               />

@@ -23,6 +23,7 @@ const Button = (props: Props): React.Node => {
   return (
     <button
       className={disabled ? "Button--disabled" : "Button"}
+      disabled={disabled}
       onClick={(e) => (disabled ? null : onClick(e))}
     >
       {label}

@@ -12,18 +12,31 @@ const { CALLBACK_URL, CONSUMER_KEY, CONSUMER_SECRET } = process.env;
  * @see {@link https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a/obtaining-user-access-tokens}
  */
 
-const twitterClient = new Twitter({
-  consumer_key: CONSUMER_KEY,
-  consumer_secret: CONSUMER_SECRET,
-});
-
 exports.handler = async (event, context, callback) => {
-  const { endpoint, screen_name } = event.queryStringParameters;
+  const {
+    access_key,
+    access_secret,
+    endpoint,
+    screen_name,
+    user_id,
+  } = event.queryStringParameters;
+
+  const twitterClient = new Twitter({
+    consumer_key: CONSUMER_KEY,
+    consumer_secret: CONSUMER_SECRET,
+  });
 
   const bearer = await twitterClient.getBearerToken();
 
-  const userClient = new Twitter({
+  const bearerClient = new Twitter({
     bearer_token: bearer.access_token,
+    consumer_key: CONSUMER_KEY,
+    consumer_secret: CONSUMER_SECRET,
+  });
+
+  const userClient = new Twitter({
+    access_token_key: access_key,
+    access_token_secret: access_secret,
     consumer_key: CONSUMER_KEY,
     consumer_secret: CONSUMER_SECRET,
   });
@@ -31,7 +44,9 @@ exports.handler = async (event, context, callback) => {
   try {
     let response;
     switch (endpoint) {
-      // OAuth Requests
+      /**
+       * OAuth Requests
+       */
       case "access_token":
         const { token, verifier } = event.queryStringParameters;
         response = await twitterClient.getAccessToken({
@@ -42,31 +57,35 @@ exports.handler = async (event, context, callback) => {
       case "request_token":
         response = await twitterClient.getRequestToken(CALLBACK_URL);
         break;
-      // User Requests
+      /**
+       * Bearer Token Requests
+       */
       case "friends_ids":
         const { count } = event.queryStringParameters;
-        response = await userClient.get("/friends/ids", {
+        response = await bearerClient.get("/friends/ids", {
           count: count,
           screen_name: screen_name,
         });
         break;
-      case "friendships_destroy":
-        response = await userClient.post("/friendships/destroy", {
-          user_id: user_id,
-        });
-        break;
       case "users_lookup":
-        const { user_id } = event.queryStringParameters;
-        response = await userClient.get("/users/lookup", {
+        response = await bearerClient.get("/users/lookup", {
           include_entities: false,
           screen_name: screen_name,
           user_id: user_id,
         });
         break;
       case "users_show":
-        response = await userClient.get("/users/show", {
+        response = await bearerClient.get("/users/show", {
           include_entities: false,
           screen_name: screen_name,
+        });
+        break;
+      /**
+       * User Context Requests
+       */
+      case "friendships_destroy":
+        response = await userClient.post("/friendships/destroy", {
+          user_id: user_id,
         });
         break;
       default:

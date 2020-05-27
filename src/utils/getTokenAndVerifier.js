@@ -1,14 +1,14 @@
 // @flow
 
 /**
- * @function getSearchParams
+ * @function getTokenAndVerifier
  * @param {URLSearchParams} SEARCH_PARAMS
  * @returns {Object}
  * @returns {string} Object.token
  * @returns {string} Object.verifier
  */
 
-const getSearchParams = (SEARCH_PARAMS: URLSearchParams) => {
+const getTokenAndVerifier = (SEARCH_PARAMS: URLSearchParams) => {
   const TOKEN = SEARCH_PARAMS.get("oauth_token");
   const VERIFIER = SEARCH_PARAMS.get("oauth_verifier");
   return {
@@ -17,4 +17,4 @@ const getSearchParams = (SEARCH_PARAMS: URLSearchParams) => {
   };
 };
 
-export default getSearchParams;
+export default getTokenAndVerifier;

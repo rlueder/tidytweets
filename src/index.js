@@ -64,9 +64,15 @@ const App = (): React.Node => {
                   username={access.screen_name}
                 />
                 <Dashboard
+                  access={{
+                    key: access.oauth_token,
+                    secret: access.oauth_token_secret,
+                  }}
                   friends={friends}
                   path="/dashboard"
-                  token={request.oauth_token}
+                  request={{
+                    token: request.oauth_token,
+                  }}
                   username={access.screen_name}
                 />
               </Router>

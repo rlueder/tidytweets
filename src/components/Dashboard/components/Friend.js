@@ -10,6 +10,7 @@ import { Button } from "../../index";
 import { postFriendshipsDestroy } from "../../../utils";
 
 type Props = {
+  access: Object,
   data: Object,
   selected: boolean,
   onClick: Function,
@@ -21,7 +22,7 @@ type Props = {
  */
 
 const Friend = (props: Props) => {
-  const { data, selected, onClick } = props;
+  const { access, data, selected, onClick } = props;
   return (
     <div className="Friend" onClick={() => onClick(data.id)}>
       <div>
@@ -48,9 +49,7 @@ const Friend = (props: Props) => {
       </div>
       <Button
         label="Unfollow"
-        onClick={() => {
-          postFriendshipsDestroy(data.id);
-        }}
+        onClick={() => postFriendshipsDestroy(access, data.id_str)}
       />
     </div>
   );

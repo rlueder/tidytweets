@@ -7,24 +7,29 @@ import { useLocation } from "@reach/router";
 import { Header, LogIn } from "../index";
 import { Following } from "./components";
 
-import { getAccessToken, getFriendsInfo, getSearchParams } from "../../utils/";
+import {
+  getAccessToken,
+  getFriendsInfo,
+  getTokenAndVerifier,
+} from "../../utils/";
 
 import "./styles.scss";
 
 type Props = {
+  access: Object,
   friends: Array<number>,
-  token: string,
+  request: Object,
   username: string,
 };
 
 const Dashboard = (props: Props) => {
-  const { friends, token, username } = props;
+  const { access, friends, request, username } = props;
 
   const location = useLocation();
 
   useEffect(() => {
     const SEARCH_PARAMS = new URLSearchParams(location.search);
-    const { token, verifier } = getSearchParams(SEARCH_PARAMS);
+    const { token, verifier } = getTokenAndVerifier(SEARCH_PARAMS);
     // access token
     if (token && verifier && !username) {
       getAccessToken(token, verifier);
@@ -39,7 +44,7 @@ const Dashboard = (props: Props) => {
         return (
           <Fragment>
             <div>Not authenticated.</div>
-            <LogIn token={token} />
+            <LogIn token={request.token} />
           </Fragment>
         );
       case friends.data && !friends.data.length:
@@ -50,7 +55,13 @@ const Dashboard = (props: Props) => {
           </div>
         );
       default:
-        return <Following friends={friends.data} username={username} />;
+        return (
+          <Following
+            access={access}
+            friends={friends.data}
+            username={username}
+          />
+        );
     }
   };
 
