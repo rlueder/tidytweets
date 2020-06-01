@@ -8,6 +8,8 @@ import { getUserInfo, getFriendsIds } from "./index";
 /**
  * @async
  * @function getAccessToken
+ * @summary Requests authentication from Twitter, saves response to local storage and app state, fires getUserInfo and getFriendsIds.
+ * @see {@link https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token}
  * @param {string} TOKEN
  * @param {string} VERIFIER
  * @returns {Object} data

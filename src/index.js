@@ -22,11 +22,21 @@ localforage.config({
  */
 
 // TODO
-// - fix bug with missing username prop on LandingPage
-// - confirm before bulk unfollow
-// - add avatar to Header
-// - allow user to select individual accounts
+
+// - fix loading states
 // - after unfollowing remove item from list
+// - confirm before bulk unfollow
+
+// FIX
+
+// - fix bug when logging out and trying to log back in
+// - fix bug with missing username prop on LandingPage
+
+// NICE TO HAVE
+
+// - add avatar to Header
+// - display alert bar with confirmation of account removal ?
+// - consider adding some features like "following/subscribing to a tweet"
 
 const App = (): React.Node => {
   const selectAccess = createSelector((state) => state.access);

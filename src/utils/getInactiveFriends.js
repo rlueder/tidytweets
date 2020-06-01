@@ -4,49 +4,50 @@ import { isBefore, subMonths, subWeeks } from "date-fns";
 
 /**
  * @function getInactiveFriends
- * @param {Array<string>} FRIENDS
+ * @summary Returns an array of FRIENDS based on the last time they have tweeted determined by INTERVAL and timestamp.
+ * @param {Array<Object>} FRIENDS
  * @param {string} INTERVAL
- * @returns {Array<string>} INACTIVE_FRIENDS
+ * @returns {Array<string>} inactiveFriends
  */
 
 const getInactiveFriends = (FRIENDS: Array<string>, INTERVAL: string) => {
-  let TIMESTAMP;
+  let timestamp;
   switch (INTERVAL) {
     case "week":
-      TIMESTAMP = subWeeks(new Date(), 1);
+      timestamp = subWeeks(new Date(), 1);
       break;
     case "2 weeks":
-      TIMESTAMP = subWeeks(new Date(), 2);
+      timestamp = subWeeks(new Date(), 2);
       break;
     case "month":
-      TIMESTAMP = subMonths(new Date(), 1);
+      timestamp = subMonths(new Date(), 1);
       break;
     case "3 months":
-      TIMESTAMP = subMonths(new Date(), 3);
+      timestamp = subMonths(new Date(), 3);
       break;
     case "6 months":
-      TIMESTAMP = subMonths(new Date(), 6);
+      timestamp = subMonths(new Date(), 6);
       break;
     case "year":
-      TIMESTAMP = subMonths(new Date(), 12);
+      timestamp = subMonths(new Date(), 12);
       break;
     default:
     // no default
   }
 
-  let INACTIVE_FRIENDS = [];
+  let inactiveFriends = [];
 
   if (FRIENDS && FRIENDS.length) {
     for (let friend of FRIENDS) {
       if (friend.status && friend.status.created_at) {
         const TWEET_TIME = new Date(friend.status.created_at).getTime();
-        if (isBefore(TWEET_TIME, TIMESTAMP)) {
-          INACTIVE_FRIENDS.push(friend);
+        if (isBefore(TWEET_TIME, timestamp)) {
+          inactiveFriends.push(friend);
         }
       }
     }
   }
-  return INACTIVE_FRIENDS;
+  return inactiveFriends;
 };
 
 export default getInactiveFriends;

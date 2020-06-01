@@ -18,11 +18,11 @@ const cycleTimeframes = (timeframe: string, setTimeframe: Function) => {
     "year",
   ];
 
-  let INDEX = TIMEFRAMES.findIndex((element) => element === timeframe);
-  if (INDEX === TIMEFRAMES.length - 1) {
+  let index = TIMEFRAMES.findIndex((element) => element === timeframe);
+  if (index === TIMEFRAMES.length - 1) {
     return setTimeframe(TIMEFRAMES[0]);
   }
-  return setTimeframe(TIMEFRAMES[++INDEX]);
+  return setTimeframe(TIMEFRAMES[++index]);
 };
 
 export default cycleTimeframes;

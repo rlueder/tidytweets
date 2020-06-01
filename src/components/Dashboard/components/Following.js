@@ -22,7 +22,6 @@ import {
 type Props = {
   access: Object,
   friends: Array<number>,
-  username: string,
 };
 
 /**
@@ -34,7 +33,7 @@ type Props = {
 // TODO https://github.com/glennreyes/react-countup
 
 const Following = (props: Props) => {
-  const { access, friends, username } = props;
+  const { access, friends } = props;
 
   const [timeframe, setTimeframe] = useState("week");
 

@@ -1,7 +1,9 @@
 // @flow
 
 /**
+ * @async
  * @function fetchPaginatedFriendsInfo
+ * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup}
  * @param {string} SCREEN_NAME
  * @param {string} USER_ID
  * @returns {Object} response
