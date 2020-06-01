@@ -24,7 +24,6 @@ const getAccessToken = async (TOKEN, VERIFIER) => {
       localforage.setItem("access", data);
       mutate((draft) => {
         draft.access = data;
-        draft.request = {};
       });
       return data;
     })

@@ -1,22 +1,30 @@
 // @flow
 
-import React, { Fragment } from "react";
-import { useNavigate } from "@reach/router";
+import React, { Fragment, useEffect } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { useNavigate } from "@reach/router";
 
 import { Button, LogIn, LogOut } from "../index";
+
+import { getRequestToken } from "../../utils";
 
 import "./styles.scss";
 
 type Props = {
-  token: string,
   username: string,
 };
 
 const LandingPage = (props: Props): React.Node => {
-  const { token, username } = props;
+  const { request, username } = props;
+
+  useEffect(() => {
+    getRequestToken();
+  }, []);
+
   const navigate = useNavigate();
+
   return (
     <div className="LandingPage">
       {username ? (
@@ -44,7 +52,7 @@ const LandingPage = (props: Props): React.Node => {
             <p>
               Tidy up your <span>Following</span> list on Twitter.
             </p>
-            <LogIn token={token} />
+            <LogIn token={request.oauth_token} />
           </div>
         </Fragment>
       )}

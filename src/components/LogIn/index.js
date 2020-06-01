@@ -11,7 +11,8 @@ type Props = {
 
 /**
  * @function LogIn
- * @param {string} TOKEN
+ * @param {Object} props
+ * @param {string} props.token
  * @returns React.Node
  */
 

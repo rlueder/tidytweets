@@ -4,26 +4,27 @@ import React, { Fragment, useEffect } from "react";
 import { hot } from "react-hot-loader/root";
 import { useLocation } from "@reach/router";
 
-import { Header, LogIn } from "../index";
-import { Following } from "./components";
-
 import {
   getAccessToken,
   getFriendsInfo,
   getTokenAndVerifier,
 } from "../../utils/";
 
+import { Header, LogIn } from "../index";
+
+import { Following } from "./components";
+
 import "./styles.scss";
 
 type Props = {
   access: Object,
   friends: Array<number>,
-  request: Object,
+  token: string,
   username: string,
 };
 
 const Dashboard = (props: Props) => {
-  const { access, friends, request, username } = props;
+  const { access, friends, token, username } = props;
 
   const location = useLocation();
 
@@ -44,7 +45,7 @@ const Dashboard = (props: Props) => {
         return (
           <Fragment>
             <div>Not authenticated.</div>
-            <LogIn token={request.token} />
+            <LogIn token={token} />
           </Fragment>
         );
       case friends.data && !friends.data.length:

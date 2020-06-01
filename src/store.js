@@ -8,7 +8,7 @@ import createState from "react-copy-write";
  * @see {@link https://github.com/aweary/react-copy-write#documentation}
  */
 
-export const { Provider, Consumer, createSelector, mutate } = createState({
+export const { Consumer, Provider, createSelector, mutate } = createState({
   access: {},
   friends: {
     data: [],

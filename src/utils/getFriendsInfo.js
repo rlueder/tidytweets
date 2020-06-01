@@ -1,8 +1,7 @@
 // @flow
-
-import { mutate } from "../store";
 import chunk from "lodash/chunk";
 
+import { mutate } from "../store";
 import { fetchPaginatedFriendsInfo } from "./index";
 
 /**

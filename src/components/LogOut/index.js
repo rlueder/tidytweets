@@ -1,11 +1,12 @@
 // @flow
 
 import * as React from "react";
-import localforage from "localforage";
-import { useNavigate } from "@reach/router";
 
-import { Button } from "../index";
+import { useNavigate } from "@reach/router";
+import localforage from "localforage";
+
 import { mutate } from "../../store";
+import { Button } from "../index";
 
 /**
  * @function LogOut
@@ -18,7 +19,7 @@ const LogOut = () => {
     <Button
       label="Log Out"
       onClick={() => {
-        localforage.removeItem("access").then(() => {
+        localforage.clear().then(() => {
           mutate((draft) => {
             draft.access = {};
           });
