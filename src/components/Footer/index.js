@@ -13,9 +13,9 @@ const Footer = () => {
   return (
     <footer className="Footer">
       <div className="Footer__buymeacoffee">
-        If you found TidyTweets to be useful, perhaps
+        <p>If you find TidyTweets to be useful</p>
         <Button
-          label="Buy Me a Coffee?"
+          label="Buy Me a Coffee"
           size="small"
           onClick={() => window.open("https://buymeacoffee.com/rlueder")}
         >

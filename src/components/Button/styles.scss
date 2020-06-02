@@ -10,6 +10,9 @@
   min-width: 5rem;
   padding: 0 .75rem;
 
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .Button {
@@ -19,7 +22,6 @@
 
   &:hover {
     background-color: darken($blue-base, 25%);
-    cursor: pointer;
   }
 }
 

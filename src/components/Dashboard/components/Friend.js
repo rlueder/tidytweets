@@ -49,7 +49,10 @@ const Friend = (props: Props) => {
       </div>
       <Button
         label="Unfollow"
-        onClick={() => postFriendshipsDestroy(access, data.id_str)}
+        onClick={(e) => {
+          e.stopPropagation();
+          postFriendshipsDestroy(access, data.id_str);
+        }}
       />
     </div>
   );
