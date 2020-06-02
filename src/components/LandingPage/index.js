@@ -1,9 +1,8 @@
 // @flow
 
 import React, { Fragment, useEffect } from "react";
+import { hot } from "react-hot-loader/root";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { useNavigate } from "@reach/router";
 
 import { Button, LogIn, LogOut } from "../index";
@@ -13,15 +12,18 @@ import { getRequestToken } from "../../utils";
 import "./styles.scss";
 
 type Props = {
+  token: string,
   username: string,
 };
 
 const LandingPage = (props: Props): React.Node => {
-  const { request, username } = props;
+  const { token, username } = props;
 
   useEffect(() => {
-    getRequestToken();
-  }, []);
+    if (!username) {
+      getRequestToken();
+    }
+  }, [username]);
 
   const navigate = useNavigate();
 
@@ -30,7 +32,6 @@ const LandingPage = (props: Props): React.Node => {
       {username ? (
         <Fragment>
           <div className="LandingPage__logo">
-            <FontAwesomeIcon icon={faTwitter} size="2x" />
             <h1>TidyTweets</h1>
           </div>
           <h2>
@@ -45,14 +46,13 @@ const LandingPage = (props: Props): React.Node => {
       ) : (
         <Fragment>
           <div className="LandingPage__logo">
-            <FontAwesomeIcon icon={faTwitter} size="2x" />
             <h1>TidyTweets</h1>
           </div>
           <div className="LandingPage__intro">
             <p>
               Tidy up your <span>Following</span> list on Twitter.
             </p>
-            <LogIn token={request.oauth_token} />
+            <LogIn token={token} />
           </div>
         </Fragment>
       )}
@@ -63,4 +63,4 @@ const LandingPage = (props: Props): React.Node => {
   );
 };
 
-export default LandingPage;
+export default hot(LandingPage);

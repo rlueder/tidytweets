@@ -1,8 +1,11 @@
 // @flow
 
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { hot } from "react-hot-loader/root";
 import { useLocation } from "@reach/router";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSync } from "@fortawesome/free-solid-svg-icons";
 
 import {
   getAccessToken,
@@ -10,8 +13,7 @@ import {
   getTokenAndVerifier,
 } from "../../utils/";
 
-import { Header, LogIn } from "../index";
-
+import { Header } from "../index";
 import { Following } from "./components";
 
 import "./styles.scss";
@@ -24,9 +26,9 @@ type Props = {
 };
 
 const Dashboard = (props: Props) => {
-  const { access, friends, token, username } = props;
+  const { access, friends, username } = props;
 
-  const location = useLocation();
+  const location = useLocation(); // to allow useLocation() in useEffect()
 
   useEffect(() => {
     const SEARCH_PARAMS = new URLSearchParams(location.search);
@@ -36,23 +38,25 @@ const Dashboard = (props: Props) => {
       getAccessToken(token, verifier);
     }
     // friends information
-    getFriendsInfo(username, friends.ids);
-  }, [friends.ids, location, username]);
+    if (friends.data && !friends.data.length) {
+      getFriendsInfo(username, friends.ids);
+    }
+  }, [friends.data, friends.ids, location, username]);
 
   const renderComponent = () => {
     switch (true) {
-      case !username:
-        return (
-          <Fragment>
-            <div>Not authenticated.</div>
-            <LogIn token={token} />
-          </Fragment>
-        );
       case friends.data && !friends.data.length:
         return (
-          <div>
-            <p>Analysing your Twitter Following list...</p>
-            <p>(this might take a while depending on how large your list is)</p>
+          <div className="Following--loading">
+            <div className="Following__icon">
+              <FontAwesomeIcon icon={faSync} size="2x" />
+            </div>
+            <div className="Following__text">
+              <p>Analysing your Twitter Following list...</p>
+              <p>
+                (this might take a while depending on how large your list is)
+              </p>
+            </div>
           </div>
         );
       default:

@@ -22,14 +22,14 @@ const getFriendsInfo = async (SCREEN_NAME: string, USER_IDS: Array<number>) => {
     const response = await Promise.all(promises);
     if (response.length) {
       mutate((draft) => {
-        draft.friends = {
-          data: response.flat(),
-          loading: false,
-        };
+        draft.friends.data = response.flat();
       });
     }
   } catch (error) {
-    console.log(error.message);
+    mutate((draft) => {
+      draft.friends.error = error;
+      draft.friends.hasError = true;
+    });
   }
 };
 

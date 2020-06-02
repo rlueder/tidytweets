@@ -1,9 +1,8 @@
 // @flow
 
 import * as React from "react";
+import { hot } from "react-hot-loader/root";
 import { Link } from "@reach/router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import { LogOut } from "../index";
 
@@ -13,7 +12,6 @@ const Header = () => {
   return (
     <header className="Header">
       <Link to="/">
-        <FontAwesomeIcon icon={faTwitter} />
         <h1>TidyTweets</h1>
       </Link>
       <LogOut />
@@ -21,4 +19,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default hot(Header);

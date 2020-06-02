@@ -14,21 +14,17 @@ import {
   selectUser,
 } from "./selectors";
 
-import { Consumer, Provider, createSelector } from "./store";
+import { Consumer, Provider } from "./store";
 
 import "./assets/styles/styles.scss";
 
 // TODO
 // - after unfollowing remove item from list
+// - not all ids return a response Object, remove those automatically?
 // - confirm before bulk unfollow
-
-// FIX
-// - fix loading states
-// - fix bug with missing username prop on LandingPage
 
 // NICE TO HAVE
 // - add avatar to Header
-// - display alert bar with confirmation of account removal ?
 // - consider adding some features like "following/subscribing to a tweet"
 
 /**
@@ -48,7 +44,7 @@ const App = (): React.Node => {
               <Router>
                 <LandingPage
                   path="/"
-                  request={request}
+                  token={request.oauth_token}
                   username={access.screen_name}
                 />
                 <Dashboard

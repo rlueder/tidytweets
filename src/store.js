@@ -13,11 +13,9 @@ export const { Consumer, Provider, createSelector, mutate } = createState({
   friends: {
     data: [],
     ids: [],
-    loading: false,
   },
   request: {},
   user: {
     data: {},
-    loading: false,
   },
 });

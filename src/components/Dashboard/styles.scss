@@ -34,12 +34,17 @@
   justify-content: center;
 }
 
-.Following {
+
+%following {
   justify-content: center;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 3rem - 1px);
   width: 100vw;
+}
+
+.Following {
+  @extend %following;
 }
 
 .Following__actions {
@@ -48,6 +53,21 @@
   grid-template-columns: 1fr 1fr;
   margin-top: 1rem;
   padding: 0 1rem;
+}
+
+.Following__icon {
+  @extend %flex-center;
+  animation: rotation 1s infinite linear;
+  margin-bottom: 1rem;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 .Following__intro {
@@ -70,6 +90,23 @@
 
   svg {
     margin-left: .5rem;
+  }
+}
+
+.Following--loading {
+  @extend %following;
+}
+
+.Following__text {
+  margin: 0 2rem;
+
+  p {
+    text-align: center;
+
+    &:first-of-type {
+      font-size: 1.25rem;
+      margin-bottom: .5rem;
+    }
   }
 }
 
@@ -121,7 +158,6 @@
   }
 
   .Button {
-    background-color: #999;
     border: none;
     color: #fff;
     height: 2rem;
@@ -159,7 +195,7 @@
 
 .Friend__avatar--selected {
   @extend %avatar;
-  background-color: green;
+  background-color: $blue-base;
 }
 
 

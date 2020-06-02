@@ -19,18 +19,14 @@ const getFriendsIds = async (SCREEN_NAME: string, COUNT?: Number = 5000) => {
     .then((response) => response.json())
     .then((data) => {
       mutate((draft) => {
-        draft.friends = {
-          ids: data.ids,
-        };
+        draft.friends.ids = data.ids;
       });
       return data;
     })
     .catch((error) => {
       mutate((draft) => {
-        draft.friends = {
-          hasError: true,
-          error: error,
-        };
+        draft.friends.error = error;
+        draft.friends.hasError = true;
       });
     });
 };

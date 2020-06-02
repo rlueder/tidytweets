@@ -1,10 +1,9 @@
 // @flow
 
-import { mutate } from "../store";
-
 /**
  * @async
  * @function postFriendshipsDestroy
+ * @summary Unfollows the user specified by USER_ID
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy}
  * @param {Object} ACCESS_TOKEN
  * @param {Array<number>} USER_ID
@@ -20,12 +19,7 @@ const postFriendshipsDestroy = async (
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      // mutate((draft) => {
-      //   draft.friends = {
-      //     ids: data.ids,
-      //   };
-      // });
-      // return data;
+      return data;
     })
     .catch((error) => {
       console.log(error);
