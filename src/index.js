@@ -19,13 +19,18 @@ import { Consumer, Provider } from "./store";
 import "./assets/styles/styles.scss";
 
 // TODO
-// - after unfollowing remove item from list
-// - not all ids return a response Object, remove those automatically?
-// - confirm before bulk unfollow
+// - checkmark should have lower opacity to show avatar behind it
+// - display confirmation before bulk unfollow
+// - Following lists with more than 5,000 need multiple promises
+
+// FIX
+// - if an item is selected and the "Unfollow" button is used "Unfollow Selected" is still active
+// - scrolling on loading screen
+// - recover from IndexedDB after closing browser/tab
+// - fetch user info on reload
 
 // NICE TO HAVE
-// - add avatar to Header
-// - consider adding some features like "following/subscribing to a tweet"
+// - not all ids return a response Object, remove those automatically?
 
 /**
  * @function App

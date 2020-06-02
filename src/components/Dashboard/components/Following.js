@@ -35,7 +35,7 @@ type Props = {
 const Following = (props: Props) => {
   const { access, friends } = props;
 
-  const [timeframe, setTimeframe] = useState("week");
+  const [timeframe, setTimeframe] = useState("3 months");
 
   const [inactive, setInactive] = useState(
     getInactiveFriends(friends, timeframe)
@@ -72,6 +72,7 @@ const Following = (props: Props) => {
             onClick={() => postFriendshipsDestroy(access, selected)}
           />
           <Button
+            disabled
             label="Unfollow All"
             onClick={() =>
               console.log(

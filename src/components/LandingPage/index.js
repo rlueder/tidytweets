@@ -5,7 +5,7 @@ import { hot } from "react-hot-loader/root";
 
 import { useNavigate } from "@reach/router";
 
-import { Button, LogIn, LogOut } from "../index";
+import { Button, Footer, LogIn, LogOut } from "../index";
 
 import { getRequestToken } from "../../utils";
 
@@ -38,7 +38,7 @@ const LandingPage = (props: Props): React.Node => {
             Welcome back, <span>{username}</span>!
           </h2>
           <Button
-            label="Continue to Dashboard"
+            label="Continue to App"
             onClick={() => navigate("/dashboard")}
           />
           <LogOut />
@@ -56,9 +56,7 @@ const LandingPage = (props: Props): React.Node => {
           </div>
         </Fragment>
       )}
-      <footer>
-        Copyleft <span>©</span> 2020. Some rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -54,7 +54,8 @@ const Dashboard = (props: Props) => {
             <div className="Following__text">
               <p>Analysing your Twitter Following list...</p>
               <p>
-                (this might take a while depending on how large your list is)
+                (this might take a while depending on how many accounts you
+                follow)
               </p>
             </div>
           </div>

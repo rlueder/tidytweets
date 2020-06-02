@@ -1,5 +1,7 @@
 // @flow
 
+import { mutate } from "../store";
+
 /**
  * @async
  * @function postFriendshipsDestroy
@@ -18,7 +20,12 @@ const postFriendshipsDestroy = async (
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // remove id that received success response
+      mutate((draft) => {
+        draft.friends.data = draft.friends.data.filter(
+          (item) => item.id !== data.id
+        );
+      });
       return data;
     })
     .catch((error) => {

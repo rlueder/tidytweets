@@ -1,0 +1,20 @@
+.Footer {
+  bottom: 0;
+  padding: 1rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.Footer__buymeacoffee {
+  //
+}
+
+.Footer__small {
+  font-size: .75rem;
+
+  span {
+    display: inline-block;
+    transform: scale(-1, 1);
+  }
+}
