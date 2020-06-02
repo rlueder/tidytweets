@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 import { hot } from "react-hot-loader/root";
 import { useLocation } from "@reach/router";
 
+import difference from "lodash/difference";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync } from "@fortawesome/free-solid-svg-icons";
 
@@ -61,11 +63,17 @@ const Dashboard = (props: Props) => {
           </div>
         );
       default:
+        // ids that are from suspended accounts and don't return any information
+        const SUSPENDED = difference(
+          friends.ids,
+          friends.data.map((item) => item.id)
+        );
+
         return (
           <Following
             access={access}
             friends={friends.data}
-            username={username}
+            suspended={SUSPENDED}
           />
         );
     }

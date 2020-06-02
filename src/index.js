@@ -24,10 +24,9 @@ import "./assets/styles/styles.scss";
 // - Following lists with more than 5,000 need multiple promises
 
 // FIX
-// - if an item is selected and the "Unfollow" button is used "Unfollow Selected" is still active
-// - scrolling on loading screen
 // - recover from IndexedDB after closing browser/tab
 // - fetch user info on reload
+// - scrolling on loading screen
 
 // NICE TO HAVE
 // - not all ids return a response Object, remove those automatically?

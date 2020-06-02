@@ -33,7 +33,7 @@ type Props = {
 // TODO https://github.com/glennreyes/react-countup
 
 const Following = (props: Props) => {
-  const { access, friends } = props;
+  const { access, friends, suspended } = props;
 
   const [timeframe, setTimeframe] = useState("3 months");
 

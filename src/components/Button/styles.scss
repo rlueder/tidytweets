@@ -25,6 +25,16 @@
   }
 }
 
+.Button--disabled {
+  @extend %button;
+  background-color: #999;
+  color: #666;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
 .Button--small {
   @extend %button;
   background-color: #fff;
@@ -34,10 +44,4 @@
   svg {
     margin-right: .5rem;
   }
-}
-
-.Button--disabled {
-  @extend %button;
-  background-color: #999;
-  color: #666;
 }
