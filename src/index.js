@@ -6,6 +6,14 @@ import { render } from "react-dom";
 import { Router } from "@reach/router";
 
 import { LandingPage, Dashboard } from "./components/";
+
+import {
+  selectAccess,
+  selectFriends,
+  selectRequest,
+  selectUser,
+} from "./selectors";
+
 import { Consumer, Provider, createSelector } from "./store";
 
 import "./assets/styles/styles.scss";
@@ -29,10 +37,6 @@ import "./assets/styles/styles.scss";
  */
 
 const App = (): React.Node => {
-  const selectAccess = createSelector((state) => state.access);
-  const selectFriends = createSelector((state) => state.friends);
-  const selectRequest = createSelector((state) => state.request);
-  const selectUser = createSelector((state) => state.user);
   return (
     <Provider>
       <Consumer
