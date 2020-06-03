@@ -22,8 +22,7 @@ import "./styles.scss";
 
 type Props = {
   access: Object,
-  friends: Array<number>,
-  token: string,
+  friends: Object,
   username: string,
 };
 

@@ -35,6 +35,17 @@
   }
 }
 
+.Button--secondary {
+  @extend %button;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .Button--small {
   @extend %button;
   background-color: #fff;

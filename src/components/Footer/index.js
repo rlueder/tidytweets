@@ -16,7 +16,7 @@ const Footer = () => {
         <p>If you find TidyTweets to be useful</p>
         <Button
           label="Buy Me a Coffee"
-          size="small"
+          type="small"
           onClick={() => window.open("https://buymeacoffee.com/rlueder")}
         >
           <FontAwesomeIcon icon={faCoffee} size="xs" />

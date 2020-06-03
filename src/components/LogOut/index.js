@@ -18,6 +18,7 @@ const LogOut = () => {
   return (
     <Button
       label="Log Out"
+      type="secondary"
       onClick={() => {
         localforage.clear().then(() => {
           mutate((draft) => {

@@ -19,17 +19,25 @@ import { Consumer, Provider } from "./store";
 import "./assets/styles/styles.scss";
 
 // TODO
-// - checkmark should have lower opacity to show avatar behind it
 // - display confirmation before bulk unfollow
-// - Following lists with more than 5,000 need multiple promises
+// - "Unfollow Selected" and "Unfollow All" require multiple promises
+// - "Following" lists with more than 5,000 need multiple promises
+// - improve Flow type checking and test coverage with Jest
+// - update README and CHANGELOG
+// - add more information to LandingPage (screenshots, FAQ)
 
 // FIX
 // - recover from IndexedDB after closing browser/tab
 // - fetch user info on reload
-// - scrolling on loading screen
 
 // NICE TO HAVE
-// - not all ids return a response Object, remove those automatically?
+// - transitions between screens/states
+// - clear callback parameters from address bar after loading is finished
+// - timeframe selection should be a Select component
+// - checkmark should have lower opacity to show avatar behind it
+// - create a "wizard" flow to stop following accts, remove suspended accts and organize lists
+// - add button to also remove suspended/inactive accounts
+// - allow users to create/remove and assign accounts to Lists
 
 /**
  * @function App

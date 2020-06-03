@@ -16,20 +16,23 @@ type Props = {
  * @param {React.Node} [children]
  * @param {boolean} disabled
  * @param {string} label
- * @param {string} size
+ * @param {string} type
  * @param {Funcion} onClick
  * @returns React.Node
  */
 
 const Button = (props: Props): React.Node => {
-  const { children, disabled, label, size, onClick } = props;
+  const { children, disabled, label, type, onClick } = props;
 
   let className;
   switch (true) {
     case disabled:
       className = "Button--disabled";
       break;
-    case size === "small":
+    case type === "secondary":
+      className = "Button--secondary";
+      break;
+    case type === "small":
       className = "Button--small";
       break;
     default:

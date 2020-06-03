@@ -95,6 +95,7 @@
 
 .Following--loading {
   @extend %following;
+  width: 50%;
 }
 
 .Following__text {

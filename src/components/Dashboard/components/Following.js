@@ -69,7 +69,10 @@ const Following = (props: Props) => {
           <Button
             disabled={selected.length ? false : true}
             label="Unfollow Selected"
-            onClick={() => postFriendshipsDestroy(access, selected)}
+            onClick={() => {
+              postFriendshipsDestroy(access, selected);
+              setSelected([]); // clear selections
+            }}
           />
           <Button
             disabled
