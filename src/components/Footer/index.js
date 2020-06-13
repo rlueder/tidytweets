@@ -15,7 +15,7 @@ import "./styles.scss";
  * @exports Footer
  */
 
-const Footer = () => {
+const Footer = (): React.Node => {
   return (
     <footer className="Footer">
       <div className="Footer__buymeacoffee">

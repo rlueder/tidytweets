@@ -16,7 +16,7 @@ type Props = {
  * @returns React.Node
  */
 
-const LogIn = (props: Props) => {
+const LogIn = (props: Props): React.Node => {
   const { token } = props;
   const navigate = useNavigate();
   return (

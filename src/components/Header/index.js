@@ -14,7 +14,7 @@ import "./styles.scss";
  * @exports Header
  */
 
-const Header = () => {
+const Header = (): React.Node => {
   return (
     <header className="Header">
       <Link to="/">
