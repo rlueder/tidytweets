@@ -48,6 +48,8 @@ const Following = (props: Props) => {
     setSelected([]);
   }, [friends, timeframe]);
 
+  const CONFIRM_MESSAGE = `Are you sure you want to unfollow ${inactive.length} accounts?`;
+
   return (
     <div className="Following">
       <div className="Following__intro">
@@ -77,15 +79,16 @@ const Following = (props: Props) => {
             }}
           />
           <Button
-            disabled
+            disabled={inactive.length ? false : true}
             label="Unfollow All"
             onClick={() => {
-              console.log(
-                `Are you sure you want to unfollow ${inactive.length} accounts?`
-              );
-              // on confirm fire below, else return null
-              // postMultiFriendshipsDestroy(inactive.map((item) => item.id), selected);
-              // setSelected([]);
+              if (window.confirm(CONFIRM_MESSAGE)) {
+                postMultiFriendshipsDestroy(
+                  access,
+                  inactive.map((item) => item.id)
+                );
+                setSelected([]);
+              }
             }}
           />
         </div>

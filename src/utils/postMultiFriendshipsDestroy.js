@@ -20,8 +20,8 @@ const friendshipsDestroy = async (
   );
   if (!response.ok) {
     Promise.reject(new Error("fail")).then(
-      () => null,
-      () => null
+      () => null, // not called
+      (error) => console.log(error)
     );
     throw Error(response.status.toString());
   }

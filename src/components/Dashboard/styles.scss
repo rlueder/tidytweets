@@ -34,9 +34,8 @@
   justify-content: center;
 }
 
-
 %following {
-  justify-content: center;
+  justify-content: flex-start;
   display: flex;
   flex-direction: column;
   height: calc(100vh - 3rem - 1px);
@@ -71,8 +70,8 @@
 }
 
 .Following__intro {
-  border-bottom: 1px solid rgba(#fff, .25);
-  box-shadow: 0 .5rem 0 0 rgba(#000, .15);
+  border-bottom: 1px solid rgba(#fff, 0.25);
+  box-shadow: 0 0.5rem 0 0 rgba(#000, 0.15);
   padding: 2rem 0;
 
   > div {
@@ -89,7 +88,7 @@
   }
 
   svg {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 }
 
@@ -106,7 +105,7 @@
 
     &:first-of-type {
       font-size: 1.25rem;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
   }
 }
@@ -114,7 +113,7 @@
 .Following__timeframe {
   color: #fff;
   display: inline-block;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   text-decoration: underline;
 
   &:hover {
@@ -128,7 +127,7 @@
   display: inline-block;
   font-size: 1.25em;
   font-weight: bolder;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 .Following__list {
@@ -146,7 +145,7 @@
   position: relative;
 
   &:hover {
-    background-color: rgba(#000, .15);
+    background-color: rgba(#000, 0.15);
   }
 
   h1 {
@@ -187,7 +186,6 @@
     height: 4rem;
     width: 4rem;
   }
-
 }
 
 .Friend__avatar {
@@ -199,11 +197,10 @@
   background-color: $blue-base;
 }
 
-
 .Friend__id {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .Friend__description {
-  font-size: .875rem;
+  font-size: 0.875rem;
 }
