@@ -18,7 +18,13 @@ type Props = {
 
 /**
  * @function Friend
+ * @param {Object} props
+ * @param {Object} props.access
+ * @param {Object} props.data
+ * @param {boolean} props.selected
+ * @param {Function} props.onClick
  * @returns React.Node
+ * @exports Friend
  */
 
 const Friend = (props: Props) => {

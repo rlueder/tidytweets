@@ -26,6 +26,16 @@ type Props = {
   username: string,
 };
 
+/**
+ * @function Dashboard
+ * @param {Object} props
+ * @param {Object} props.access
+ * @param {Object} props.friends
+ * @param {string} username
+ * @returns React.Node
+ * @exports Dashboard
+ */
+
 const Dashboard = (props: Props) => {
   const { access, friends, username } = props;
 
@@ -49,15 +59,17 @@ const Dashboard = (props: Props) => {
       case friends.data && !friends.data.length:
         return (
           <div className="Following--loading">
-            <div className="Following__icon">
-              <FontAwesomeIcon icon={faSync} size="2x" />
-            </div>
-            <div className="Following__text">
-              <p>Analysing your Twitter Following list...</p>
-              <p>
-                (this might take a while depending on how many accounts you
-                follow)
-              </p>
+            <div className="Following__wrapper">
+              <div className="Following__icon">
+                <FontAwesomeIcon icon={faSync} size="2x" />
+              </div>
+              <div className="Following__text">
+                <p>Analyzing your Twitter Following list...</p>
+                <p>
+                  (this might take a while depending on how many accounts you
+                  follow)
+                </p>
+              </div>
             </div>
           </div>
         );
@@ -67,7 +79,7 @@ const Dashboard = (props: Props) => {
           friends.ids,
           friends.data.map((item) => item.id)
         );
-
+        // console.log(SUSPENDED);
         return (
           <Following
             access={access}

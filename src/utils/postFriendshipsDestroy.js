@@ -9,6 +9,7 @@ import { mutate } from "../store";
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy}
  * @param {Object} ACCESS_TOKEN
  * @param {number} USER_ID
+ * @exports postFriendshipsDestroy
  */
 
 const postFriendshipsDestroy = async (

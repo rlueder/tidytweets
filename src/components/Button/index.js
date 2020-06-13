@@ -8,17 +8,20 @@ type Props = {
   children?: React.Node,
   disabled: boolean,
   label: string,
+  type: string,
   onClick: Function,
 };
 
 /**
  * @function Button
- * @param {React.Node} [children]
- * @param {boolean} disabled
- * @param {string} label
- * @param {string} type
- * @param {Funcion} onClick
+ * @param {Object} props
+ * @param {React.Node} [props.children]
+ * @param {boolean} props.disabled
+ * @param {string} props.label
+ * @param {string} props.type
+ * @param {Funcion} props.onClick
  * @returns React.Node
+ * @exports Button
  */
 
 const Button = (props: Props): React.Node => {

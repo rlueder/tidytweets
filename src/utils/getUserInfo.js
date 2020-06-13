@@ -9,6 +9,7 @@ import { mutate } from "../store";
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show}
  * @param {string} SCREEN_NAME
  * @returns {Object} data
+ * @exports getUserInfo
  */
 
 const getUserInfo = async (SCREEN_NAME: string) => {

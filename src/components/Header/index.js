@@ -8,6 +8,12 @@ import { LogOut } from "../index";
 
 import "./styles.scss";
 
+/**
+ * @function Header
+ * @returns React.Node
+ * @exports Header
+ */
+
 const Header = () => {
   return (
     <header className="Header">

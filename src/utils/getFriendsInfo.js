@@ -11,6 +11,8 @@ import { usersLookup } from "./index";
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup}
  * @param {string} SCREEN_NAME
  * @param {Array<number>} USER_IDS
+ * @returns {Object} response
+ * @exports getFriendsInfo
  */
 
 const getFriendsInfo = async (SCREEN_NAME: string, USER_IDS: Array<number>) => {
@@ -25,6 +27,7 @@ const getFriendsInfo = async (SCREEN_NAME: string, USER_IDS: Array<number>) => {
         draft.friends.data = response.flat();
       });
     }
+    return response;
   } catch (error) {
     mutate((draft) => {
       draft.friends.error = error;

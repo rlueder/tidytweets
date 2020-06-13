@@ -6,6 +6,13 @@ import "./styles.scss";
 
 type Props = {};
 
+/**
+ * @function About
+ * @param {Object} props
+ * @returns React.Node
+ * @exports About
+ */
+
 const About = (props: Props) => {
   return (
     <div className="About">

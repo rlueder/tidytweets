@@ -9,6 +9,12 @@ import { Button } from "../index";
 
 import "./styles.scss";
 
+/**
+ * @function Footer
+ * @returns React.Node
+ * @exports Footer
+ */
+
 const Footer = () => {
   return (
     <footer className="Footer">

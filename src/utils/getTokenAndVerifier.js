@@ -8,6 +8,7 @@
  * @returns {Object}
  * @returns {string} Object.token
  * @returns {string} Object.verifier
+ * @exports getTokenAndVerifier
  */
 
 const getTokenAndVerifier = (SEARCH_PARAMS: URLSearchParams) => {

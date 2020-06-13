@@ -13,6 +13,7 @@ import { getUserInfo, getFriendsIds } from "./index";
  * @param {string} TOKEN
  * @param {string} VERIFIER
  * @returns {Object} data
+ * @exports getAccessToken
  */
 
 const getAccessToken = async (TOKEN, VERIFIER) => {

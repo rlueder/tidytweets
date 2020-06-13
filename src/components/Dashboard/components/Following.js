@@ -22,18 +22,25 @@ import {
 type Props = {
   access: Object,
   friends: Array<number>,
+  suspended: Object,
 };
 
 /**
  * @function Following
+ * @param {Object} props
+ * @param {Object} props.access
+ * @param {Array<number>} props.friends
+ * @param {Object} props.suspended
  * @returns React.Node
  * @exports Following
  */
 
-// TODO https://github.com/glennreyes/react-countup
-
 const Following = (props: Props) => {
-  const { access, friends } = props;
+  const {
+    access,
+    friends,
+    // suspended
+  } = props;
 
   const [timeframe, setTimeframe] = useState("3 months");
 
@@ -48,7 +55,8 @@ const Following = (props: Props) => {
     setSelected([]);
   }, [friends, timeframe]);
 
-  const CONFIRM_MESSAGE = `Are you sure you want to unfollow ${inactive.length} accounts?`;
+  const getConfirmMessage = (TOTAL) =>
+    `Are you sure you want to unfollow ${TOTAL} accounts?`;
 
   return (
     <div className="Following">
@@ -68,30 +76,52 @@ const Following = (props: Props) => {
             <FontAwesomeIcon color="#fff" icon={faCalendarAlt} size="xs" />
           </span>
         </p>
-        <p>What would you want to do next?</p>
-        <div className="Following__actions">
-          <Button
-            disabled={selected.length ? false : true}
-            label="Unfollow Selected"
-            onClick={() => {
-              postMultiFriendshipsDestroy(access, selected);
-              setSelected([]); // clear selections
-            }}
-          />
-          <Button
-            disabled={inactive.length ? false : true}
-            label="Unfollow All"
-            onClick={() => {
-              if (window.confirm(CONFIRM_MESSAGE)) {
-                postMultiFriendshipsDestroy(
-                  access,
-                  inactive.map((item) => item.id)
-                );
-                setSelected([]);
-              }
-            }}
-          />
-        </div>
+        {inactive.length ? (
+          <React.Fragment>
+            <p>What would you want to do next?</p>
+            <div className="Following__actions">
+              <Button
+                disabled={selected.length ? false : true}
+                label="Unfollow Selected"
+                onClick={() => {
+                  postMultiFriendshipsDestroy(access, selected);
+                  setSelected([]); // clear selections
+                }}
+              />
+              <Button
+                label="Unfollow All"
+                onClick={() => {
+                  if (window.confirm(getConfirmMessage(inactive.length))) {
+                    postMultiFriendshipsDestroy(
+                      access,
+                      inactive.map((item) => item.id)
+                    );
+                    setSelected([]);
+                  }
+                }}
+              />
+            </div>
+          </React.Fragment>
+        ) : null}
+        {/* ) : suspended.length ? (
+          <React.Fragment>
+            <p>
+              We also found
+              <span className="Following__total">{suspended.length}</span>{" "}
+              accounts that are inactive or suspended.
+            </p>
+            <div className="Following__actions">
+              <Button
+                label="Unfollow All"
+                onClick={() => {
+                  if (window.confirm(getConfirmMessage(suspended.length))) {
+                    postMultiFriendshipsDestroy(access, suspended);
+                  }
+                }}
+              />
+            </div>
+          </React.Fragment>
+        ) : null} */}
       </div>
       <div className="Following__list">
         {inactive && inactive.length

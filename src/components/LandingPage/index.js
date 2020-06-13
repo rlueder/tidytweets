@@ -16,6 +16,15 @@ type Props = {
   username: string,
 };
 
+/**
+ * @function LandingPage
+ * @param {Object} props
+ * @param {string} props.token
+ * @param {string} props.username
+ * @returns React.Node
+ * @exports LandingPage
+ */
+
 const LandingPage = (props: Props): React.Node => {
   const { token, username } = props;
 

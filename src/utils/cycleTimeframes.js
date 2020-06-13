@@ -6,6 +6,7 @@
  * @param {string} timeframe
  * @param {Function} setTimeFrame
  * @return {Function} setTimeframe
+ * @exports cycleTimeframes
  */
 
 const cycleTimeframes = (timeframe: string, setTimeframe: Function) => {
@@ -19,6 +20,7 @@ const cycleTimeframes = (timeframe: string, setTimeframe: Function) => {
   ];
 
   let index = TIMEFRAMES.findIndex((element) => element === timeframe);
+
   if (index === TIMEFRAMES.length - 1) {
     return setTimeframe(TIMEFRAMES[0]);
   }

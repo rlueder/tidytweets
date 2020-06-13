@@ -10,6 +10,7 @@ import { mutate } from "../store";
  * @param {string} SCREEN_NAME
  * @param {number} [COUNT]
  * @returns {Array<string>} data
+ * @exports getFriendsIds
  */
 
 const getFriendsIds = async (SCREEN_NAME: string, COUNT?: Number = 5000) => {

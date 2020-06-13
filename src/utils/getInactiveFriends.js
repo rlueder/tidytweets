@@ -8,6 +8,7 @@ import { isBefore, subMonths, subWeeks } from "date-fns";
  * @param {Array<Object>} FRIENDS
  * @param {string} INTERVAL
  * @returns {Array<string>} inactiveFriends
+ * @exports getInactiveFriends
  */
 
 const getInactiveFriends = (FRIENDS: Array<string>, INTERVAL: string) => {

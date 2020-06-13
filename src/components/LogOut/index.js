@@ -11,6 +11,7 @@ import { Button } from "../index";
 /**
  * @function LogOut
  * @returns React.Node
+ * @exports LogOut
  */
 
 const LogOut = () => {

@@ -8,6 +8,7 @@ import { mutate } from "../store";
  * @summary Requests OAuth request token from Twitter, writes response to state.request
  * @see {@link https://developer.twitter.com/en/docs/basics/authentication/api-reference/request_token}
  * @returns data
+ * @exports getRequestToken
  */
 
 const getRequestToken = async () => {
