@@ -7,7 +7,7 @@ import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 import difference from "lodash/difference";
 
-import { useCountUp } from "react-countup";
+// import { useCountUp } from "react-countup";
 import { hot } from "react-hot-loader/root";
 
 import { Button } from "../../index";
@@ -16,7 +16,7 @@ import { Friend } from "./index";
 import {
   cycleTimeframes,
   getInactiveFriends,
-  postFriendshipsDestroy,
+  postMultiFriendshipsDestroy,
 } from "../../../utils";
 
 type Props = {
@@ -33,17 +33,19 @@ type Props = {
 // TODO https://github.com/glennreyes/react-countup
 
 const Following = (props: Props) => {
-  const { access, friends, suspended } = props;
+  const { access, friends } = props;
 
   const [timeframe, setTimeframe] = useState("3 months");
 
   const [inactive, setInactive] = useState(
     getInactiveFriends(friends, timeframe)
   );
+
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
     setInactive(getInactiveFriends(friends, timeframe));
+    setSelected([]);
   }, [friends, timeframe]);
 
   return (
@@ -70,18 +72,21 @@ const Following = (props: Props) => {
             disabled={selected.length ? false : true}
             label="Unfollow Selected"
             onClick={() => {
-              postFriendshipsDestroy(access, selected);
+              postMultiFriendshipsDestroy(access, selected);
               setSelected([]); // clear selections
             }}
           />
           <Button
             disabled
             label="Unfollow All"
-            onClick={() =>
+            onClick={() => {
               console.log(
                 `Are you sure you want to unfollow ${inactive.length} accounts?`
-              )
-            }
+              );
+              // on confirm fire below, else return null
+              // postMultiFriendshipsDestroy(inactive.map((item) => item.id), selected);
+              // setSelected([]);
+            }}
           />
         </div>
       </div>

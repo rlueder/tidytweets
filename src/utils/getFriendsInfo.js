@@ -2,7 +2,7 @@
 import chunk from "lodash/chunk";
 
 import { mutate } from "../store";
-import { fetchPaginatedFriendsInfo } from "./index";
+import { usersLookup } from "./index";
 
 /**
  * @async
@@ -16,7 +16,7 @@ import { fetchPaginatedFriendsInfo } from "./index";
 const getFriendsInfo = async (SCREEN_NAME: string, USER_IDS: Array<number>) => {
   let promises = [];
   for (const CHUNK of chunk(USER_IDS, 50)) {
-    promises.push(fetchPaginatedFriendsInfo(SCREEN_NAME, CHUNK.join(",")));
+    promises.push(usersLookup(SCREEN_NAME, CHUNK.join(",")));
   }
   try {
     const response = await Promise.all(promises);
