@@ -58,9 +58,7 @@ const LandingPage = (props: Props): React.Node => {
             <h1>TidyTweets</h1>
           </div>
           <div className="LandingPage__intro">
-            <p>
-              Tidy up your <span>Following</span> list on Twitter.
-            </p>
+            <p>This is a test for Netlify branch deployments!</p>
             <LogIn token={token} />
           </div>
         </Fragment>
