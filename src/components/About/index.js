@@ -13,7 +13,7 @@ type Props = {};
  * @exports About
  */
 
-const About = (props: Props) => {
+const About = (props: Props): React.Node => {
   return (
     <div className="About">
       <p>About</p>

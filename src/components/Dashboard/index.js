@@ -36,7 +36,7 @@ type Props = {
  * @exports Dashboard
  */
 
-const Dashboard = (props: Props) => {
+const Dashboard = (props: Props): React.Node => {
   const { access, friends, username } = props;
 
   const location = useLocation(); // to allow useLocation() in useEffect()

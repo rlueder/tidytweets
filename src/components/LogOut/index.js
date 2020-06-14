@@ -14,7 +14,7 @@ import { Button } from "../index";
  * @exports LogOut
  */
 
-const LogOut = () => {
+const LogOut = (): React.Node => {
   const navigate = useNavigate();
   return (
     <Button
