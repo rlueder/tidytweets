@@ -4,6 +4,14 @@
   position: absolute;
   text-align: center;
   width: 100%;
+
+  a {
+    margin-left: 0.25rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
 }
 
 .Footer__buymeacoffee {
@@ -12,8 +20,14 @@
   flex-direction: column;
 }
 
+.Footer__netlify {
+  bottom: 1rem;
+  position: absolute;
+  right: 2rem;
+}
+
 .Footer__small {
-  font-size: .75rem;
+  font-size: 0.75rem;
 
   span {
     display: inline-block;

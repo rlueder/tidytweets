@@ -2,11 +2,11 @@
 
 > Tidy up your `Following` list on Twitter.
 
-TidyTweets analyses your Following list on Twitter telling you which accounts haven't been active in a specific time frame (one week, two weeks, one month, three months, six months and a year.) so you can decide whether to keep following them or not.
+TidyTweets analyses your Following list on Twitter telling you which accounts haven't been active in a specific time frame (one week, two weeks, one month, three months, six months and a year). You can then unfollow individual accounts, a few selected accounts or all at once.
 
-"Awesome! What else does it do?" you ask.
+"Awesome! What else does it do?". Well, that's it! At least for now. :)
 
-Well, that's it! At least for now. :)
+![tidytweets](tidytweets.gif)
 
 ## Table of Contents
 
@@ -49,8 +49,6 @@ You'll need to create a `.env` file at the root of your local project folder (i.
 `CONSUMER_SECRET=<your_consumer_secret>`
 
 `CALLBACK_URL=http://localhost:8888/dashboard`
-
-`TWITTER_API_URL=https://api.twitter.com`
 
 ### 1.4 Running Locally
 
