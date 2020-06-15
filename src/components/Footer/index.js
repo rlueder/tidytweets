@@ -2,8 +2,6 @@
 
 import * as React from "react";
 
-import { Button } from "../index";
-
 import "./styles.scss";
 
 /**
@@ -18,12 +16,9 @@ const Footer = (): React.Node => {
       <p>
         TidyTweets is free and open-source software, if you find it useful
         consider
-        <a href="https://buymeacoffee.com/rlueder" target="_blank">
-          buying me a coffee.
-        </a>{" "}
-        ;)
+        <a href="https://buymeacoffee.com/rlueder">buying me a coffee.</a>
       </p>
-      <a href="https://www.netlify.com" target="_blank">
+      <a href="https://www.netlify.com">
         <img
           src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
           alt="Deploys by Netlify"
