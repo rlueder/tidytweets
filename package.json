@@ -1,13 +1,40 @@
 {
   "name": "tidy-tweets",
   "version": "0.1.0",
-  "private": true,
+  "description": "Tidy up your Following list on Twitter.",
+  "keywords": [
+    "netlify",
+    "react",
+    "twitter-api"
+  ],
+  "homepage": "https://tidytweets.org/",
+  "bugs": "https://github.com/rlueder/tidytweets/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Rafael Lüder",
+    "email": "rlueder@pm.me",
+    "url": "https://github.com/rlueder/"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rlueder/tidytweets/"
+  },
+  "scripts": {
+    "flow": "flow",
+    "flow-coverage": "flow-coverage-report -i 'src/**/*.js' -t text --threshold 85 --exclude-non-flow",
+    "precommit": "lint-staged",
+    "prestart": "cp -f ./cert/localhost.pem ./node_modules/webpack-dev-server/ssl || :",
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.10",
     "@reach/router": "^1.3.3",
-    "@testing-library/jest-dom": "^5.10.0",
+    "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "^10.2.1",
     "@testing-library/user-event": "^11.4.2",
     "date-fns": "^2.14.0",
@@ -26,7 +53,7 @@
     "@rescripts/rescript-use-babel-config": "0.0.10",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-flowtype": "^5.1.3",
-    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "flow": "^0.2.3",
     "flow-bin": "^0.127.0",
@@ -35,6 +62,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.10",
     "lodash": "^4.17.15",
+    "netlify-cli": "^2.53.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "prettier-stylelint": "^0.4.2",
@@ -53,15 +81,6 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "scripts": {
-    "flow": "flow",
-    "flow-coverage": "flow-coverage-report -i 'src/**/*.js' -t text --threshold 85 --exclude-non-flow",
-    "precommit": "lint-staged",
-    "prestart": "cp -f ./cert/localhost.pem ./node_modules/webpack-dev-server/ssl || :",
-    "start": "rescripts start",
-    "build": "rescripts build",
-    "test": "rescripts test"
   },
   "eslintConfig": {
     "extends": "react-app"

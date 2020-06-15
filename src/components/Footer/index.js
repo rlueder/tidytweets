@@ -2,11 +2,6 @@
 
 import * as React from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-
-import { Button } from "../index";
-
 import "./styles.scss";
 
 /**
@@ -18,19 +13,17 @@ import "./styles.scss";
 const Footer = (): React.Node => {
   return (
     <footer className="Footer">
-      <div className="Footer__buymeacoffee">
-        <p>If you find TidyTweets to be useful</p>
-        <Button
-          label="Buy Me a Coffee"
-          type="small"
-          onClick={() => window.open("https://buymeacoffee.com/rlueder")}
-        >
-          <FontAwesomeIcon icon={faCoffee} size="xs" />
-        </Button>
-      </div>
-      <p className="Footer__small">
-        Copyleft <span>©</span> 2020. Some rights reserved.
+      <p>
+        TidyTweets is free and open-source software, if you find it useful
+        consider
+        <a href="https://buymeacoffee.com/rlueder">buying me a coffee.</a>
       </p>
+      <a href="https://www.netlify.com">
+        <img
+          src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
+          alt="Deploys by Netlify"
+        />
+      </a>
     </footer>
   );
 };

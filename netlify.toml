@@ -1,14 +1,16 @@
 [build]
     command = "npm run build"
 
+# Build Plugins
+# https://docs.netlify.com/configure-builds/build-plugins/
+
 [[plugins]]
     package = "@netlify/plugin-functions-install-core"
 
-## Redirects
-## https://docs.netlify.com/routing/redirects/
+# Redirects
+# https://docs.netlify.com/routing/redirects/
 
 [[redirects]]
     from = "/*"
     to = "/index.html"
     status = 200
-    

@@ -42,7 +42,7 @@ const Following = (props: Props) => {
     // suspended
   } = props;
 
-  const [timeframe, setTimeframe] = useState("3 months");
+  const [timeframe, setTimeframe] = useState("week");
 
   const [inactive, setInactive] = useState(
     getInactiveFriends(friends, timeframe)
