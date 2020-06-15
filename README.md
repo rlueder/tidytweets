@@ -8,8 +8,6 @@ TidyTweets analyses your Following list on Twitter telling you which accounts ha
 
 Well, that's it! At least for now. :)
 
----
-
 ## Table of Contents
 
 - [1. Getting Started](#1-getting-started)
@@ -23,8 +21,6 @@ Well, that's it! At least for now. :)
 - [5. Credits](#5-credits)
 - [6. Donations](#6-donations)
 - [7. License](#7-license)
-
----
 
 ## 1. Getting Started
 
@@ -60,11 +56,13 @@ You'll need to create a `.env` file at the root of your local project folder (i.
 
 Requests sent directly to a Twitter API from a development environment will result in CORS errors, for that reason we use Netlify's functions to proxy API requests to Twitter.
 
+To start the local development server, run:
+
 ```
 $ ntl dev
 ```
 
-The application will be available at [http://localhost:8888](http://localhost:8888)
+The application will then be available at [http://localhost:8888](http://localhost:8888)
 
 You can read more about Netlify CLI, Netlify Functions and CORS here:
 
@@ -128,9 +126,7 @@ This project exists thanks to all the <a href="https://github.com/rlueder/tidytw
 
 ## 6. Donations
 
-TidyTweets is free and open-source software, if you find it useful consider a small donation. Thanks!
-
-<a href="https://www.buymeacoffee.com/rlueder" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 30px !important; width: 130px !important;" ></a>
+TidyTweets is free and open-source software, if you find it useful [consider buying me a coffee](https://www.buymeacoffee.com/rlueder). Thanks!
 
 ## 7. License
 
