@@ -21,6 +21,7 @@
     "url": "https://github.com/rlueder/tidytweets/"
   },
   "scripts": {
+    "develop": "cross-env CALLBACK_URL=http://localhost:8888/dashboard netlify dev",
     "flow": "flow",
     "flow-coverage": "flow-coverage-report -i 'src/**/*.js' -t text --threshold 85 --exclude-non-flow",
     "precommit": "lint-staged",
@@ -51,6 +52,7 @@
     "@rescripts/cli": "0.0.14",
     "@rescripts/rescript-env": "0.0.12",
     "@rescripts/rescript-use-babel-config": "0.0.10",
+    "cross-env": "^7.0.2",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-flowtype": "^5.1.3",
     "eslint-plugin-prettier": "^3.1.4",

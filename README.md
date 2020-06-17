@@ -41,13 +41,47 @@ $ npm install
 
 Requests sent directly to a Twitter API from a development environment will result in CORS errors, for that reason we use Netlify's functions to proxy API requests to Twitter.
 
-To start the local development server, run:
+To set up Netlify locally run the following command:
 
 ```
-$ ntl dev
+$ ntl link
 ```
 
-The application will then be available at [http://localhost:8888](http://localhost:8888)
+If you haven't logged into Netlify yet this will open a new browser window with the following message:
+
+```
+Netlify CLI is asking for permission to access Netlify on your behalf.
+```
+
+Click on `Authorize`; you'll then see a prompt on your terminal:
+
+```
+How do you want to link this folder to a site?
+```
+
+Choose `Enter a site ID` and paste TidyTweet's Netlify ID:
+
+```
+091de6ff-ebf8-455b-8e5b-db2571213ac1
+```
+
+You should then see a confirmation similar to the one below:
+
+```
+Directory Linked
+
+Admin url: https://app.netlify.com/sites/tidytweets
+Site url:  https://tidytweets.org
+
+```
+
+Now you can start the development server by running the command below:
+
+```
+$ npm run develop
+```
+
+The application will be available at [http://localhost:8888](http://localhost:8888)
 
 You can read more about Netlify CLI, Netlify Functions and CORS here:
 

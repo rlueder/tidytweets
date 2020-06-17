@@ -3,12 +3,7 @@
 const dotenv = require("dotenv").config();
 const Twitter = require("twitter-lite");
 
-const {
-  CALLBACK_URL_DEV,
-  CALLBACK_URL_PROD,
-  CONSUMER_KEY,
-  CONSUMER_SECRET,
-} = process.env;
+const { CALLBACK_URL, CONSUMER_KEY, CONSUMER_SECRET } = process.env;
 
 /**
  * @module twitterClient
@@ -61,11 +56,7 @@ exports.handler = async (event, context, callback) => {
         break;
       case "request_token":
         // use appropriate CALLBACK_URL depending on environment
-        response = await twitterClient.getRequestToken(
-          process.env.NODE_ENV === "production"
-            ? CALLBACK_URL_PROD
-            : CALLBACK_URL_DEV
-        );
+        response = await twitterClient.getRequestToken(CALLBACK_URL);
         break;
       /**
        * Bearer Token Requests

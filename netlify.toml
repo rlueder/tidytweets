@@ -1,5 +1,8 @@
-[Settings]
-ID = "091de6ff-ebf8-455b-8e5b-db2571213ac1"
+[settings]
+    ID = "091de6ff-ebf8-455b-8e5b-db2571213ac1"
+
+# Build Settings
+# https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
     command = "npm run build"
