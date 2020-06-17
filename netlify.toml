@@ -1,3 +1,6 @@
+[Settings]
+ID = "091de6ff-ebf8-455b-8e5b-db2571213ac1"
+
 [build]
     command = "npm run build"
 
