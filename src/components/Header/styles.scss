@@ -13,11 +13,12 @@
 
   h1 {
     font-size: 1.25rem;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 
-  .Button {
+  .Button--secondary {
     background-color: transparent;
+    border: none;
     margin-right: 1rem;
 
     &:hover {

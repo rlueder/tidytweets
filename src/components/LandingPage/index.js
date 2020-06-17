@@ -43,6 +43,7 @@ const LandingPage = (props: Props): React.Node => {
     <div className="LandingPage">
       {username ? (
         <Fragment>
+          <div />
           <div className="LandingPage__intro">
             <div className="LandingPage__logo">
               <h1>TidyTweets</h1>

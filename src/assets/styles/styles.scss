@@ -20,14 +20,3 @@ h2 {
 p {
   margin: 0;
 }
-
-.App {
-  height: 100vh;
-  overflow: hidden;
-  width: 100vw;
-
-  > div {
-    height: inherit;
-    width: inherit;
-  }
-}

@@ -1,12 +1,10 @@
 @import "../../assets/styles/mixins.scss";
 
 .LandingPage {
-  @extend %scrollbar;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 50% 1fr;
+
   height: inherit;
-  justify-content: space-between;
-  overflow-y: scroll;
   position: relative;
   width: 100vw;
 
@@ -33,9 +31,13 @@
 }
 
 .LandingPage__about {
+  @extend %scrollbar;
+
+  display: flex;
+  flex-direction: column;
   font-size: 1.25rem;
   font-weight: normal;
-  margin-top: 2rem;
+  overflow-y: scroll;
   text-align: initial;
   padding: 0 5%;
 
@@ -58,10 +60,14 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .LandingPage__intro {
-  margin-top: 5rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 
   p {

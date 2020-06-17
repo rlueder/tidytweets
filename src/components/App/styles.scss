@@ -1,0 +1,12 @@
+@import "../../assets/styles/styles";
+
+.App {
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+
+  > div {
+    height: inherit;
+    width: inherit;
+  }
+}

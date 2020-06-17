@@ -46,6 +46,14 @@
 }
 
 .Following__actions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 10rem;
+  justify-content: center;
+}
+
+.Following__buttons {
   display: grid;
   grid-gap: 0.5rem;
   grid-template-columns: 1fr 1fr;
@@ -70,10 +78,15 @@
   }
 }
 
-.Following__intro {
+.Following__header {
   border-bottom: 1px solid rgba(#fff, 0.25);
   box-shadow: 0 0.5rem 0 0 rgba(#000, 0.15);
-  padding-top: 2rem;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
 
   > div {
     position: relative;
@@ -81,7 +94,6 @@
 
   p {
     font-size: 1.75rem;
-    padding: 0 1rem;
 
     + p {
       margin-top: 1rem;
@@ -96,6 +108,19 @@
 .Following__list {
   @extend %scrollbar;
   overflow-y: scroll;
+}
+
+.Following__list--empty {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 0 1rem;
+
+  svg {
+    margin-bottom: 1rem;
+  }
 }
 
 .Following--loading {

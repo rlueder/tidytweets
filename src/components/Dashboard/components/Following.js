@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt, faBroom } from "@fortawesome/free-solid-svg-icons";
 
 import difference from "lodash/difference";
 
@@ -60,26 +60,28 @@ const Following = (props: Props) => {
 
   return (
     <div className="Following">
-      <div className="Following__intro">
-        <p>
-          You're following
-          <span className="Following__total">{inactive.length}</span> accounts
-          that have not been active in the last
-          <span
-            className="Following__timeframe"
-            onClick={() => {
-              setSelected([]); // clear selections
-              cycleTimeframes(timeframe, setTimeframe);
-            }}
-          >
-            {timeframe}
-            <FontAwesomeIcon color="#fff" icon={faCalendarAlt} size="xs" />
-          </span>
-        </p>
+      <div className="Following__header">
+        <div className="Following__intro">
+          <p>
+            You're following
+            <span className="Following__total">{inactive.length}</span> accounts
+            that have not been active in the last
+            <span
+              className="Following__timeframe"
+              onClick={() => {
+                setSelected([]); // clear selections
+                cycleTimeframes(timeframe, setTimeframe);
+              }}
+            >
+              {timeframe}
+              <FontAwesomeIcon color="#fff" icon={faCalendarAlt} size="xs" />
+            </span>
+          </p>
+        </div>
         {inactive.length ? (
-          <React.Fragment>
+          <div className="Following__actions">
             <p>What would you want to do next?</p>
-            <div className="Following__actions">
+            <div className="Following__buttons">
               <Button
                 disabled={selected.length ? false : true}
                 label="Unfollow Selected"
@@ -101,8 +103,10 @@ const Following = (props: Props) => {
                 }}
               />
             </div>
-          </React.Fragment>
-        ) : null}
+          </div>
+        ) : (
+          <div className="Following__actions" />
+        )}
         {/* ) : suspended.length ? (
           <React.Fragment>
             <p>
@@ -124,23 +128,29 @@ const Following = (props: Props) => {
         ) : null} */}
       </div>
       <div className="Following__list">
-        {inactive && inactive.length
-          ? inactive.map((friend, i) => (
-              <Friend
-                access={access}
-                data={friend}
-                key={i}
-                selected={selected.includes(friend.id) ? true : false}
-                onClick={(id) => {
-                  setSelected(
-                    !selected.includes(id)
-                      ? selected.concat(id)
-                      : difference(selected, [id])
-                  );
-                }}
-              />
-            ))
-          : null}
+        {inactive && inactive.length ? (
+          inactive.map((friend, i) => (
+            <Friend
+              access={access}
+              data={friend}
+              key={i}
+              selected={selected.includes(friend.id) ? true : false}
+              onClick={(id) => {
+                setSelected(
+                  !selected.includes(id)
+                    ? selected.concat(id)
+                    : difference(selected, [id])
+                );
+              }}
+            />
+          ))
+        ) : (
+          <div className="Following__list--empty">
+            <FontAwesomeIcon icon={faBroom} size="2x" />
+            <p>Looks tidy already!</p>
+            <p>Try a different time frame above.</p>
+          </div>
+        )}
       </div>
     </div>
   );
