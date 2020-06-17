@@ -1,15 +1,17 @@
+@import "../../assets/styles/mixins.scss";
+
 .LandingPage {
-  align-items: center;
-  // background: linear-gradient(90deg, #0F0C29 0%, #302B63 50%, #24243E 100%);
+  @extend %scrollbar;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  overflow: hidden;
+  height: inherit;
+  justify-content: space-between;
+  overflow-y: scroll;
   position: relative;
   width: 100vw;
 
-  .Button {
+  .Button,
+  .Button--secondary {
     margin-bottom: 1rem;
     width: 50%;
   }
@@ -30,7 +32,36 @@
   }
 }
 
+.LandingPage__about {
+  font-size: 1.25rem;
+  font-weight: normal;
+  margin-top: 2rem;
+  text-align: initial;
+  padding: 0 5%;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  svg {
+    margin-left: 0.5rem;
+  }
+}
+
+.LandingPage__actions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .LandingPage__intro {
+  margin-top: 5rem;
   text-align: center;
 
   p {
@@ -39,10 +70,6 @@
 }
 
 .LandingPage__logo {
-  align-items: center;
-  display: flex;
-
-  h1 {
-    margin-left: .5rem;
-  }
+  // margin-top: 2rem;
+  text-align: center;
 }

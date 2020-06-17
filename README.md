@@ -41,13 +41,13 @@ $ npm install
 
 Requests sent directly to a Twitter API from a development environment will result in CORS errors, for that reason we use Netlify's functions to proxy API requests to Twitter.
 
-To set up Netlify locally run the following command:
+To set up Netlify locally, run the following command:
 
 ```
 $ ntl link
 ```
 
-If you haven't logged into Netlify yet this will open a new browser window with the following message:
+If you haven't logged into Netlify CLI yet (and assuming you already have a Netlify acct.) this will open a new browser window with the following message:
 
 ```
 Netlify CLI is asking for permission to access Netlify on your behalf.
