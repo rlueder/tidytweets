@@ -133,7 +133,7 @@ const Following = (props: Props) => {
             <Friend
               access={access}
               data={friend}
-              key={i}
+              key={friend.id}
               selected={selected.includes(friend.id) ? true : false}
               onClick={(id) => {
                 setSelected(
@@ -146,7 +146,7 @@ const Following = (props: Props) => {
           ))
         ) : (
           <div className="Following__list--empty">
-            <div className="Icon__broom">
+            <div className="Following__icon--broom">
               <FontAwesomeIcon icon={faBroom} size="2x" />
             </div>
             <p>Looks tidy already!</p>

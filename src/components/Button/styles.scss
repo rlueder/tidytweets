@@ -1,5 +1,9 @@
 @import "../../assets/styles/colors.scss";
 
+/**
+ * Button
+ */
+
 %button {
   border: none;
   border-radius: 2px;
@@ -8,7 +12,7 @@
   margin: 0;
   max-width: 13rem;
   min-width: 5rem;
-  padding: 0 .75rem;
+  padding: 0 0.75rem;
 
   &:hover {
     cursor: pointer;
@@ -49,10 +53,10 @@
 .Button--small {
   @extend %button;
   background-color: #fff;
-  font-size: .875rem;
-  margin: .5rem 0;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
 
   svg {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 }

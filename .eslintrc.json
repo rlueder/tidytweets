@@ -5,7 +5,8 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["react-app", "prettier"],
+  "extends": ["plugin:flowtype/recommended", "react-app", "prettier"],
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -13,11 +14,11 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["prettier", "react"],
+  "plugins": ["flowtype", "prettier", "react"],
   "rules": {
-    "prettier/prettier": ["error"],
     "linebreak-style": ["error", "unix"],
     "no-process-env": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "prettier/prettier": ["error"]
   }
 }

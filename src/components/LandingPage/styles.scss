@@ -1,5 +1,9 @@
 @import "../../assets/styles/mixins.scss";
 
+/**
+ * LandingPage
+ */
+
 .LandingPage {
   display: grid;
   grid-template-rows: 1fr 50% 1fr;
@@ -77,6 +81,5 @@
 }
 
 .LandingPage__logo {
-  // margin-top: 2rem;
   text-align: center;
 }

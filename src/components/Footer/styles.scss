@@ -1,3 +1,7 @@
+/**
+ * Footer
+ */
+
 .Footer {
   align-items: center;
   display: flex;
@@ -25,13 +29,4 @@
   bottom: 1rem;
   position: absolute;
   right: 2rem;
-}
-
-.Footer__small {
-  font-size: 0.75rem;
-
-  span {
-    display: inline-block;
-    transform: scale(-1, 1);
-  }
 }
