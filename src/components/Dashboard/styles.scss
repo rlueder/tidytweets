@@ -69,6 +69,48 @@
   width: 20%;
 }
 
+.Icon__broom {
+  // animation: broom 3s ease-in-out infinite alternate;
+
+  svg {
+    transform: rotate(-45deg);
+  }
+}
+
+// @keyframes broom {
+
+//   @function rotate-icon($value) {
+//     @return transform: rotate($value);
+//   }
+
+//   0% {
+//     rotate-icon(-12deg);
+//   }
+//   8% {
+//     rotate-icon(12deg);
+//   }
+//   18%,
+//   20%,
+//   38%,
+//   40%,
+//   58%,
+//   60% {
+//     rotate-icon(-24deg);
+//   }
+//   10%,
+//   28%,
+//   30%,
+//   48%,
+//   50%,
+//   68% {
+//     rotate-icon(24deg);
+//   }
+//   75%,
+//   100% {
+//     rotate-icon(0deg);
+//   }
+// }
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);

@@ -72,25 +72,12 @@ const LandingPage = (props: Props): React.Node => {
             <LogIn token={token} />
           </div>
           <div className="LandingPage__about">
-            <h1>About</h1>
-            <p>
-              As I was looking for ways to stay busy during a recent furlough
-              period I decided to tidy up my Twitter profile only to find out
-              that there isn't an easy built-in way to do so using the default
-              Twitter UI.
-            </p>
             <p>
               <span>TidyTweets</span> analyses your Following list on Twitter
               telling you which accounts haven't been active in a specific time
               frame (one week, two weeks, one month, three months, six months
               and a year). You can then unfollow individual accounts, selected
               accounts or all at once.
-            </p>
-            <p>
-              Definitely still rough around the edges (particularly the UI) but
-              it does what it says on the label. Upcoming features include a
-              more polished UI as well as a way to manage Lists
-              (create/delete/assign accts).
             </p>
             <p>
               Happy (tidy) tweeting!

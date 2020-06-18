@@ -146,7 +146,9 @@ const Following = (props: Props) => {
           ))
         ) : (
           <div className="Following__list--empty">
-            <FontAwesomeIcon icon={faBroom} size="2x" />
+            <div className="Icon__broom">
+              <FontAwesomeIcon icon={faBroom} size="2x" />
+            </div>
             <p>Looks tidy already!</p>
             <p>Try a different time frame above.</p>
           </div>
