@@ -24,7 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Local Netlify folder
-.netlify
 functions/**/node_modules
 
-.npmrc
+# Local Netlify folder
+.netlify

@@ -1,0 +1,37 @@
+@keyframes broom {
+  0% {
+    transform: rotate(-12deg);
+  }
+  8% {
+    transform: rotate(12deg);
+  }
+  18%,
+  20%,
+  38%,
+  40%,
+  58%,
+  60% {
+    transform: rotate(-24deg);
+  }
+  10%,
+  28%,
+  30%,
+  48%,
+  50%,
+  68% {
+    transform: rotate(24deg);
+  }
+  75%,
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

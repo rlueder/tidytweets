@@ -21,22 +21,24 @@
     "url": "https://github.com/rlueder/tidytweets/"
   },
   "scripts": {
+    "develop": "cross-env CALLBACK_URL=http://localhost:8888/dashboard netlify dev",
     "flow": "flow",
     "flow-coverage": "flow-coverage-report -i 'src/**/*.js' -t text --threshold 85 --exclude-non-flow",
     "precommit": "lint-staged",
     "prestart": "cp -f ./cert/localhost.pem ./node_modules/webpack-dev-server/ssl || :",
-    "start": "rescripts start",
-    "build": "rescripts build",
-    "test": "rescripts test"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.10",
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-brands-svg-icons": "^5.13.1",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@reach/router": "^1.3.3",
     "@testing-library/jest-dom": "^5.10.1",
-    "@testing-library/react": "^10.2.1",
-    "@testing-library/user-event": "^11.4.2",
+    "@testing-library/react": "^10.3.0",
+    "@testing-library/user-event": "^12.0.2",
     "date-fns": "^2.14.0",
     "localforage": "^1.7.4",
     "react": "^16.13.1",
@@ -48,28 +50,23 @@
     "twitter-lite": "^0.14.0"
   },
   "devDependencies": {
-    "@rescripts/cli": "0.0.14",
-    "@rescripts/rescript-env": "0.0.12",
-    "@rescripts/rescript-use-babel-config": "0.0.10",
+    "cross-env": "^7.0.2",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-flowtype": "^5.1.3",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
-    "flow": "^0.2.3",
     "flow-bin": "^0.127.0",
     "flow-coverage-report": "^0.7.0",
-    "flow-typed": "^3.1.0",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.10",
+    "lint-staged": "^10.2.11",
     "lodash": "^4.17.15",
-    "netlify-cli": "^2.53.0",
+    "netlify-cli": "^2.54.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "prettier-stylelint": "^0.4.2",
-    "stylelint": "^13.6.0",
+    "stylelint": "^13.6.1",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.17.2"
+    "stylelint-scss": "^3.18.0"
   },
   "husky": {
     "hooks": {
@@ -96,11 +93,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "rescripts": [
-    [
-      "use-babel-config",
-      ".babelrc"
-    ]
-  ]
+  }
 }

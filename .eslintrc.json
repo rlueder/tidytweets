@@ -15,9 +15,9 @@
   },
   "plugins": ["prettier", "react"],
   "rules": {
-    "prettier/prettier": ["error"],
     "linebreak-style": ["error", "unix"],
     "no-process-env": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "prettier/prettier": ["error"]
   }
 }

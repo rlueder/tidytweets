@@ -21,7 +21,7 @@ const LogIn = (props: Props): React.Node => {
   const navigate = useNavigate();
   return (
     <Button
-      label="Log In"
+      label="Sign In with Twitter"
       onClick={() =>
         navigate(
           `https://api.twitter.com/oauth/authorize?oauth_token=${token}`,

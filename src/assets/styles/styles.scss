@@ -1,5 +1,3 @@
-$default-blue: #1da1f2;
-
 a {
   color: #fff;
 }
@@ -8,9 +6,10 @@ body {
   background-color: #15202b;
   color: #fff;
   font-family: "PT Sans", sans-serif;
-  height: inherit;
+  height: 100vh;
   margin: 0;
-  width: inherit;
+  overflow: hidden;
+  width: 100vw;
 }
 
 h1,
@@ -18,21 +17,6 @@ h2 {
   margin: 0;
 }
 
-html {
-  height: 100vh;
-  width: 100vw;
-}
-
 p {
   margin: 0;
-}
-
-#root {
-  height: inherit;
-  width: inherit;
-}
-
-.App {
-  height: 100vh;
-  width: 100vw;
 }
