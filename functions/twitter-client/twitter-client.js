@@ -55,6 +55,7 @@ exports.handler = async (event, context, callback) => {
         });
         break;
       case "request_token":
+        // use appropriate CALLBACK_URL depending on environment
         response = await twitterClient.getRequestToken(CALLBACK_URL);
         break;
       /**

@@ -1,9 +1,14 @@
+/**
+ * Footer
+ */
+
 .Footer {
-  bottom: 0;
-  padding: 1rem;
-  position: absolute;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
   text-align: center;
-  width: 100%;
 
   a {
     margin-left: 0.25rem;
@@ -24,13 +29,4 @@
   bottom: 1rem;
   position: absolute;
   right: 2rem;
-}
-
-.Footer__small {
-  font-size: 0.75rem;
-
-  span {
-    display: inline-block;
-    transform: scale(-1, 1);
-  }
 }

@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Fragment } from "react";
 
 import "./styles.scss";
@@ -19,7 +17,7 @@ type Props = {
  * @param {boolean} props.disabled
  * @param {string} props.label
  * @param {string} props.type
- * @param {Funcion} props.onClick
+ * @param {Function} props.onClick
  * @returns React.Node
  * @exports Button
  */

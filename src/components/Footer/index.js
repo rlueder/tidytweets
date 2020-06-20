@@ -15,8 +15,8 @@ const Footer = (): React.Node => {
     <footer className="Footer">
       <p>
         TidyTweets is free and open-source software, if you find it useful
-        consider
-        <a href="https://buymeacoffee.com/rlueder">buying me a coffee.</a>
+        perhaps consider
+        <a href="https://buymeacoffee.com/rlueder">buying me a coffee?</a>
       </p>
       <a href="https://www.netlify.com">
         <img

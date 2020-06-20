@@ -1,11 +1,9 @@
 // @flow
 
-import React, { useEffect } from "react";
+import * as React from "react";
 import { hot } from "react-hot-loader/root";
 import { useLocation } from "@reach/router";
-
 import difference from "lodash/difference";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync } from "@fortawesome/free-solid-svg-icons";
 
@@ -41,7 +39,7 @@ const Dashboard = (props: Props): React.Node => {
 
   const location = useLocation(); // to allow useLocation() in useEffect()
 
-  useEffect(() => {
+  React.useEffect(() => {
     const SEARCH_PARAMS = new URLSearchParams(location.search);
     const { token, verifier } = getTokenAndVerifier(SEARCH_PARAMS);
     // access token
