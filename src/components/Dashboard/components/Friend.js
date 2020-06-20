@@ -35,12 +35,11 @@ const Friend = (props: Props) => {
         <div
           className={selected ? "Friend__avatar--selected" : "Friend__avatar"}
         >
-          {selected ? (
-            <div>
+          <img alt="Avatar" src={data.profile_image_url_https} />
+          {selected && (
+            <div className="Friend__icon">
               <FontAwesomeIcon color="#fff" icon={faCheck} />
             </div>
-          ) : (
-            <img alt="Avatar" src={data.profile_image_url_https} />
           )}
         </div>
       </div>
