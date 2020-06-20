@@ -34,7 +34,7 @@ You'll need Node installed on your machine, the best way to install/manage Node 
 ### 1.2 Installing
 
 ```
-$ npm install
+$ yarn install
 ```
 
 ### 1.3 Running Locally
@@ -78,7 +78,7 @@ Site url:  https://tidytweets.org
 Now you can start the development server by running the command below:
 
 ```
-$ npm run develop
+$ yarn develop
 ```
 
 The application will be available at [http://localhost:8888](http://localhost:8888)
