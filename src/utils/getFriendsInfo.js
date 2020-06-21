@@ -1,8 +1,8 @@
 // @flow
 import chunk from "lodash/chunk";
 
-import { mutate } from "../store";
-import { usersLookup } from "./index";
+import { mutate } from "store";
+import { usersLookup } from "utils";
 
 /**
  * @async
