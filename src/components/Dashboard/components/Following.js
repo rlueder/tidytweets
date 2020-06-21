@@ -1,10 +1,9 @@
 // @flow
-
 import React, { useEffect, useState } from "react";
-
+import Select from "../../Select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faBroom } from "@fortawesome/free-solid-svg-icons";
-
+import { TIMEFRAMES } from "../../../constants";
 import difference from "lodash/difference";
 
 // import { useCountUp } from "react-countup";
@@ -62,21 +61,17 @@ const Following = (props: Props) => {
     <div className="Following">
       <div className="Following__header">
         <div className="Following__intro">
-          <p>
+          <p className="Following__title">
             You're following
             <span className="Following__total">{inactive.length}</span> accounts
             that have not been active in the last
-            <span
-              className="Following__timeframe"
-              onClick={() => {
-                setSelected([]); // clear selections
-                cycleTimeframes(timeframe, setTimeframe);
-              }}
-            >
-              {timeframe}
-              <FontAwesomeIcon color="#fff" icon={faCalendarAlt} size="xs" />
-            </span>
           </p>
+          <Select
+            id="timeFrameSelect"
+            label="Set timeframe"
+            values={TIMEFRAMES}
+            onChange={(timeFrameName) => setTimeframe(timeFrameName)}
+          />
         </div>
         {inactive.length ? (
           <div className="Following__actions">

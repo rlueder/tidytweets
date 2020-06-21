@@ -140,7 +140,13 @@
     cursor: pointer;
   }
 }
-
+.Following__title {
+  margin-right: 10px;
+}
+.Following__intro {
+  display: inline-flex;
+  align-items: center;
+}
 .Following__total {
   color: $blue-base;
   display: inline-block;
