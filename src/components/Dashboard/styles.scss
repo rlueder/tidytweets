@@ -167,7 +167,6 @@
   height: 4rem;
   overflow: hidden;
   width: 4rem;
-
   img {
     height: 4rem;
     width: 4rem;
@@ -207,7 +206,7 @@
     -webkit-appearance: none;
 
     &:hover {
-      backtround-color: #000;
+      background-color: #000;
       cursor: pointer;
     }
   }
@@ -219,9 +218,13 @@
 
 .Friend__avatar--selected {
   @extend %avatar;
-  background-color: $blue-base;
+  position: relative;
 }
-
+.Friend__icon {
+  @extend %flex-center;
+  @extend %absolute-full-width;
+  background-color: rgba($blue-base, 0.5);
+}
 .Friend__description {
   font-size: 0.875rem;
 }
