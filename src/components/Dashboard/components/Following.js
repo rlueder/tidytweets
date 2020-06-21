@@ -10,14 +10,14 @@ import difference from "lodash/difference";
 // import { useCountUp } from "react-countup";
 import { hot } from "react-hot-loader/root";
 
-import { Button } from "../../index";
+import { Button } from "components";
 import { Friend } from "./index";
 
 import {
   cycleTimeframes,
   getInactiveFriends,
   postMultiFriendshipsDestroy,
-} from "../../../utils";
+} from "utils";
 
 type Props = {
   access: Object,

@@ -1,3 +1,5 @@
+// @flow
+
 /**
  * @function getElementById
  * @param {Document} DOCUMENT

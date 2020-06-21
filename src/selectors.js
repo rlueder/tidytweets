@@ -1,6 +1,6 @@
 // @flow
 
-import { createSelector } from "./store";
+import { createSelector } from "store";
 
 /**
  * Optimized Selectors

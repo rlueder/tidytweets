@@ -1,12 +1,11 @@
 // @flow
 
 import * as React from "react";
-
 import { useNavigate } from "@reach/router";
 import localforage from "localforage";
 
-import { mutate } from "../../store";
-import { Button } from "../index";
+import { Button } from "components";
+import { mutate } from "store";
 
 /**
  * @function LogOut

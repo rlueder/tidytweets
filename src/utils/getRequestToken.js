@@ -1,6 +1,6 @@
 // @flow
 
-import { mutate } from "../store";
+import { mutate } from "store";
 
 /**
  * @async
