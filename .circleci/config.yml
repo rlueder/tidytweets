@@ -1,7 +1,8 @@
 version: 2.1
 orbs:
-  welcome: circleci/welcome-orb@0.4.1
+  cypress: cypress-io/cypress@1
+  slack: circleci/slack@3.4.2
 workflows:
-  welcome:
+  build:
     jobs:
-      - welcome/run
+      - cypress/run
