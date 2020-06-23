@@ -22,7 +22,7 @@
   },
   "scripts": {
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "cypress:run": "cross-env CYPRESS_BASE_URL=http://localhost:8888 cypress run",
     "develop": "cross-env CALLBACK_URL=http://localhost:8888/dashboard netlify dev",
     "flow": "flow",
     "flow-coverage": "flow-coverage-report -i 'src/**/*.js' -t text --threshold 85 --exclude-non-flow",
