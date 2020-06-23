@@ -1,22 +1,44 @@
 version: 2.1
 
 orbs:
-  cypress: cypress-io/cypress@1
+  cypress: cypress-io/cypress@1.24.0
   node: circleci/node@3.0.0
   slack: circleci/slack@3.4.2
 
 jobs:
-  node/test:
-    docker:
-      - image: "cimg/base:stable"
+  test:
+    executor:
+      name: node/default
     steps:
       - checkout
-      - node/install:
-          install-yarn: true
-          node-version: latest
-      - run: node --version
+      - node/install-packages:
+          pkg-manager: yarn
+      - run: yarn test
+
+  # cypress/install:
+  #   yarn: true
+  # cypress/run:
+  #   requires:
+  #     - cypress/install
+  #   wait-on: "http://localhost:8888"
+
+  deploy:
+    machine:
+      image: "ubuntu-1604:201903-01"
+    steps:
+      - run: curl -X POST -d {} ${NETLIFY_WEBHOOK}
+      - slack/notify:
+          channel: C015KU2TMEJ
+          mentions: "D015D7Q8L3X"
+          message: Deployment to Netlify successful!
+          webhook: ${SLACK_WEBHOOK}
+
+# https://circleci.com/docs/2.0/workflows/#sequential-job-execution-example
 
 workflows:
-  test:
+  test-and-deploy:
     jobs:
-      - node/test
+      - test
+      - deploy:
+          requires:
+            - test
