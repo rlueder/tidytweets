@@ -1,19 +1,18 @@
 // @flow
 
 import React from "react";
-
 import { Router } from "@reach/router";
 
-import { LandingPage, Dashboard } from "../index";
+import { LandingPage, Dashboard } from "components";
 
 import {
   selectAccess,
   selectFriends,
   selectRequest,
   selectUser,
-} from "../../selectors";
+} from "selectors";
 
-import { Consumer, Provider } from "../../store";
+import { Consumer, Provider } from "store";
 
 import "./styles.scss";
 

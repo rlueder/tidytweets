@@ -5,9 +5,8 @@ import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
-import { Button } from "../../index";
-
-import { postFriendshipsDestroy } from "../../../utils";
+import { Button } from "components";
+import { postFriendshipsDestroy } from "utils";
 
 type Props = {
   access: Object,
@@ -35,12 +34,14 @@ const Friend = (props: Props) => {
         <div
           className={selected ? "Friend__avatar--selected" : "Friend__avatar"}
         >
-          {selected ? (
-            <div>
+          <img
+            alt={`${data.name}'s twitter avatar`}
+            src={data.profile_image_url_https}
+          />
+          {selected && (
+            <div className="Friend__icon">
               <FontAwesomeIcon color="#fff" icon={faCheck} />
             </div>
-          ) : (
-            <img alt="Avatar" src={data.profile_image_url_https} />
           )}
         </div>
       </div>

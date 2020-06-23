@@ -8,9 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBroom } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-import { Button, Footer, LogIn, LogOut } from "../index";
-
-import { getRequestToken } from "../../utils";
+import { Button, Footer, LogIn, LogOut } from "components";
+import { getRequestToken } from "utils";
 
 import "./styles.scss";
 

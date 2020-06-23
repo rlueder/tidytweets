@@ -1,9 +1,9 @@
 // @flow
 
 import localforage from "localforage";
-import { mutate } from "../store";
 
-import { getUserInfo, getFriendsIds } from "./index";
+import { mutate } from "store";
+import { getUserInfo, getFriendsIds } from "utils";
 
 /**
  * @async

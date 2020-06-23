@@ -7,14 +7,8 @@ import difference from "lodash/difference";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync } from "@fortawesome/free-solid-svg-icons";
 
-import {
-  getAccessToken,
-  getFriendsInfo,
-  getTokenAndVerifier,
-} from "../../utils/";
-
-import { Header } from "../index";
-import { Following } from "./components";
+import { Following, Header } from "components";
+import { getAccessToken, getFriendsInfo, getTokenAndVerifier } from "utils";
 
 import "./styles.scss";
 

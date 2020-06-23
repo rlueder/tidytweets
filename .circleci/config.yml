@@ -1,0 +1,61 @@
+version: 2.1
+
+# Cypress Orb
+# https://circleci.com/orbs/registry/orb/cypress-io/cypress
+
+# Node.js Orb
+# https://circleci.com/orbs/registry/orb/circleci/node
+
+# Slack Orb
+# https://circleci.com/orbs/registry/orb/circleci/slack
+
+orbs:
+  cypress: cypress-io/cypress@1.24.0
+  node: circleci/node@3.0.0
+  slack: circleci/slack@3.4.2
+
+jobs:
+  unit_tests:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/install:
+          install-yarn: true
+          node-version: "14.4.0"
+      - node/install-packages:
+          pkg-manager: yarn
+      - run: yarn test
+  deploy:
+    machine:
+      image: "ubuntu-1604:201903-01"
+    steps:
+      - run: curl -X POST -d {} ${NETLIFY_WEBHOOK}
+      - slack/notify:
+          channel: C015KU2TMEJ
+          message: Deployment to Netlify successful!
+          webhook: ${SLACK_WEBHOOK}
+
+# Sequential Job Execution
+# https://circleci.com/docs/2.0/workflows/#sequential-job-execution-example
+
+workflows:
+  test-and-deploy:
+    jobs:
+      - unit_tests
+      - cypress/run:
+          executor:
+            name: cypress/default
+          install-command: yarn install --frozen-lockfile
+          name: e2e_tests
+          requires:
+            - unit_tests
+          start: yarn develop
+          wait-on: "http://localhost:8888"
+          yarn: true
+      - deploy:
+          requires:
+            - e2e_tests
+          filters:
+            branches:
+              only: main
