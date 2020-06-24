@@ -6,12 +6,16 @@
   flex-direction: column;
   position: relative;
 }
+
 .Select__label {
   padding: 5px 0;
   font-size: 0.6rem;
-  text-transform: uppercase;
   font-weight: 600;
   opacity: 0.7;
+  padding: 5px 0;
+  position: absolute;
+  text-transform: uppercase;
+  top: -20px;
 }
 .Select__label--hidden {
   @extend %visibility-hidden;
@@ -24,8 +28,10 @@
   // padding: 7px 5px;
   color: $blue-base;
 }
+
 .Select__option {
-  font-size: 14px;
+  background: white;
   border: none;
+  font-size: 14px;
   width: 100%;
 }

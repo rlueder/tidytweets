@@ -1,17 +1,21 @@
-import React from "react";
+// @flow
+
+import * as React from "react";
+import { hot } from "react-hot-loader/root";
 
 import "./index.scss";
 
 type Props = {
+  id: string,
   label: string,
   values: $ReadOnlyArray<string>,
-  id: string,
   onChange: Function,
 };
 
 /**
  * @function Select
  * @param {Object} props
+ * @param {string} props.id
  * @param {string} props.label
  * @param {string} props.id
  * @param {boolean} props.showLabel
@@ -42,4 +46,5 @@ const Select = (props: Props): React.Node => {
     </div>
   );
 };
-export default Select;
+
+export default hot(Select);
