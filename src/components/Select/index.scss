@@ -1,29 +1,31 @@
 @import "../../assets/styles/colors";
+@import "../../assets/styles/mixins";
+
 .Select {
   display: inline-flex;
   flex-direction: column;
   position: relative;
 }
 .Select__label {
-  position: absolute;
-  top: -20px;
   padding: 5px 0;
   font-size: 0.6rem;
   text-transform: uppercase;
   font-weight: 600;
   opacity: 0.7;
 }
+.Select__label--hidden {
+  @extend %visibility-hidden;
+}
 .Select__select {
-  padding: 7px 5px;
-  border: 3px solid $blue-base;
-  border-radius: 3px;
+  border: none;
+  border-bottom: 2px solid $blue-base;
+  background: transparent;
+  font-size: 1em;
+  // padding: 7px 5px;
   color: $blue-base;
-  font-size: 1rem;
-  font-weight: 600;
 }
 .Select__option {
   font-size: 14px;
   border: none;
   width: 100%;
-  background: white;
 }
