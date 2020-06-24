@@ -4,26 +4,29 @@
   flex-direction: column;
   position: relative;
 }
+
 .Select__label {
-  position: absolute;
-  top: -20px;
-  padding: 5px 0;
   font-size: 0.6rem;
-  text-transform: uppercase;
   font-weight: 600;
   opacity: 0.7;
+  padding: 5px 0;
+  position: absolute;
+  text-transform: uppercase;
+  top: -20px;
 }
+
 .Select__select {
-  padding: 7px 5px;
   border: 3px solid $blue-base;
   border-radius: 3px;
   color: $blue-base;
   font-size: 1rem;
   font-weight: 600;
+  padding: 7px 5px;
 }
+
 .Select__option {
-  font-size: 14px;
-  border: none;
-  width: 100%;
   background: white;
+  border: none;
+  font-size: 14px;
+  width: 100%;
 }

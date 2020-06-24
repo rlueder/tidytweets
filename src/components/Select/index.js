@@ -1,26 +1,30 @@
-import React from "react";
+// @flow
+
+import * as React from "react";
+import { hot } from "react-hot-loader/root";
 
 import "./index.scss";
 
 type Props = {
+  id: string,
   label: string,
   values: $ReadOnlyArray<string>,
-  id: string,
   onChange: Function,
 };
 
 /**
  * @function Select
  * @param {Object} props
- * @param {string} props.label
  * @param {string} props.id
+ * @param {string} props.label
+ * @param {Array<string>} props.values
  * @param {Function} props.onChange
  * @returns React.Node
  * @exports Select
  */
 
 const Select = (props: Props): React.Node => {
-  const { label, id, values, onChange } = props;
+  const { id, label, values, onChange } = props;
   return (
     <div className="Select">
       <label className="Select__label" htmlFor={id}>
@@ -40,4 +44,5 @@ const Select = (props: Props): React.Node => {
     </div>
   );
 };
-export default Select;
+
+export default hot(Select);
