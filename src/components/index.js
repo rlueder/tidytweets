@@ -8,4 +8,3 @@ export { default as Header } from "./Header";
 export { default as LandingPage } from "./LandingPage";
 export { default as LogIn } from "./LogIn";
 export { default as LogOut } from "./LogOut";
-export { default as Select } from "./Select";

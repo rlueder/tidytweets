@@ -141,18 +141,24 @@
   }
 }
 .Following__title {
-  font-size: 28px;
+  &::after {
+    content: "";
+    height: 1rem;
+    position: absolute;
+    width: 1px;
+  }
 }
 .Following__intro {
-  display: inline-flex;
-  align-items: center;
+  font-size: 28px;
+  position: relative;
+  margin-left: -180px; // select's width
 }
 .Following__total {
   color: $blue-base;
   display: inline-block;
   font-size: 1.25em;
   font-weight: bolder;
-  margin-left: 0.5rem;
+  margin: 0 0.5rem;
 }
 
 .Following__wrapper {
@@ -160,6 +166,11 @@
   flex-direction: column;
   height: inherit;
   justify-content: center;
+}
+
+// react-select fix
+.css-2b097c-container {
+  position: static !important;
 }
 
 /**
