@@ -1,20 +1,20 @@
 // @flow
+
 import React, { useEffect, useState, useRef } from "react";
-// import Select from "../../Select";
+import { hot } from "react-hot-loader/root";
+
+import difference from "lodash/difference";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBroom } from "@fortawesome/free-solid-svg-icons";
-import { TIMEFRAMES } from "../../../constants";
-import difference from "lodash/difference";
-import Select from "react-select";
 
-// import { useCountUp } from "react-countup";
-import { hot } from "react-hot-loader/root";
+import { TIMEFRAMES } from "../../../constants";
+import Select from "react-select";
 
 import { Button } from "../../index";
 import { Friend } from "./index";
 
 import {
-  cycleTimeframes,
   getInactiveFriends,
   postMultiFriendshipsDestroy,
 } from "../../../utils";
@@ -46,11 +46,14 @@ const Following = (props: Props) => {
   const [inactive, setInactive] = useState(
     getInactiveFriends(friends, timeframe)
   );
+
   const [selected, setSelected] = useState([]);
 
-  const [selectTop, setSelectTop] = useState("0px");
-  const [selectLeft, setSelectLeft] = useState("0px");
+  // const [selectBottom, setSelectBottom] = useState("0");
+  const [selectLeft, setSelectLeft] = useState("0");
+
   const followingTitleRef = useRef(null);
+
   const selectStyles = {
     option: (provided, state) => {
       const background = state.isFocused ? "hsl(198, 76%, 57%)" : "#fff";
@@ -63,28 +66,25 @@ const Following = (props: Props) => {
         background,
       };
     },
+
     control: (provided, state) => ({
       ...provided,
-      position: "absolute",
-      border: "none",
-      top: selectTop,
+      bottom: "-0.25rem", // to make sure text inside Select aligns w/ paragraph preceding it
       left: selectLeft,
-      borderBottom: "2px solid hsl(198, 76%, 57%)",
-      borderRadius: "0",
-      background: "transparent",
-      marginLeft: "0.5rem",
-      width: "180px",
+      position: "absolute",
     }),
+
+    menu: () => ({
+      left: selectLeft,
+      position: "absolute",
+    }),
+
     singleValue: (provided, state) => {
       const opacity = state.isDisabled ? 0.5 : 1;
-      const transition = "opacity 300ms";
-
       return {
-        ...provided,
-        opacity,
-        transition,
-        fontSize: "28px",
         color: "hsl(198, 76%, 57%)",
+        fontSize: "1.75rem",
+        opacity,
       };
     },
   };
@@ -95,19 +95,21 @@ const Following = (props: Props) => {
   }, [friends, timeframe]);
 
   useEffect(() => {
-    const setTopLeft = () => {
+    const setSelectPosition = () => {
       const after = window.getComputedStyle(
         followingTitleRef.current,
         ":after"
       );
-      setSelectLeft(`${after.left.toString()}`);
-      setSelectTop(`${after.top.toString()}`);
+      // setSelectBottom(`${after.bottom}`);
+      setSelectLeft(`${after.left}`);
     };
-    setTopLeft();
-    window.addEventListener("resize", setTopLeft);
-    return () => {
-      window.removeEventListener("resize", setTopLeft, true);
-    };
+
+    setSelectPosition();
+
+    const { addEventListener, removeEventListener } = window;
+    addEventListener("resize", setSelectPosition);
+
+    return () => removeEventListener("resize", setSelectPosition, true);
   }, []);
 
   const getConfirmMessage = (TOTAL) =>
@@ -122,14 +124,16 @@ const Following = (props: Props) => {
             <span className="Following__total">{inactive.length}</span> accounts
             that have not been active in the last
           </p>
+
           <Select
+            classNamePrefix="Select"
             defaultValue={TIMEFRAMES[0]}
+            // id="timeFrameSelect"
             isSearchable={false}
-            styles={selectStyles}
-            id="timeFrameSelect"
-            label="Set timeframe"
-            options={TIMEFRAMES}
+            // label="Set timeframe"
             onChange={({ value }) => setTimeframe(value)}
+            options={TIMEFRAMES}
+            styles={selectStyles}
           />
         </div>
         {inactive.length ? (

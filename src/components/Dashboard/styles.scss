@@ -55,13 +55,13 @@
 
 .Following__icon--broom {
   @extend %flex-center;
+
+  animation: broom 3s ease-in-out infinite alternate;
   border: 1px solid #fff;
   border-radius: 50%;
   height: 5rem;
   margin-bottom: 1rem;
   width: 5rem;
-
-  animation: broom 3s ease-in-out infinite alternate;
 
   svg {
     transform: rotate(-45deg);
@@ -69,10 +69,9 @@
 }
 
 .Following__header {
+  align-items: center;
   border-bottom: 1px solid rgba(#fff, 0.25);
   box-shadow: 0 0.5rem 0 0 rgba(#000, 0.15);
-
-  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,6 +91,14 @@
 
   svg {
     margin-left: 0.5rem;
+  }
+}
+
+.Following__intro {
+  position: relative;
+
+  > div {
+    position: initial !important; // force reset of React Select div
   }
 }
 
@@ -140,19 +147,19 @@
     cursor: pointer;
   }
 }
+
 .Following__title {
+  height: inherit;
+  line-height: inherit;
+
+  // used as a reference to position the Select component
   &::after {
     content: "";
-    height: 1rem;
+    height: 2.5rem;
     position: absolute;
-    width: 1px;
   }
 }
-.Following__intro {
-  font-size: 28px;
-  position: relative;
-  margin-left: -180px; // select's width
-}
+
 .Following__total {
   color: $blue-base;
   display: inline-block;
@@ -166,11 +173,6 @@
   flex-direction: column;
   height: inherit;
   justify-content: center;
-}
-
-// react-select fix
-.css-2b097c-container {
-  position: static !important;
 }
 
 /**
@@ -214,17 +216,16 @@
   }
 
   .Button {
+    -webkit-appearance: none;
     border: none;
     color: #fff;
     height: 2rem;
     position: absolute;
-    top: 0.5rem;
     right: 0.5rem;
+    top: 0.5rem;
     width: 5rem;
-    -webkit-appearance: none;
 
     &:hover {
-      backtround-color: #000;
       cursor: pointer;
     }
   }
@@ -245,4 +246,74 @@
 
 .Friend__id {
   margin-bottom: 0.5rem;
+}
+
+/**
+ * React Select
+ */
+
+// shared between Select__control and Select__menu
+$select_height: 2.5rem;
+$select_width: 11rem;
+
+.Select__control {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid $blue-base !important;
+  border-radius: 0 !important;
+  cursor: pointer !important;
+  height: select_height !important;
+  line-height: 100%;
+  margin-left: 1rem;
+  width: $select_width !important;
+}
+
+.Select__dropdown-indicator {
+  color: $blue-base !important;
+}
+
+.Select__value-container {
+  height: 2.5rem !important;
+  padding: 0 !important;
+  width: inherit;
+
+  // needed to stop input interfering with positioning of Select__menu
+  > input {
+    left: 0;
+    pointer-events: none !important;
+    position: absolute !important;
+    top: 0;
+  }
+}
+
+.Select__single-value {
+  @extend %flex-center;
+  height: inherit !important;
+  margin: 0 !important;
+  width: inherit !important;
+}
+
+.Select__indicator-separator {
+  background-color: $blue-base !important;
+}
+
+.Select__menu {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  margin-left: 1rem !important;
+  top: calc(
+    #{$select_height} * 2 + 3px
+  ); // to compensate for Select__control border-bottom
+  width: calc(#{$select_width} + 1px) !important;
+  z-index: 100 !important;
+}
+
+.Select__menu-list {
+  padding: 0 !important;
+}
+
+.Select__option {
+  text-transform: capitalize;
 }
