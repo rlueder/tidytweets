@@ -49,10 +49,11 @@ const Following = (props: Props) => {
 
   const [selected, setSelected] = useState([]);
 
-  // const [selectBottom, setSelectBottom] = useState("0");
+  const [menuTop, setMenuTop] = useState("0");
   const [selectLeft, setSelectLeft] = useState("0");
 
-  const followingTitleRef = useRef(null);
+  const followingIntro = useRef(null);
+  const followingTitle = useRef(null);
 
   const selectStyles = {
     option: (provided, state) => {
@@ -77,6 +78,7 @@ const Following = (props: Props) => {
     menu: () => ({
       left: selectLeft,
       position: "absolute",
+      top: `calc(${menuTop} + 5px)`, // must take Following__title as reference
     }),
 
     singleValue: (provided, state) => {
@@ -96,11 +98,10 @@ const Following = (props: Props) => {
 
   useEffect(() => {
     const setSelectPosition = () => {
-      const after = window.getComputedStyle(
-        followingTitleRef.current,
-        ":after"
-      );
-      // setSelectBottom(`${after.bottom}`);
+      const after = window.getComputedStyle(followingTitle.current, ":after");
+      const intro = window.getComputedStyle(followingIntro.current);
+
+      setMenuTop(`${intro.height}`);
       setSelectLeft(`${after.left}`);
     };
 
@@ -118,8 +119,8 @@ const Following = (props: Props) => {
   return (
     <div className="Following">
       <div className="Following__header">
-        <div className="Following__intro">
-          <p className="Following__title" ref={followingTitleRef}>
+        <div className="Following__intro" ref={followingIntro}>
+          <p className="Following__title" ref={followingTitle}>
             You're following
             <span className="Following__total">{inactive.length}</span> accounts
             that have not been active in the last

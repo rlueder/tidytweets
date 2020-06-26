@@ -302,9 +302,6 @@ $select_width: 11rem;
   box-shadow: none !important;
   margin: 0 !important;
   margin-left: 1rem !important;
-  top: calc(
-    #{$select_height} * 2 + 3px
-  ); // to compensate for Select__control border-bottom
   width: calc(#{$select_width} + 1px) !important;
   z-index: 100 !important;
 }
