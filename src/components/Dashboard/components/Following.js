@@ -110,7 +110,7 @@ const Following = (props: Props) => {
     addEventListener("resize", setSelectPosition);
 
     return () => removeEventListener("resize", setSelectPosition, true);
-  }, []);
+  }, [timeframe]);
 
   const getConfirmMessage = (TOTAL) =>
     `Are you sure you want to unfollow ${TOTAL} accounts?`;
