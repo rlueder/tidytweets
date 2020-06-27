@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Fragment, useEffect ,useState} from "react";
+import React, { Fragment, useEffect } from "react";
 import { hot } from "react-hot-loader/root";
 
 import { useNavigate } from "@reach/router";
@@ -11,11 +11,7 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Button, Footer, LogIn, LogOut } from "components";
 import { getRequestToken } from "utils";
 
-import { IntlProvider, FormattedMessage } from "react-intl";
-
-import {en} from "./../../i18n";
-
-
+import { FormattedMessage } from "react-intl";
 
 
 import "./styles.scss";
@@ -36,9 +32,6 @@ type Props = {
 
 const LandingPage = (props: Props): React.Node => {
   const { token, username } = props;
-  const [locale] = useState("en");
-
-  const messages = { en };
 
   useEffect(() => {
     if (!username) {
@@ -49,8 +42,6 @@ const LandingPage = (props: Props): React.Node => {
   const navigate = useNavigate();
 
   return (
-    <IntlProvider locale={locale} messages={messages[locale]}>
-
     <div className="LandingPage">
       {username ? (
         <Fragment>
@@ -109,8 +100,6 @@ const LandingPage = (props: Props): React.Node => {
       )}
       <Footer />
     </div>
-    </IntlProvider>
-
   );
 };
 

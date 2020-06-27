@@ -5,6 +5,9 @@ import { useNavigate } from "@reach/router";
 
 import { Button } from "components";
 
+import { FormattedMessage } from "react-intl";
+
+
 type Props = {
   token: string,
 };
@@ -21,7 +24,7 @@ const LogIn = (props: Props): React.Node => {
   const navigate = useNavigate();
   return (
     <Button
-      label="Sign In with Twitter"
+      label={<FormattedMessage id="header.signIn"/>}
       onClick={() =>
         navigate(
           `https://api.twitter.com/oauth/authorize?oauth_token=${token}`,

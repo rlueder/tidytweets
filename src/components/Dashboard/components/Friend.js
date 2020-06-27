@@ -8,6 +8,9 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "components";
 import { postFriendshipsDestroy } from "utils";
 
+import { FormattedMessage } from "react-intl";
+
+
 type Props = {
   access: Object,
   data: Object,
@@ -55,7 +58,7 @@ const Friend = (props: Props) => {
         </div>
       </div>
       <Button
-        label="Unfollow"
+        label={<FormattedMessage id="dashboard.following.unfollowButton"/>}
         onClick={(e) => {
           e.stopPropagation();
           postFriendshipsDestroy(access, data.id_str);

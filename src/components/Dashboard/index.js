@@ -10,6 +10,8 @@ import { faSync } from "@fortawesome/free-solid-svg-icons";
 import { Following, Header } from "components";
 import { getAccessToken, getFriendsInfo, getTokenAndVerifier } from "utils";
 
+import { FormattedMessage } from "react-intl";
+
 import "./styles.scss";
 
 type Props = {
@@ -56,11 +58,8 @@ const Dashboard = (props: Props): React.Node => {
                 <FontAwesomeIcon icon={faSync} size="2x" />
               </div>
               <div className="Following__text">
-                <p>Analyzing your Twitter Following list...</p>
-                <p>
-                  (this might take a while depending on how many accounts you
-                  follow)
-                </p>
+                <p><FormattedMessage id="dashboard.followingText" /></p>
+                <p><FormattedMessage id="dashboard.followingText2" /></p>
               </div>
             </div>
           </div>

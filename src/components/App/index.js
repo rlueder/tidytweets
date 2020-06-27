@@ -1,9 +1,11 @@
 // @flow
 
-import React from "react";
+import React,{ useState } from "react";
 import { Router } from "@reach/router";
 
 import { LandingPage, Dashboard } from "components";
+import { IntlProvider } from "react-intl";
+import {en} from "./../../i18n";
 
 import {
   selectAccess,
@@ -22,9 +24,14 @@ import "./styles.scss";
  */
 
 const App = (): React.Node => {
+  
+  const [locale] = useState("en");
+  const messages = { en };
+  
   return (
     <Provider>
-      <Consumer
+      <IntlProvider locale={locale} messages={messages[locale]}>
+       <Consumer
         select={[selectAccess, selectFriends, selectRequest, selectUser]}
       >
         {(access, friends, request, user) => {
@@ -50,6 +57,7 @@ const App = (): React.Node => {
           );
         }}
       </Consumer>
+      </IntlProvider>
     </Provider>
   );
 };

@@ -18,6 +18,8 @@ import {
   postMultiFriendshipsDestroy,
 } from "utils";
 
+import { FormattedMessage } from "react-intl";
+
 type Props = {
   access: Object,
   friends: Array<number>,
@@ -62,9 +64,9 @@ const Following = (props: Props) => {
       <div className="Following__header">
         <div className="Following__intro">
           <p>
-            You're following
-            <span className="Following__total">{inactive.length}</span> accounts
-            that have not been active in the last
+          <FormattedMessage id="dashboard.following.followingIntro1"/>
+            <span className="Following__total">{inactive.length}</span> 
+            <FormattedMessage id="dashboard.following.followingIntro2"/>
             <span
               className="Following__timeframe"
               onClick={() => {
@@ -79,18 +81,18 @@ const Following = (props: Props) => {
         </div>
         {inactive.length ? (
           <div className="Following__actions">
-            <p>What would you want to do next?</p>
+            <FormattedMessage id="dashboard.following.followingActionText"/>
             <div className="Following__buttons">
               <Button
                 disabled={selected.length ? false : true}
-                label="Unfollow Selected"
+                label={<FormattedMessage id="dashboard.following.unfollowSelectedButton"/>}
                 onClick={() => {
                   postMultiFriendshipsDestroy(access, selected);
                   setSelected([]); // clear selections
                 }}
               />
               <Button
-                label="Unfollow All"
+                label={<FormattedMessage id="dashboard.following.unfollowAllButton"/>}
                 onClick={() => {
                   if (window.confirm(getConfirmMessage(inactive.length))) {
                     postMultiFriendshipsDestroy(
@@ -148,8 +150,8 @@ const Following = (props: Props) => {
             <div className="Following__icon--broom">
               <FontAwesomeIcon icon={faBroom} size="2x" />
             </div>
-            <p>Looks tidy already!</p>
-            <p>Try a different time frame above.</p>
+            <p><FormattedMessage id="dashboard.following.followingListEmptyMessage1"/></p>
+            <p><FormattedMessage id="dashboard.following.followingListEmptyMessage2"/></p>
           </div>
         )}
       </div>

@@ -7,6 +7,8 @@ import localforage from "localforage";
 import { Button } from "components";
 import { mutate } from "store";
 
+import { FormattedMessage } from "react-intl";
+
 /**
  * @function LogOut
  * @returns React.Node
@@ -17,7 +19,7 @@ const LogOut = (): React.Node => {
   const navigate = useNavigate();
   return (
     <Button
-      label="Log Out"
+      label={ <FormattedMessage id="global.logOut"/> }
       type="secondary"
       onClick={() => {
         localforage.clear().then(() => {

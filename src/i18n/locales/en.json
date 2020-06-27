@@ -1,9 +1,24 @@
 {
+    "global.appName":"TidyTweets",
+    "global.logOut":"Log Out",
+    "header.signIn":"Sign In with Twitter",
     "landingPage.welcomeMessage":"Welcome back",
     "landingPage.buttonContinue":"Continue to App",
     "landingPage.appName":"TidyTweets",
     "landingPage.subTitle":"Tidy up your {Following} list on Twitter.",
     "landingPage.Following":"Following",
     "landingPage.description":"{title} analyses your Following list on Twitter telling you which accounts haven't been active in a specific time   frame (one week, two weeks, one month, three months, six months  and a year). You can then unfollow individual accounts, selected accounts or all at once.",
-    "landingPage.finalDescription":"Happy (tidy) tweeting!"
+    "landingPage.finalDescription":"Happy (tidy) tweeting!",
+    "footer.footerText":"TidyTweets is free and open-source software, if you find it useful perhaps consider",
+    "footer.buyCoffee":"buying me a coffee?",
+    "dashboard.followingText":"Analyzing your Twitter Following list...",
+    "dashboard.followingText2":"(this might take a while depending on how many accounts you follow)",
+    "dashboard.following.followingIntro1":"You're following",
+    "dashboard.following.followingIntro2":" accounts that have not been active in the last",
+    "dashboard.following.followingActionText":"What would you want to do next?",
+    "dashboard.following.unfollowButton":"Unfollow",
+    "dashboard.following.unfollowSelectedButton":"Unfollow Selected",
+    "dashboard.following.unfollowAllButton":"Unfollow All",  
+    "dashboard.following.followingListEmptyMessage1":"Looks tidy already!",
+    "dashboard.following.followingListEmptyMessage2":"Try a different time frame above."
 }
