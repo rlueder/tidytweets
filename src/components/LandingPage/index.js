@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect ,useState} from "react";
 import { hot } from "react-hot-loader/root";
 
 import { useNavigate } from "@reach/router";
@@ -10,6 +10,13 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import { Button, Footer, LogIn, LogOut } from "components";
 import { getRequestToken } from "utils";
+
+import { IntlProvider, FormattedMessage } from "react-intl";
+
+import {en} from "./../../i18n";
+
+
+
 
 import "./styles.scss";
 
@@ -29,6 +36,9 @@ type Props = {
 
 const LandingPage = (props: Props): React.Node => {
   const { token, username } = props;
+  const [locale] = useState("en");
+
+  const messages = { en };
 
   useEffect(() => {
     if (!username) {
@@ -39,20 +49,24 @@ const LandingPage = (props: Props): React.Node => {
   const navigate = useNavigate();
 
   return (
+    <IntlProvider locale={locale} messages={messages[locale]}>
+
     <div className="LandingPage">
       {username ? (
         <Fragment>
           <div />
           <div className="LandingPage__intro">
             <div className="LandingPage__logo">
-              <h1>TidyTweets</h1>
+              <h1>
+              <FormattedMessage id="landingPage.appName"/>
+              </h1>
             </div>
             <h2>
-              Welcome back, <span>{username}</span>!
+            <FormattedMessage id="landingPage.welcomeMessage"/>, <span>{username}</span>!
             </h2>
             <div className="LandingPage__actions">
               <Button
-                label="Continue to App"
+                label={ <FormattedMessage id="landingPage.buttonContinue"/>}
                 onClick={() => navigate("/dashboard")}
               />
               <LogOut />
@@ -63,23 +77,30 @@ const LandingPage = (props: Props): React.Node => {
         <Fragment>
           <div className="LandingPage__intro">
             <div className="LandingPage__logo">
-              <h1>TidyTweets</h1>
+              <h1>
+              <FormattedMessage id="landingPage.appName"/>
+              </h1>
             </div>
             <p>
-              Tidy up your <span>Following</span> list on Twitter.
+              <FormattedMessage 
+              id="landingPage.subTitle"
+              values={{Following: (
+                <span><FormattedMessage id="landingPage.Following"/></span> 
+            )}}
+              />
             </p>
             <LogIn token={token} />
           </div>
           <div className="LandingPage__about">
             <p>
-              <span>TidyTweets</span> analyses your Following list on Twitter
-              telling you which accounts haven't been active in a specific time
-              frame (one week, two weeks, one month, three months, six months
-              and a year). You can then unfollow individual accounts, selected
-              accounts or all at once.
+            <FormattedMessage id="landingPage.description"
+              values={{title: (
+                <span><FormattedMessage id="landingPage.appName"/></span> 
+            )}}
+            />
             </p>
             <p>
-              Happy (tidy) tweeting!
+            <FormattedMessage id="landingPage.finalDescription"/>
               <FontAwesomeIcon icon={faBroom} />
               <FontAwesomeIcon icon={faTwitter} />
             </p>
@@ -88,6 +109,8 @@ const LandingPage = (props: Props): React.Node => {
       )}
       <Footer />
     </div>
+    </IntlProvider>
+
   );
 };
 
