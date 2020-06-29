@@ -6,10 +6,6 @@ import { useNavigate } from "@reach/router";
 import { hot } from "react-hot-loader/root";
 import { FormattedMessage } from "react-intl";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBroom } from "@fortawesome/free-solid-svg-icons";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-
 import { Button, Footer, LogIn, LogOut } from "components";
 import { getRequestToken } from "utils";
 

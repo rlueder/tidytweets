@@ -1,10 +1,5 @@
 // @flow
 
-import { getTemplate } from "./index";
-
-let template = getTemplate();
-console.log(template.Following);
-
 const en = {
   // Following
 
