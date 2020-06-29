@@ -1,10 +1,3 @@
-![Npm Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs/tree/teesloane-patch-5.svg?style=shield&display=inline-block)](https://circleci.com/gh/circleci/circleci-docs/tree/teesloane-patch-5)
-
-https://circleci.com/gh/circleci/circleci-docs/tree/teesloane-patch-5
-https://circleci.com/gh/rlueder/tidytweets/tree/main
-
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg?display=inline-block)](https://github.com/rlueder/tidytweets/blob/main/LICENSE)
 
 # Tidy Tweets
