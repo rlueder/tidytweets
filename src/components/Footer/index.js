@@ -2,6 +2,8 @@
 
 import * as React from "react";
 
+import { FormattedMessage } from "react-intl";
+
 import "./styles.scss";
 
 /**
@@ -14,9 +16,10 @@ const Footer = (): React.Node => {
   return (
     <footer className="Footer">
       <p>
-        TidyTweets is free and open-source software, if you find it useful
-        perhaps consider
-        <a href="https://buymeacoffee.com/rlueder">buying me a coffee?</a>
+        <FormattedMessage id="Footer.paragraph" />
+        <a href="https://buymeacoffee.com/rlueder">
+          <FormattedMessage id="Footer.link" />
+        </a>
       </p>
       <a href="https://www.netlify.com">
         <img
