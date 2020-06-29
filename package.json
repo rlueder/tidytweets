@@ -26,7 +26,6 @@
     "develop": "cross-env CALLBACK_URL=http://localhost:8888/dashboard netlify dev",
     "flow": "flow",
     "flow-coverage": "flow-coverage-report -i 'src/**/*.js' -t text --threshold 85 --exclude-non-flow",
-    "precommit": "lint-staged",
     "prestart": "cp -f ./cert/localhost.pem ./node_modules/webpack-dev-server/ssl || :",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -79,9 +78,8 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --write",
-      "git add"
+    "src/**/*.{js,jsx,json,css,scss,md}": [
+      "prettier --write"
     ]
   },
   "eslintConfig": {

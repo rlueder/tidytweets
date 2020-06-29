@@ -1,13 +1,14 @@
 // @flow
 
 import * as React from "react";
+
 import { useNavigate } from "@reach/router";
+import { FormattedMessage } from "react-intl";
+
 import localforage from "localforage";
 
 import { Button } from "components";
 import { mutate } from "store";
-
-import { FormattedMessage } from "react-intl";
 
 /**
  * @function LogOut
@@ -19,7 +20,7 @@ const LogOut = (): React.Node => {
   const navigate = useNavigate();
   return (
     <Button
-      label={ <FormattedMessage id="global.logOut"/> }
+      label={<FormattedMessage id="LogOut.label" />}
       type="secondary"
       onClick={() => {
         localforage.clear().then(() => {

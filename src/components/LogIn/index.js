@@ -1,12 +1,11 @@
 // @flow
 
 import * as React from "react";
+
 import { useNavigate } from "@reach/router";
-
-import { Button } from "components";
-
 import { FormattedMessage } from "react-intl";
 
+import { Button } from "components";
 
 type Props = {
   token: string,
@@ -24,7 +23,7 @@ const LogIn = (props: Props): React.Node => {
   const navigate = useNavigate();
   return (
     <Button
-      label={<FormattedMessage id="header.signIn"/>}
+      label={<FormattedMessage id="LogIn.label" />}
       onClick={() =>
         navigate(
           `https://api.twitter.com/oauth/authorize?oauth_token=${token}`,

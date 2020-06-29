@@ -2,10 +2,9 @@
 
 import * as React from "react";
 
-import "./styles.scss";
-
 import { FormattedMessage } from "react-intl";
 
+import "./styles.scss";
 
 /**
  * @function Footer
@@ -17,8 +16,10 @@ const Footer = (): React.Node => {
   return (
     <footer className="Footer">
       <p>
-      <FormattedMessage id="footer.footerText"/>
-        <a href="https://buymeacoffee.com/rlueder"><FormattedMessage id="footer.buyCoffe"/></a>
+        <FormattedMessage id="Footer.paragraph" />
+        <a href="https://buymeacoffee.com/rlueder">
+          <FormattedMessage id="Footer.link" />
+        </a>
       </p>
       <a href="https://www.netlify.com">
         <img

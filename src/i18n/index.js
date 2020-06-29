@@ -1,5 +1,12 @@
 // @flow
 
-export { default as en } from "./locales/en.json";
+import { en, es, pl, pt } from "./translations";
 
+const translations = {
+  en: en,
+  es: es,
+  pl: pl,
+  pt: pt,
+};
 
+export default translations;

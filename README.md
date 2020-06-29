@@ -181,6 +181,8 @@ You can read more about Netlify site deploys and SemVer here:
 
 - [react-copy-write](https://github.com/aweary/react-copy-write) - immutable state with a mutable API.
 
+- [react-intl](https://formatjs.io/docs/react-intl) - internationalize your web apps on the client & server.
+
 - [twitter-lite](https://github.com/draftbit/twitter-lite) - a tiny, full-featured, flexible client / server library for the Twitter API.
 
 ## 6. Credits and Community
@@ -189,6 +191,7 @@ This project exists thanks to all the <a href="https://github.com/rlueder/tidytw
 
 - [Rafael Lüder](https://github.com/rlueder)
 - [Dominic Ilnicki](https://github.com/Ilnicki010)
+- [Juan Colombo](https://github.com/juan-colombo95)
 
 You can reach out to us directly by joining [TidyTweets on Slack.](https://join.slack.com/t/tidytweets/shared_invite/zt-fa0kmbu9-bPWUvBCnvDjgVWgxyJz7~w)
 

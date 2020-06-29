@@ -2,14 +2,13 @@
 
 import * as React from "react";
 
+import { FormattedMessage } from "react-intl";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 import { Button } from "components";
 import { postFriendshipsDestroy } from "utils";
-
-import { FormattedMessage } from "react-intl";
-
 
 type Props = {
   access: Object,
@@ -58,7 +57,7 @@ const Friend = (props: Props) => {
         </div>
       </div>
       <Button
-        label={<FormattedMessage id="dashboard.following.unfollowButton"/>}
+        label={<FormattedMessage id="Friend.unfollow" />}
         onClick={(e) => {
           e.stopPropagation();
           postFriendshipsDestroy(access, data.id_str);

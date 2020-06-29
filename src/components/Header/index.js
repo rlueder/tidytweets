@@ -1,12 +1,11 @@
 // @flow
 
 import * as React from "react";
-import { hot } from "react-hot-loader/root";
+
 import { Link } from "@reach/router";
+import { hot } from "react-hot-loader/root";
 
 import { LogOut } from "components";
-
-import { FormattedMessage } from "react-intl";
 
 import "./styles.scss";
 
@@ -20,7 +19,7 @@ const Header = (): React.Node => {
   return (
     <header className="Header">
       <Link to="/">
-        <h1><FormattedMessage id="global.appName"/></h1>
+        <h1>TidyTweets</h1>
       </Link>
       <LogOut />
     </header>

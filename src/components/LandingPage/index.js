@@ -1,18 +1,17 @@
 // @flow
 
 import React, { Fragment, useEffect } from "react";
-import { hot } from "react-hot-loader/root";
 
 import { useNavigate } from "@reach/router";
+import { hot } from "react-hot-loader/root";
+import { FormattedMessage } from "react-intl";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBroom } from "@fortawesome/free-solid-svg-icons";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import { Button, Footer, LogIn, LogOut } from "components";
 import { getRequestToken } from "utils";
-
-import { FormattedMessage } from "react-intl";
-
 
 import "./styles.scss";
 
@@ -48,16 +47,15 @@ const LandingPage = (props: Props): React.Node => {
           <div />
           <div className="LandingPage__intro">
             <div className="LandingPage__logo">
-              <h1>
-              <FormattedMessage id="landingPage.appName"/>
-              </h1>
+              <h1>TidyTweets</h1>
             </div>
             <h2>
-            <FormattedMessage id="landingPage.welcomeMessage"/>, <span>{username}</span>!
+              <FormattedMessage id="LandingPage.intro--welcome" />
+              <span>{username}</span>!
             </h2>
             <div className="LandingPage__actions">
               <Button
-                label={ <FormattedMessage id="landingPage.buttonContinue"/>}
+                label={<FormattedMessage id="LandingPage.label" />}
                 onClick={() => navigate("/dashboard")}
               />
               <LogOut />
@@ -68,32 +66,25 @@ const LandingPage = (props: Props): React.Node => {
         <Fragment>
           <div className="LandingPage__intro">
             <div className="LandingPage__logo">
-              <h1>
-              <FormattedMessage id="landingPage.appName"/>
-              </h1>
+              <h1>TidyTweets</h1>
             </div>
             <p>
-              <FormattedMessage 
-              id="landingPage.subTitle"
-              values={{Following: (
-                <span><FormattedMessage id="landingPage.Following"/></span> 
-            )}}
+              <FormattedMessage
+                id="LandingPage.intro"
+                values={{
+                  italics: (
+                    <span>
+                      <FormattedMessage id="LandingPage.intro--italics" />
+                    </span>
+                  ),
+                }}
               />
             </p>
             <LogIn token={token} />
           </div>
           <div className="LandingPage__about">
             <p>
-            <FormattedMessage id="landingPage.description"
-              values={{title: (
-                <span><FormattedMessage id="landingPage.appName"/></span> 
-            )}}
-            />
-            </p>
-            <p>
-            <FormattedMessage id="landingPage.finalDescription"/>
-              <FontAwesomeIcon icon={faBroom} />
-              <FontAwesomeIcon icon={faTwitter} />
+              <FormattedMessage id="LandingPage.about" />
             </p>
           </div>
         </Fragment>
