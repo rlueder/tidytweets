@@ -29,7 +29,7 @@ const pt = {
   // LandingPage
 
   "LandingPage.about":
-    "TidyTweets analisa a lista de perfis que você segue no Twitter mostrando quais não tiveram atividade em um período específico (uma semana, duas semenas, um mês, três meses, seis meses ou um ano). Você pode então deixar de seguir perfis individuais, perfis selecionados ou todos ao mesmo tempo.",
+    "TidyTweets analisa a lista de perfis que você segue no Twitter mostrando quais não tiveram atividade em um período específico (uma semana, duas semanas, um mês, três meses, seis meses ou um ano). Você pode então deixar de seguir perfis individuais, perfis selecionados ou todos ao mesmo tempo.",
 
   "LandingPage.intro": "Organize a lista de perfis que você segue no Twitter.",
   "LandingPage.intro--italics": "Following",
