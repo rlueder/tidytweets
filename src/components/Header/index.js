@@ -1,8 +1,9 @@
 // @flow
 
 import * as React from "react";
-import { hot } from "react-hot-loader/root";
+
 import { Link } from "@reach/router";
+import { hot } from "react-hot-loader/root";
 
 import { LogOut } from "components";
 
