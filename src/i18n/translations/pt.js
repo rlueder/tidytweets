@@ -33,7 +33,7 @@ const pt = {
 
   "LandingPage.intro": "Organize a lista de perfis que você segue no Twitter.",
   "LandingPage.intro--italics": "Following",
-  "LandingPage.intro--welcome": "Bem-vindo de volta",
+  "LandingPage.intro--welcome": "Bem-vindo de volta ",
 
   "LandingPage.label": "Continue para Aplicativo",
 
