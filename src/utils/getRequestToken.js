@@ -14,8 +14,8 @@ import { mutate } from "store";
 const getRequestToken = async () => {
   fetch("/.netlify/functions/twitter-client?endpoint=request_token")
     .then((response) => response.json())
-    .then((data) => {
-      mutate((draft) => {
+    .then((data: string) => {
+      mutate((draft: { request: string }) => {
         draft.request = data;
       });
       return data;

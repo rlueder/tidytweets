@@ -14,7 +14,10 @@ import "./styles.scss";
 
 type Props = {
   access: Object,
-  friends: Object,
+  friends: {
+    data: Array<Object>,
+    ids: Array<number>,
+  },
   username: string,
 };
 
@@ -54,9 +57,9 @@ const Dashboard = (props: Props): React.Node => {
         // ids that are from suspended accounts and don't return any information
         const SUSPENDED = difference(
           friends.ids,
-          friends.data.map((item) => item.id)
+          friends.data.map((item: { id: number }) => item.id)
         );
-        // console.log(SUSPENDED);
+        console.log(SUSPENDED);
         return (
           <Following
             access={access}

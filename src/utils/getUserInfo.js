@@ -17,8 +17,8 @@ const getUserInfo = async (SCREEN_NAME: string) => {
     `/.netlify/functions/twitter-client?endpoint=users_show&screen_name=${SCREEN_NAME}`
   )
     .then((response) => response.json())
-    .then((data) => {
-      mutate((draft) => {
+    .then((data: {}) => {
+      mutate((draft: { user: {} }) => {
         draft.user = data;
       });
       return data;

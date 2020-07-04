@@ -11,8 +11,18 @@ import { isBefore, subMonths, subWeeks } from "date-fns";
  * @exports getInactiveFriends
  */
 
-const getInactiveFriends = (FRIENDS: Array<string>, INTERVAL: string) => {
-  let timestamp;
+const getInactiveFriends = (
+  FRIENDS: [
+    {
+      id: number,
+      status: {
+        created_at: string,
+      },
+    }
+  ],
+  INTERVAL: string
+) => {
+  let timestamp: Date = new Date();
   switch (INTERVAL) {
     case "week":
       timestamp = subWeeks(new Date(), 1);

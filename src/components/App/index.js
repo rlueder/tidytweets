@@ -1,6 +1,7 @@
 // @flow
 
-import React, { useState } from "react";
+import * as React from "react";
+import { useState } from "react";
 import { Router } from "@reach/router";
 import { IntlProvider } from "react-intl";
 
@@ -34,10 +35,21 @@ const App = (): React.Node => {
   return (
     <Provider>
       <IntlProvider locale={locale} messages={translations[LANGUAGE]}>
-        <Consumer
-          select={[selectAccess, selectFriends, selectRequest, selectUser]}
-        >
-          {(access, friends, request, user) => {
+        <Consumer select={[selectAccess, selectFriends, selectRequest]}>
+          {(
+            access: {
+              oauth_token: string,
+              oauth_token_secret: string,
+              screen_name: string,
+            },
+            friends: {
+              data: Array<Object>,
+              ids: Array<number>,
+            },
+            request: {
+              oauth_token: string,
+            }
+          ) => {
             return (
               <div className="App">
                 <Router>

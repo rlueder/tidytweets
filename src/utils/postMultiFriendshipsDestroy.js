@@ -12,7 +12,10 @@ import { mutate } from "store";
  */
 
 const friendshipsDestroy = async (
-  ACCESS_TOKEN: Object,
+  ACCESS_TOKEN: {
+    key: string,
+    secret: string,
+  },
   USER_ID: number
 ): Object => {
   const response = await fetch(
@@ -29,7 +32,10 @@ const friendshipsDestroy = async (
 };
 
 const postMultiFriendshipsDestroy = async (
-  ACCESS_TOKEN: Object,
+  ACCESS_TOKEN: {
+    key: string,
+    secret: string,
+  },
   USER_IDS: Array<number>
 ) => {
   let promises = [];
@@ -39,19 +45,32 @@ const postMultiFriendshipsDestroy = async (
   try {
     const response = await Promise.all(promises);
     if (response.length) {
-      for (const ITEM of response) {
-        mutate((draft) => {
-          draft.friends.data = draft.friends.data.filter(
-            (item) => item.id !== ITEM.id
-          );
-        });
+      for (const ITEM: { id: number } of response) {
+        mutate(
+          (draft: {
+            friends: {
+              data: Array<Object>,
+            },
+          }) => {
+            draft.friends.data = draft.friends.data.filter(
+              (item: { id: number }) => item.id !== ITEM.id
+            );
+          }
+        );
       }
     }
   } catch (error) {
-    mutate((draft) => {
-      draft.friends.error = error;
-      draft.friends.hasError = true;
-    });
+    mutate(
+      (draft: {
+        friends: {
+          error: string,
+          hasError: boolean,
+        },
+      }) => {
+        draft.friends.error = error;
+        draft.friends.hasError = true;
+      }
+    );
   }
 };
 

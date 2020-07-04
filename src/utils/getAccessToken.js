@@ -16,19 +16,19 @@ import { getUserInfo, getFriendsIds } from "utils";
  * @exports getAccessToken
  */
 
-const getAccessToken = async (TOKEN, VERIFIER) => {
+const getAccessToken = async (TOKEN: string, VERIFIER: string) => {
   fetch(
     `/.netlify/functions/twitter-client?endpoint=access_token&token=${TOKEN}&verifier=${VERIFIER}`
   )
     .then((response) => response.json())
-    .then((data) => {
+    .then((data: { access: Object }) => {
       localforage.setItem("access", data);
-      mutate((draft) => {
+      mutate((draft: { access: Object }) => {
         draft.access = data;
       });
       return data;
     })
-    .then((data) => {
+    .then((data: { screen_name: string }) => {
       getUserInfo(data.screen_name);
       getFriendsIds(data.screen_name);
     });

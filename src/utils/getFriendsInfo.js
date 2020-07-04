@@ -23,13 +23,19 @@ const getFriendsInfo = async (SCREEN_NAME: string, USER_IDS: Array<number>) => {
   try {
     const response = await Promise.all(promises);
     if (response.length) {
-      mutate((draft) => {
-        draft.friends.data = response.flat();
-      });
+      mutate(
+        (draft: {
+          friends: {
+            data: Array<Object>,
+          },
+        }) => {
+          draft.friends.data = response.flat();
+        }
+      );
     }
     return response;
   } catch (error) {
-    mutate((draft) => {
+    mutate((draft: { friends: { error: string, hasError: boolean } }) => {
       draft.friends.error = error;
       draft.friends.hasError = true;
     });
