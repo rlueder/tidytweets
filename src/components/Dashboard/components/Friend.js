@@ -11,8 +11,15 @@ import { Button } from "components";
 import { postFriendshipsDestroy } from "utils";
 
 type Props = {
-  access: Object,
-  data: Object,
+  access: {},
+  data: {
+    description: string,
+    id: number,
+    id_str: string,
+    name: string,
+    profile_image_url_https: string,
+    screen_name: string,
+  },
   selected: boolean,
   onClick: Function,
 };
@@ -58,7 +65,7 @@ const Friend = (props: Props) => {
       </div>
       <Button
         label={<FormattedMessage id="Friend.unfollow" />}
-        onClick={(e) => {
+        onClick={(e: MouseEvent) => {
           e.stopPropagation();
           postFriendshipsDestroy(access, data.id_str);
         }}

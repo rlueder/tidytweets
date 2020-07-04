@@ -19,8 +19,15 @@ import {
 } from "utils";
 
 type Props = {
-  access: Object,
-  friends: Array<number>,
+  access: {},
+  friends: [
+    {
+      id: number,
+      status: {
+        created_at: string,
+      },
+    }
+  ],
   suspended: Object,
 };
 
@@ -133,13 +140,13 @@ const Following = (props: Props) => {
       </div>
       <div className="Following__list">
         {inactive && inactive.length ? (
-          inactive.map((friend, i) => (
+          inactive.map((friend: { id: number }) => (
             <Friend
               access={access}
               data={friend}
               key={friend.id}
               selected={selected.includes(friend.id) ? true : false}
-              onClick={(id) => {
+              onClick={(id: number) => {
                 setSelected(
                   !selected.includes(id)
                     ? selected.concat(id)

@@ -7,7 +7,13 @@ import { FormattedMessage } from "react-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSync } from "@fortawesome/free-solid-svg-icons";
 
-const Loading = () => {
+/**
+ * @function Loading
+ * @returns React.Node
+ * @exports Loading
+ */
+
+const Loading = (): React.Node => {
   return (
     <div className="Loading">
       <div className="Loading__wrapper">
