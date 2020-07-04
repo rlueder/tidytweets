@@ -47,6 +47,7 @@ const Dashboard = (props: Props): React.Node => {
     if (friends.data && !friends.data.length) {
       getFriendsInfo(username, friends.ids);
     }
+    window.history.replaceState({}, document.title, location.pathname);
   }, [friends.data, friends.ids, location, username]);
 
   const renderComponent = () => {
