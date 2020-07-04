@@ -1,13 +1,13 @@
 // @flow
 
 import * as React from "react";
-import { hot } from "react-hot-loader/root";
-import { useLocation } from "@reach/router";
-import difference from "lodash/difference";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSync } from "@fortawesome/free-solid-svg-icons";
 
-import { Following, Header } from "components";
+import { useLocation } from "@reach/router";
+import { hot } from "react-hot-loader/root";
+
+import difference from "lodash/difference";
+
+import { Following, Header, Loading } from "components";
 import { getAccessToken, getFriendsInfo, getTokenAndVerifier } from "utils";
 
 import "./styles.scss";
@@ -49,22 +49,7 @@ const Dashboard = (props: Props): React.Node => {
   const renderComponent = () => {
     switch (true) {
       case friends.data && !friends.data.length:
-        return (
-          <div className="Following--loading">
-            <div className="Following__wrapper">
-              <div className="Following__icon">
-                <FontAwesomeIcon icon={faSync} size="2x" />
-              </div>
-              <div className="Following__text">
-                <p>Analyzing your Twitter Following list...</p>
-                <p>
-                  (this might take a while depending on how many accounts you
-                  follow)
-                </p>
-              </div>
-            </div>
-          </div>
-        );
+        return <Loading />;
       default:
         // ids that are from suspended accounts and don't return any information
         const SUSPENDED = difference(
