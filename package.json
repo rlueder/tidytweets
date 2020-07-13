@@ -62,7 +62,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "lodash": "^4.17.15",
-    "netlify-cli": "^2.54.0",
+    "netlify-cli": "^2.58.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
     "prettier-stylelint": "^0.4.2",
