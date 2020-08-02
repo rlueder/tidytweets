@@ -1,14 +1,15 @@
 // @flow
 
-import React, { Fragment } from "react";
+import * as React from "react";
+import { Fragment } from "react";
 
 import "./styles.scss";
 
 type Props = {
   children?: React.Node,
-  disabled: boolean,
-  label: string,
-  type: string,
+  disabled?: boolean,
+  label: string | React.Element,
+  type?: string,
   onClick: Function,
 };
 

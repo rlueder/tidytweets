@@ -1,5 +1,3 @@
-// @flow
-
 import { getTokenAndVerifier } from "utils";
 
 const TOKEN = "UsUyYAAAAAABEYulAAXXXXXXXXX";

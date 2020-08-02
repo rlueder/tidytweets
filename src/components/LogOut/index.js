@@ -24,7 +24,7 @@ const LogOut = (): React.Node => {
       type="secondary"
       onClick={() => {
         localforage.clear().then(() => {
-          mutate((draft) => {
+          mutate((draft: { access: Object }) => {
             draft.access = {};
           });
           navigate("/");

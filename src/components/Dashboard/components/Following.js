@@ -19,8 +19,15 @@ import {
 } from "utils";
 
 type Props = {
-  access: Object,
-  friends: Array<number>,
+  access: {},
+  friends: [
+    {
+      id: number,
+      status: {
+        created_at: string,
+      },
+    }
+  ],
   suspended: Object,
 };
 
@@ -38,7 +45,8 @@ const Following = (props: Props) => {
   const {
     access,
     friends,
-    // suspended
+    // suspended,
+    user,
   } = props;
 
   const [timeframe, setTimeframe] = useState("week");
@@ -133,21 +141,25 @@ const Following = (props: Props) => {
       </div>
       <div className="Following__list">
         {inactive && inactive.length ? (
-          inactive.map((friend, i) => (
-            <Friend
-              access={access}
-              data={friend}
-              key={friend.id}
-              selected={selected.includes(friend.id) ? true : false}
-              onClick={(id) => {
-                setSelected(
-                  !selected.includes(id)
-                    ? selected.concat(id)
-                    : difference(selected, [id])
-                );
-              }}
-            />
-          ))
+          inactive.map((friend: { id: number }) => {
+            if (user.id !== friend.id) {
+              return (
+                <Friend
+                  access={access}
+                  data={friend}
+                  key={friend.id}
+                  selected={selected.includes(friend.id) ? true : false}
+                  onClick={(id: number) => {
+                    setSelected(
+                      !selected.includes(id)
+                        ? selected.concat(id)
+                        : difference(selected, [id])
+                    );
+                  }}
+                />
+              );
+            }
+          })
         ) : (
           <div className="Following__list--empty">
             <div className="Following__icon--broom">

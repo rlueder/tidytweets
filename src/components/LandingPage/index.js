@@ -1,6 +1,7 @@
 // @flow
 
-import React, { Fragment, useEffect } from "react";
+import * as React from "react";
+import { Fragment, useEffect } from "react";
 
 import { useNavigate } from "@reach/router";
 import { hot } from "react-hot-loader/root";

@@ -1,6 +1,7 @@
 // @flow
 
-import React, { useState } from "react";
+import * as React from "react";
+import { useState } from "react";
 import { Router } from "@reach/router";
 import { IntlProvider } from "react-intl";
 
@@ -37,7 +38,23 @@ const App = (): React.Node => {
         <Consumer
           select={[selectAccess, selectFriends, selectRequest, selectUser]}
         >
-          {(access, friends, request, user) => {
+          {(
+            access: {
+              oauth_token: string,
+              oauth_token_secret: string,
+              screen_name: string,
+            },
+            friends: {
+              data: Array<Object>,
+              ids: Array<number>,
+            },
+            request: {
+              oauth_token: string,
+            },
+            user: {
+              data: Object,
+            }
+          ) => {
             return (
               <div className="App">
                 <Router>
@@ -53,6 +70,7 @@ const App = (): React.Node => {
                     }}
                     friends={friends}
                     path="/dashboard"
+                    user={user}
                     username={access.screen_name}
                   />
                 </Router>

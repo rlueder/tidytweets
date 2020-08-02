@@ -9,6 +9,9 @@
 [lints]
 
 [options]
-module.file_ext=.scss
+module.name_mapper='^\([^\.].*\)$' -> '<PROJECT_ROOT>/src/\1'
 
 [strict]
+
+[untyped]
+.*/node_modules/\(\@fortawesome\|react-copy-write\|react-intl\)/.*

@@ -13,22 +13,35 @@ import { mutate } from "store";
  * @exports getFriendsIds
  */
 
-const getFriendsIds = async (SCREEN_NAME: string, COUNT?: Number = 5000) => {
+const getFriendsIds = async (SCREEN_NAME: string, COUNT?: number = 5000) => {
   fetch(
     `/.netlify/functions/twitter-client?endpoint=friends_ids&screen_name=${SCREEN_NAME}&count=${COUNT}`
   )
     .then((response) => response.json())
-    .then((data) => {
-      mutate((draft) => {
-        draft.friends.ids = data.ids;
-      });
+    .then((data: { ids: Array<number> }) => {
+      mutate(
+        (draft: {
+          friends: {
+            ids: Array<number>,
+          },
+        }) => {
+          draft.friends.ids = data.ids;
+        }
+      );
       return data;
     })
-    .catch((error) => {
-      mutate((draft) => {
-        draft.friends.error = error;
-        draft.friends.hasError = true;
-      });
+    .catch((error: string) => {
+      mutate(
+        (draft: {
+          friends: {
+            error: string,
+            hasError: boolean,
+          },
+        }) => {
+          draft.friends.error = error;
+          draft.friends.hasError = true;
+        }
+      );
     });
 };
 
