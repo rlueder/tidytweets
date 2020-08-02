@@ -18,6 +18,7 @@ type Props = {
     data: Array<Object>,
     ids: Array<number>,
   },
+  user: Object,
   username: string,
 };
 
@@ -32,7 +33,7 @@ type Props = {
  */
 
 const Dashboard = (props: Props): React.Node => {
-  const { access, friends, username } = props;
+  const { access, friends, user, username } = props;
 
   const location = useLocation(); // to allow useLocation() in useEffect()
 
@@ -59,12 +60,13 @@ const Dashboard = (props: Props): React.Node => {
           friends.ids,
           friends.data.map((item: { id: number }) => item.id)
         );
-        console.log(SUSPENDED);
+        // console.log(SUSPENDED);
         return (
           <Following
             access={access}
             friends={friends.data}
             suspended={SUSPENDED}
+            user={user}
           />
         );
     }

@@ -35,7 +35,9 @@ const App = (): React.Node => {
   return (
     <Provider>
       <IntlProvider locale={locale} messages={translations[LANGUAGE]}>
-        <Consumer select={[selectAccess, selectFriends, selectRequest]}>
+        <Consumer
+          select={[selectAccess, selectFriends, selectRequest, selectUser]}
+        >
           {(
             access: {
               oauth_token: string,
@@ -48,6 +50,9 @@ const App = (): React.Node => {
             },
             request: {
               oauth_token: string,
+            },
+            user: {
+              data: Object,
             }
           ) => {
             return (
@@ -65,6 +70,7 @@ const App = (): React.Node => {
                     }}
                     friends={friends}
                     path="/dashboard"
+                    user={user}
                     username={access.screen_name}
                   />
                 </Router>
