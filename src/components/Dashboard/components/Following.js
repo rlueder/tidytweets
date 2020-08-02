@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+
 // @flow
 
 import React, { useEffect, useState } from "react";
