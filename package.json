@@ -67,7 +67,7 @@
     "prettier": "^2.0.5",
     "prettier-stylelint": "^0.4.2",
     "semantic-release": "^17.0.8",
-    "stylelint": "^13.6.1",
+    "stylelint": "^13.7.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.18.0"
