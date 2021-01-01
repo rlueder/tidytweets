@@ -1290,10 +1290,10 @@
   dependencies:
     emojis-list "^3.0.0"
 
-"@fortawesome/fontawesome-common-types@^0.2.29":
-  version "0.2.29"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.29.tgz#e1a456b643237462d390304cab6975ff3fd68397"
-  integrity sha512-cY+QfDTbZ7XVxzx7jxbC98Oxr/zc7R2QpTLqTxqlfyXDrAJjzi/xUIqAUsygELB62JIrbsWxtSRhayKFkGI7MA==
+"@fortawesome/fontawesome-common-types@^0.2.29", "@fortawesome/fontawesome-common-types@^0.2.32":
+  version "0.2.32"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.32.tgz#3436795d5684f22742989bfa08f46f50f516f259"
+  integrity sha512-ux2EDjKMpcdHBVLi/eWZynnPxs0BtFVXJkgHIxXRl+9ZFaHPvYamAfCzeeQFqHRjuJtX90wVnMRaMQAAlctz3w==
 
 "@fortawesome/fontawesome-svg-core@^1.2.29":
   version "1.2.29"
@@ -1309,12 +1309,12 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.29"
 
-"@fortawesome/free-solid-svg-icons@^5.13.1":
-  version "5.13.1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.13.1.tgz#010a846b718a0f110b3cd137d072639b4e8bd41a"
-  integrity sha512-LQH/0L1p4+rqtoSHa9qFYR84hpuRZKqaQ41cfBQx8b68p21zoWSekTAeA54I/2x9VlCHDLFlG74Nmdg4iTPQOg==
+"@fortawesome/free-solid-svg-icons@^5.15.1":
+  version "5.15.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.1.tgz#e1432676ddd43108b41197fee9f86d910ad458ef"
+  integrity sha512-EFMuKtzRMNbvjab/SvJBaOOpaqJfdSap/Nl6hst7CgrJxwfORR1drdTV6q1Ib/JVzq4xObdTDcT6sqTaXMqfdg==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.29"
+    "@fortawesome/fontawesome-common-types" "^0.2.32"
 
 "@fortawesome/react-fontawesome@^0.1.11":
   version "0.1.11"
