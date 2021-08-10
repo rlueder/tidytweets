@@ -1,4 +1,3 @@
-// @flow
 import chunk from "lodash/chunk";
 
 import { mutate } from "store";

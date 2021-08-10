@@ -37,7 +37,7 @@ You'll need Node installed on your machine, the best way to install/manage Node 
 ### 1.2 Installing
 
 ```
-$ yarn install
+$ npm install
 ```
 
 ### 1.3 Running Locally
@@ -47,6 +47,10 @@ Requests sent directly to a Twitter API from a development environment will resu
 **NOTE You'll have to be a part of TidyTweet's team on Netlify for the Twitter proxy function to authenticate on your local environment. Open a Github issue to request access to the team or join our Slack channel.**
 
 To set up Netlify locally, run the following command:
+
+```
+$ npm install -g netlify-cli
+```
 
 ```
 $ ntl link
@@ -83,7 +87,7 @@ Site url:  https://tidytweets.org
 Now you can start the development server by running the command below:
 
 ```
-$ yarn develop
+$ ntl dev
 ```
 
 The application will be available at [http://localhost:8888](http://localhost:8888)
@@ -118,28 +122,16 @@ You can read more about Gitflow and Netlify branch deploys here:
 
 ## 3. Testing
 
-We use Flow for type-checking all code, to run flow locally, use the following command:
-
-```
-$ yarn flow
-```
-
-You can run a Flow coverage report with the following command (coverage is low at the moment, we're working on improving it):
-
-```
-$yarn flow-coverage
-```
-
 Unit and integration tests use Jest, you can run the interactive test monitor with the following command:
 
 ```
-$ yarn test
+$ npm test
 ```
 
 End-to-end tests are setup on Cypress, you can run the application with the following command:
 
 ```
-$ yarn cypress:open
+$ npm run cypress:open
 ```
 
 You can read more about testing here:

@@ -1,5 +1,3 @@
-// @flow
-
 /**
  * @function getTokenAndVerifier
  * @summary Parses and returns token and verifier values from redirect URL parameters.

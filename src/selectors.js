@@ -1,5 +1,3 @@
-// @flow
-
 import { createSelector } from "store";
 
 /**

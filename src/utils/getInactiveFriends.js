@@ -1,5 +1,3 @@
-// @flow
-
 import { isBefore, subMonths, subWeeks } from "date-fns";
 
 /**

@@ -1,5 +1,3 @@
-// @flow
-
 /**
  * @function cycleTimeframes
  * @summary Cycles through TIMEFRAMES based on timeframe

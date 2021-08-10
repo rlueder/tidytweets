@@ -1,11 +1,6 @@
-// @flow
-
 import * as React from "react";
 
 import { FormattedMessage } from "react-intl";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 import { Button } from "components";
 import { postFriendshipsDestroy } from "utils";
@@ -49,7 +44,7 @@ const Friend = (props: Props) => {
           />
           {selected && (
             <div className="Friend__icon">
-              <FontAwesomeIcon color="#fff" icon={faCheck} />
+              <span className="material-icons">check</span>
             </div>
           )}
         </div>

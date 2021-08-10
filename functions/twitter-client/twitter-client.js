@@ -1,5 +1,3 @@
-// @flow
-
 const dotenv = require("dotenv").config();
 const Twitter = require("twitter-lite");
 
@@ -12,7 +10,7 @@ const { CALLBACK_URL, CONSUMER_KEY, CONSUMER_SECRET } = process.env;
  * @see {@link https://developer.twitter.com/en/docs/basics/authentication/oauth-1-0a/obtaining-user-access-tokens}
  */
 
-exports.handler = async (event, context, callback) => {
+exports.handler = async (event) => {
   const {
     access_key,
     access_secret,
@@ -55,7 +53,6 @@ exports.handler = async (event, context, callback) => {
         });
         break;
       case "request_token":
-        // use appropriate CALLBACK_URL depending on environment
         response = await twitterClient.getRequestToken(CALLBACK_URL);
         break;
       /**

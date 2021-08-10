@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from "react";
 import { useState } from "react";
 import { Router } from "@reach/router";

@@ -1,5 +1,3 @@
-// @flow
-
 export { default as getTemplate } from "./getTemplate";
 
 export { default as en } from "./en";

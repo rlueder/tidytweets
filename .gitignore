@@ -23,10 +23,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Local Netlify folder
+# Netlify Functions
 functions/**/node_modules
 
 # Local Netlify folder
 .netlify
 
+# Cypress
 /cypress/videos/
+
+# WebStorm
+.idea

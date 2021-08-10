@@ -1,5 +1,3 @@
-// @flow
-
 export { default as cycleTimeframes } from "./cycleTimeframes";
 export { default as getElementById } from "./getElementById";
 export { default as getInactiveFriends } from "./getInactiveFriends";

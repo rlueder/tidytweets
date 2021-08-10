@@ -1,16 +1,11 @@
 /* eslint-disable array-callback-return */
 
-// @flow
-
 import React, { useEffect, useState } from "react";
 
 import { hot } from "react-hot-loader/root";
 import { FormattedMessage } from "react-intl";
 
 import difference from "lodash/difference";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt, faBroom } from "@fortawesome/free-solid-svg-icons";
 
 import { Button, Friend } from "components";
 
@@ -88,7 +83,7 @@ const Following = (props: Props) => {
               }}
             >
               {timeframe}
-              <FontAwesomeIcon color="#fff" icon={faCalendarAlt} size="xs" />
+              <span className="material-icons">calendar_today</span>
             </span>
           </p>
         </div>
@@ -165,7 +160,7 @@ const Following = (props: Props) => {
         ) : (
           <div className="Following__list--empty">
             <div className="Following__icon--broom">
-              <FontAwesomeIcon icon={faBroom} size="2x" />
+              <span className="material-icons">check</span>
             </div>
             <p>
               <FormattedMessage id="Following.empty__paragraph--1" />

@@ -1,5 +1,3 @@
-// @flow
-
 /**
  * @function getTemplate
  * @summary Template of strings to be used by react-intl translations.

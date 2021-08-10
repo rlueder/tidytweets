@@ -1,5 +1,3 @@
-// @flow
-
 /**
  * @async
  * @function usersLookup

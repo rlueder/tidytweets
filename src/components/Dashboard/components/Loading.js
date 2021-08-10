@@ -1,11 +1,6 @@
-// @flow
-
 import * as React from "react";
 
 import { FormattedMessage } from "react-intl";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSync } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * @function Loading
@@ -18,7 +13,7 @@ const Loading = (): React.Node => {
     <div className="Loading">
       <div className="Loading__wrapper">
         <div className="Following__icon">
-          <FontAwesomeIcon icon={faSync} size="2x" />
+          <span className="material-icons">sync</span>
         </div>
         <div className="Loading__text">
           <p>

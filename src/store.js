@@ -1,5 +1,3 @@
-// @flow
-
 import createState from "react-copy-write";
 
 /**

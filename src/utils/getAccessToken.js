@@ -1,5 +1,3 @@
-// @flow
-
 import localforage from "localforage";
 
 import { mutate } from "store";

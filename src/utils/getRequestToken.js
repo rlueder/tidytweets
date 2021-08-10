@@ -1,5 +1,3 @@
-// @flow
-
 import { mutate } from "store";
 
 /**
@@ -11,8 +9,10 @@ import { mutate } from "store";
  * @exports getRequestToken
  */
 
+const URL = "/.netlify/functions/twitter-client?endpoint=request_token";
+
 const getRequestToken = async () => {
-  fetch("/.netlify/functions/twitter-client?endpoint=request_token")
+  fetch(URL)
     .then((response) => response.json())
     .then((data: string) => {
       mutate((draft: { request: string }) => {

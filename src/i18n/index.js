@@ -1,5 +1,3 @@
-// @flow
-
 import { en, es, pl, pt } from "./translations";
 
 const translations = {

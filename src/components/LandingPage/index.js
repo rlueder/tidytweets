@@ -1,7 +1,5 @@
-// @flow
-
 import * as React from "react";
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 
 import { useNavigate } from "@reach/router";
 import { hot } from "react-hot-loader/root";
@@ -31,7 +29,9 @@ const LandingPage = (props: Props): React.Node => {
 
   useEffect(() => {
     if (!username) {
-      getRequestToken();
+      getRequestToken()
+        .then()
+        .catch((error: Error) => console.log(error));
     }
   }, [username]);
 
@@ -40,7 +40,7 @@ const LandingPage = (props: Props): React.Node => {
   return (
     <div className="LandingPage">
       {username ? (
-        <Fragment>
+        <>
           <div />
           <div className="LandingPage__intro">
             <div className="LandingPage__logo">
@@ -58,9 +58,9 @@ const LandingPage = (props: Props): React.Node => {
               <LogOut />
             </div>
           </div>
-        </Fragment>
+        </>
       ) : (
-        <Fragment>
+        <>
           <div className="LandingPage__intro">
             <div className="LandingPage__logo">
               <h1>TidyTweets</h1>
@@ -84,7 +84,7 @@ const LandingPage = (props: Props): React.Node => {
               <FormattedMessage id="LandingPage.about" />
             </p>
           </div>
-        </Fragment>
+        </>
       )}
       <Footer />
     </div>
