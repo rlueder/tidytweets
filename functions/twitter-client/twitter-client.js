@@ -11,13 +11,8 @@ const { CALLBACK_URL, CONSUMER_KEY, CONSUMER_SECRET } = process.env;
  */
 
 exports.handler = async (event) => {
-  const {
-    access_key,
-    access_secret,
-    endpoint,
-    screen_name,
-    user_id,
-  } = event.queryStringParameters;
+  const { access_key, access_secret, endpoint, screen_name, user_id } =
+    event.queryStringParameters;
 
   const twitterClient = new Twitter({
     consumer_key: CONSUMER_KEY,
