@@ -34,3 +34,6 @@ functions/**/node_modules
 
 # WebStorm
 .idea
+
+# typescript-coverage-report
+/coverage-ts
