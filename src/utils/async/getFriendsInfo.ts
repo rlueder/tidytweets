@@ -1,31 +1,38 @@
-import chunk from "lodash/chunk";
+import { chunk as getChunks } from "lodash";
 
 import { mutate } from "store";
 import { usersLookup } from "utils";
 
+import type { State } from "definitions";
+
 /**
  * @async
- * @function getFriendsInfo
- * @summary Fires a promise for chunks of 50 ids from USER_IDS writing data to state.friends.data
+ * @name getFriendsInfo
+ * @type {Function}
+ * @summary Fires a promise for chunks of 50 ids writing data to state.friends.data
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup}
- * @param {string} SCREEN_NAME
- * @param {Array<number>} USER_IDS
+ * @param {string} username
+ * @param {Array<number>} ids
  * @returns {Object} response
- * @exports getFriendsInfo
  */
 
-const getFriendsInfo = async (SCREEN_NAME: string, USER_IDS: Array<number>) => {
+const getFriendsInfo = async (username: string, ids: Array<number>) => {
   let promises = [];
-  for (const CHUNK of chunk(USER_IDS, 50)) {
-    promises.push(usersLookup(SCREEN_NAME, CHUNK.join(",")));
+
+  const chunks = getChunks(ids, 50);
+
+  for (const chunk of chunks) {
+    // @ts-ignore
+    promises.push(usersLookup(username, chunk.join(",")));
   }
+
   try {
     const response = await Promise.all(promises);
     if (response.length) {
       mutate(
         (draft: {
           friends: {
-            data: Array<Object>;
+            data: Object;
           };
         }) => {
           draft.friends.data = response.flat();
@@ -36,7 +43,6 @@ const getFriendsInfo = async (SCREEN_NAME: string, USER_IDS: Array<number>) => {
   } catch (error) {
     mutate((draft) => {
       draft.friends.error = error;
-      draft.friends.hasError = true;
     });
   }
 };

@@ -1,6 +1,7 @@
 import localforage from "localforage";
 
-import { NETLIFY_FUNCTION } from "../constants";
+import { TWITTER_CLIENT } from "../../constants";
+
 import { mutate } from "store";
 import { getUserInfo, getFriendsIds } from "utils";
 
@@ -17,7 +18,7 @@ import { getUserInfo, getFriendsIds } from "utils";
 
 const getAccessToken = async (token: string, verifier: string) => {
   fetch(
-    `${NETLIFY_FUNCTION}?endpoint=access_token&token=${token}&verifier=${verifier}`
+    `${TWITTER_CLIENT}?endpoint=access_token&token=${token}&verifier=${verifier}`
   )
     .then((response) => response.json())
     .then((data) => {

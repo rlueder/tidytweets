@@ -2,16 +2,15 @@ import React from "react";
 
 import { useNavigate } from "@reach/router";
 import { FormattedMessage } from "react-intl";
-
 import localforage from "localforage";
 
-import { Button } from "components";
+import { Button } from "components/index";
 import { mutate } from "store";
 
 /**
- * @function LogOut
+ * @name LogOut
+ * @type {Function}
  * @returns JSX.Element
- * @exports LogOut
  */
 
 const LogOut = (): JSX.Element => {
@@ -25,7 +24,7 @@ const LogOut = (): JSX.Element => {
           mutate((draft: { access: Object }) => {
             draft.access = {};
           });
-          navigate("/");
+          navigate("/").catch((error: Error) => console.log(error));
         });
       }}
     />

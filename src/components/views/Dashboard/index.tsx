@@ -8,16 +8,23 @@ import difference from "lodash/difference";
 import { Following, Header, Loading } from "components";
 import { getAccessToken, getFriendsInfo, getTokenAndVerifier } from "utils";
 
+import type { Friend } from "definitions";
+
 import "./styles.scss";
 
 type Props = {
-  access: Object;
+  access: {
+    key: string;
+    secret: string;
+  };
   friends: {
-    data: Array<Object>;
+    data: Array<Friend>;
     ids: Array<number>;
   };
   path: string;
-  user: Object;
+  user: {
+    id: number;
+  };
   username: string;
 };
 
@@ -38,11 +45,15 @@ const Dashboard = (props: Props): JSX.Element => {
     const { token, verifier } = getTokenAndVerifier(SEARCH_PARAMS);
     // access token
     if (token && verifier && !username) {
-      getAccessToken(token, verifier).then();
+      getAccessToken(token, verifier).catch((error: Error) =>
+        console.log(error)
+      );
     }
     // friends information
     if (friends.data && !friends.data.length) {
-      getFriendsInfo(username, friends.ids).then();
+      getFriendsInfo(username, friends.ids).catch((error: Error) =>
+        console.log(error)
+      );
     }
   }, [friends.data, friends.ids, location, username]);
 
@@ -54,7 +65,7 @@ const Dashboard = (props: Props): JSX.Element => {
         // ids that are from suspended accounts and don't return any information
         const SUSPENDED = difference(
           friends.ids,
-          friends.data.map((item) => item.id)
+          friends.data.map((item: Friend) => item.id)
         );
         // console.log(SUSPENDED);
         return (

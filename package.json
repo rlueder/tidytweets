@@ -23,7 +23,7 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cross-env CYPRESS_BASE_URL=http://localhost:8888 cypress run",
-    "start": "react-scripts start",
+    "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "ts-coverage": "typescript-coverage-report --strict --threshold=95"
@@ -39,6 +39,7 @@
     "react-hot-loader": "^4.13.0",
     "react-intl": "^5.20.7",
     "react-scripts": "^4.0.3",
+    "swr": "^0.5.6",
     "twitter-lite": "^1.1.0"
   },
   "devDependencies": {

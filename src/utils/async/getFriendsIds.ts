@@ -1,5 +1,7 @@
 import { mutate } from "store";
 
+import { TWITTER_CLIENT } from "../../constants";
+
 /**
  * @async
  * @function getFriendsIds
@@ -13,7 +15,7 @@ import { mutate } from "store";
 
 const getFriendsIds = async (screenName: string, count: number = 5000) => {
   fetch(
-    `/.netlify/functions/twitter-client?endpoint=friends_ids&screen_name=${screenName}&count=${count}`
+    `${TWITTER_CLIENT}?endpoint=friends_ids&screen_name=${screenName}&count=${count}`
   )
     .then((response) => response.json())
     .then((data: { ids: Array<number> }) => {
@@ -28,10 +30,9 @@ const getFriendsIds = async (screenName: string, count: number = 5000) => {
       );
       return data;
     })
-    .catch((error: string) => {
+    .catch((error: Error) => {
       mutate((draft) => {
-        draft.friends.error = error;
-        draft.friends.hasError = true;
+        draft.friends.error = error.message;
       });
     });
 };

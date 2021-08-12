@@ -8,7 +8,6 @@ import { FormattedMessage } from "react-intl";
 import difference from "lodash/difference";
 
 import { Button, Friend } from "components";
-// import type { Friend as FriendType } from "definitions";
 
 import {
   cycleTimeframes,
@@ -16,19 +15,14 @@ import {
   postMultiFriendshipsDestroy,
 } from "utils";
 
+import type { Friend as FriendType } from "definitions";
+
 type Props = {
   access: {
     key: string;
     secret: string;
   };
-  friends: [
-    {
-      id: number;
-      status: {
-        created_at: string;
-      };
-    }
-  ];
+  friends: Array<FriendType>;
   suspended: Object;
   user: {
     id: number;
@@ -96,7 +90,7 @@ const Following = (props: Props) => {
             <FormattedMessage id="Following.actions" />
             <div className="Following__buttons">
               <Button
-                disabled={!!selected.length}
+                disabled={!selected.length}
                 label={<FormattedMessage id="Following.unfollow--selected" />}
                 onClick={() => {
                   postMultiFriendshipsDestroy(access, selected).catch(
@@ -112,8 +106,11 @@ const Following = (props: Props) => {
                     postMultiFriendshipsDestroy(
                       access,
                       inactive.map((item) => item.id)
-                    ).then();
-                    setSelected([]);
+                    )
+                      .then(() => {
+                        setSelected([]);
+                      })
+                      .catch((error: Error) => console.log(error));
                   }
                 }}
               />

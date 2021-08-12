@@ -1,4 +1,5 @@
 import { mutate } from "store";
+import { TWITTER_CLIENT } from "../../constants";
 
 /**
  * @async
@@ -11,12 +12,10 @@ import { mutate } from "store";
  */
 
 const getUserInfo = async (screenName: string) => {
-  fetch(
-    `/.netlify/functions/twitter-client?endpoint=users_show&screen_name=${screenName}`
-  )
+  fetch(`${TWITTER_CLIENT}?endpoint=users_show&screen_name=${screenName}`)
     .then((response) => response.json())
     .then((data: {}) => {
-      mutate((draft: { user: {} }) => {
+      mutate((draft: { user: Object }) => {
         draft.user = data;
       });
       return data;

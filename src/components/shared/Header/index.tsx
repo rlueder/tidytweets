@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import { hot } from "react-hot-loader/root";
 
-import { LogOut } from "components";
+import { LogOut } from "components/index";
 
 import "./styles.scss";
 

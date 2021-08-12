@@ -154,17 +154,11 @@ You can read more about Netlify site deploys and SemVer here:
 
 ## 5. Built With
 
-- [@fortawesome/react-fontawesome](https://github.com/FortAwesome/react-fontawesome) - Font Awesome 5 React component.
-
-- [@reach/router](https://github.com/reach/router) - next Generation Routing for React.
-
 - [create-react-app](https://github.com/facebook/create-react-app) - create React apps with no build configuration.
 
 - [date-fns](https://github.com/date-fns/date-fns) - modern JavaScript date utility library.
 
 - [netlify-cli](https://github.com/netlify/cli) - interact with Netlify from the comfort of your CLI.
-
-- [react-copy-write](https://github.com/aweary/react-copy-write) - immutable state with a mutable API.
 
 - [react-intl](https://formatjs.io/docs/react-intl) - internationalize your web apps on the client & server.
 
@@ -176,7 +170,7 @@ This project exists thanks to all the <a href="https://github.com/rlueder/tidytw
 
 - [Rafael Lüder](https://github.com/rlueder)
 - [Dominic Ilnicki](https://github.com/Ilnicki010)
-- [Juan Colombo](https://github.com/juan-colombo95)
+- [Juan Colombo](https://github.com/ColomboJuan)
 
 You can reach out to us directly by joining [TidyTweets on Slack.](https://join.slack.com/t/tidytweets/shared_invite/zt-fa0kmbu9-bPWUvBCnvDjgVWgxyJz7~w)
 

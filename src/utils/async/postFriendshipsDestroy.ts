@@ -1,31 +1,34 @@
 import { mutate } from "store";
 
+import { TWITTER_CLIENT } from "../../constants";
+import type { Friend } from "definitions";
+
 /**
  * @async
  * @function postFriendshipsDestroy
  * @summary Unfollows the user specified by USER_ID
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy}
- * @param {Object} ACCESS_TOKEN
- * @param {string} USER_ID
+ * @param {Object} access
+ * @param {string} userId
  * @exports postFriendshipsDestroy
  */
 
 const postFriendshipsDestroy = async (
-  ACCESS_TOKEN: {
+  access: {
     key: string;
     secret: string;
   },
-  USER_ID: string
+  userId: string
 ) => {
   fetch(
-    `/.netlify/functions/twitter-client?endpoint=friendships_destroy&access_key=${ACCESS_TOKEN.key}&access_secret=${ACCESS_TOKEN.secret}&user_id=${USER_ID}`
+    `${TWITTER_CLIENT}?endpoint=friendships_destroy&access_key=${access.key}&access_secret=${access.secret}&user_id=${userId}`
   )
     .then((response) => response.json())
     .then((data) => {
       // remove id that received success response
       mutate((draft) => {
         draft.friends.data = draft.friends.data.filter(
-          (item) => item.id !== data.id
+          (item: Friend) => item.id !== data.id
         );
       });
       return data;

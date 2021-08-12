@@ -9,6 +9,9 @@ export type Friend = {
   name: string;
   profile_image_url_https: string;
   screen_name: string;
+  status: {
+    created_at: string;
+  };
 };
 
 /**
@@ -21,7 +24,7 @@ export type State = {
     oauth_token_secret: string;
     screen_name: string;
   };
-  friends: { data: Array<Object>; ids: Array<number> };
+  friends: { data: Array<Friend>; error: string };
   request: {};
   user: {
     data: Object;

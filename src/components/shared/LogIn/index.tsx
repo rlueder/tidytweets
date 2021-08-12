@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "@reach/router";
 import { FormattedMessage } from "react-intl";
 
-import { Button } from "components";
+import { Button } from "components/index";
 
 type Props = {
   token: string;

@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Router } from "@reach/router";
 import { IntlProvider } from "react-intl";
 
-import { LandingPage, Dashboard } from "../index";
-import messages from "../../i18n";
+import { LandingPage, Dashboard } from "./index";
+import getTranslations from "i18n";
 
 import {
   selectAccess,
@@ -14,6 +14,8 @@ import {
 } from "selectors";
 
 import { Consumer, Provider } from "store";
+
+import type { Friend } from "definitions";
 
 import "./styles.scss";
 
@@ -35,7 +37,7 @@ const App = (): JSX.Element => {
       <IntlProvider
         defaultLocale="en"
         locale={locale}
-        messages={messages[language]}
+        messages={getTranslations(language)}
       >
         <Consumer
           select={[selectAccess, selectFriends, selectRequest, selectUser]}
@@ -47,14 +49,14 @@ const App = (): JSX.Element => {
               screen_name: string;
             },
             friends: {
-              data: Array<{ id: number; status: { created_at: string } }>;
+              data: Array<Friend>;
               ids: Array<number>;
             },
             request: {
               oauth_token: string;
             },
             user: {
-              data: Object;
+              id: number;
             }
           ) => {
             return (

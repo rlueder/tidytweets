@@ -1,4 +1,4 @@
-import { NETLIFY_FUNCTION } from "../constants";
+import { TWITTER_CLIENT } from "../../constants";
 import { mutate } from "store";
 
 /**
@@ -10,10 +10,8 @@ import { mutate } from "store";
  * @returns data
  */
 
-console.log(NETLIFY_FUNCTION);
-
 const getRequestToken = async () => {
-  fetch(`${NETLIFY_FUNCTION}?endpoint=request_token`)
+  fetch(`${TWITTER_CLIENT}?endpoint=request_token`)
     .then((response) => response.json())
     .then((data) => {
       mutate((draft) => {

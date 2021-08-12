@@ -1,23 +1,27 @@
 import { mutate } from "store";
 
+import type { Friend } from "definitions";
+
+import { TWITTER_CLIENT } from "../../constants";
+
 /**
  * @async
  * @function postMultiFriendshipsDestroy
  * @summary Unfollows multiple users from USER_IDS
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy}
- * @param {Object} ACCESS_TOKEN
- * @param {Array<number>} USER_ID
+ * @param {Object} access
+ * @param {Array<number>} userId
  */
 
 const friendshipsDestroy = async (
-  ACCESS_TOKEN: {
+  access: {
     key: string;
     secret: string;
   },
-  USER_ID: number
-): Promise<Object> => {
+  userId: number
+): Promise<Array<Friend>> => {
   const response = await fetch(
-    `/.netlify/functions/twitter-client?endpoint=friendships_destroy&access_key=${ACCESS_TOKEN.key}&access_secret=${ACCESS_TOKEN.secret}&user_id=${USER_ID}`
+    `${TWITTER_CLIENT}?endpoint=friendships_destroy&access_key=${access.key}&access_secret=${access.secret}&user_id=${userId}`
   );
   if (!response.ok) {
     Promise.reject(new Error("fail")).then(
@@ -30,27 +34,24 @@ const friendshipsDestroy = async (
 };
 
 const postMultiFriendshipsDestroy = async (
-  ACCESS_TOKEN: {
+  access: {
     key: string;
     secret: string;
   },
-  USER_IDS: Array<number>
+  userIds: Array<number>
 ) => {
   let promises = [];
-  for (const ID of USER_IDS) {
-    promises.push(friendshipsDestroy(ACCESS_TOKEN, ID));
+  for (const userId of userIds) {
+    promises.push(friendshipsDestroy(access, userId));
   }
   try {
-    const response = await Promise.all(promises);
-    console.log({ response });
-
+    // @ts-ignore
+    const response: Array<Friend> = await Promise.all(promises);
     if (response.length) {
       for (const item of response) {
-        console.log({ item });
-
         mutate((draft) => {
           draft.friends.data = draft.friends.data.filter(
-            (el) => el.id !== item.id
+            (el: Friend) => el.id !== item.id
           );
         });
       }
@@ -58,7 +59,6 @@ const postMultiFriendshipsDestroy = async (
   } catch (error) {
     mutate((draft) => {
       draft.friends.error = error;
-      draft.friends.hasError = true;
     });
   }
 };
