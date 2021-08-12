@@ -5,7 +5,7 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["react-app", "prettier"],
+  "extends": ["react-app", "plugin:prettier/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -13,11 +13,10 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["prettier", "react"],
+  "plugins": ["react"],
   "rules": {
     "linebreak-style": ["error", "unix"],
     "no-process-env": "off",
-    "no-unused-vars": "off",
-    "prettier/prettier": ["error"]
+    "no-unused-vars": "off"
   }
 }

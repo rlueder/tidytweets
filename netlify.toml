@@ -6,6 +6,7 @@
 
 [build]
     command = "npm run build"
+    functions = "functions"
 
 # Build Plugins
 # https://docs.netlify.com/configure-builds/build-plugins/

@@ -37,7 +37,7 @@ You'll need Node installed on your machine, the best way to install/manage Node 
 ### 1.2 Installing
 
 ```
-$ yarn install
+$ npm install
 ```
 
 ### 1.3 Running Locally
@@ -47,6 +47,10 @@ Requests sent directly to a Twitter API from a development environment will resu
 **NOTE You'll have to be a part of TidyTweet's team on Netlify for the Twitter proxy function to authenticate on your local environment. Open a Github issue to request access to the team or join our Slack channel.**
 
 To set up Netlify locally, run the following command:
+
+```
+$ npm install -g netlify-cli
+```
 
 ```
 $ ntl link
@@ -83,7 +87,7 @@ Site url:  https://tidytweets.org
 Now you can start the development server by running the command below:
 
 ```
-$ yarn develop
+$ ntl dev
 ```
 
 The application will be available at [http://localhost:8888](http://localhost:8888)
@@ -118,28 +122,16 @@ You can read more about Gitflow and Netlify branch deploys here:
 
 ## 3. Testing
 
-We use Flow for type-checking all code, to run flow locally, use the following command:
-
-```
-$ yarn flow
-```
-
-You can run a Flow coverage report with the following command (coverage is low at the moment, we're working on improving it):
-
-```
-$yarn flow-coverage
-```
-
 Unit and integration tests use Jest, you can run the interactive test monitor with the following command:
 
 ```
-$ yarn test
+$ npm test
 ```
 
 End-to-end tests are setup on Cypress, you can run the application with the following command:
 
 ```
-$ yarn cypress:open
+$ npm run cypress:open
 ```
 
 You can read more about testing here:
@@ -162,17 +154,11 @@ You can read more about Netlify site deploys and SemVer here:
 
 ## 5. Built With
 
-- [@fortawesome/react-fontawesome](https://github.com/FortAwesome/react-fontawesome) - Font Awesome 5 React component.
-
-- [@reach/router](https://github.com/reach/router) - next Generation Routing for React.
-
 - [create-react-app](https://github.com/facebook/create-react-app) - create React apps with no build configuration.
 
 - [date-fns](https://github.com/date-fns/date-fns) - modern JavaScript date utility library.
 
 - [netlify-cli](https://github.com/netlify/cli) - interact with Netlify from the comfort of your CLI.
-
-- [react-copy-write](https://github.com/aweary/react-copy-write) - immutable state with a mutable API.
 
 - [react-intl](https://formatjs.io/docs/react-intl) - internationalize your web apps on the client & server.
 
@@ -184,7 +170,7 @@ This project exists thanks to all the <a href="https://github.com/rlueder/tidytw
 
 - [Rafael Lüder](https://github.com/rlueder)
 - [Dominic Ilnicki](https://github.com/Ilnicki010)
-- [Juan Colombo](https://github.com/juan-colombo95)
+- [Juan Colombo](https://github.com/ColomboJuan)
 
 You can reach out to us directly by joining [TidyTweets on Slack.](https://join.slack.com/t/tidytweets/shared_invite/zt-fa0kmbu9-bPWUvBCnvDjgVWgxyJz7~w)
 

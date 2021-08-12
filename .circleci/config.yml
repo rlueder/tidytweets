@@ -50,9 +50,8 @@ workflows:
           name: e2e_tests
           requires:
             - unit_tests
-          start: yarn develop
+          start: netlify dev
           wait-on: "http://localhost:8888"
-          yarn: true
       - deploy:
           requires:
             - e2e_tests
