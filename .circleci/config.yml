@@ -21,11 +21,8 @@ jobs:
     steps:
       - checkout
       - node/install:
-          install-yarn: true
-          node-version: "14.4.0"
-      - node/install-packages:
-          pkg-manager: yarn
-      - run: yarn test
+          node-version: "lts/fermium"
+      - run: npm test
   deploy:
     machine:
       image: "ubuntu-1604:201903-01"
@@ -46,7 +43,7 @@ workflows:
       - cypress/run:
           executor:
             name: cypress/default
-          install-command: yarn install --frozen-lockfile
+          install-command: npm install
           name: e2e_tests
           requires:
             - unit_tests
