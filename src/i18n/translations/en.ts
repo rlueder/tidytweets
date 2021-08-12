@@ -43,8 +43,8 @@ const en = () => {
     },
     {
       Loading: {
-        "paragaph--1": "Analyzing your Twitter Following list...",
-        "paragaph--2":
+        "paragraph--1": "Analyzing your Twitter Following list...",
+        "paragraph--2":
           "(this might take a while depending on how many accounts you follow)",
       },
     },

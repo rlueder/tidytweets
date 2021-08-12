@@ -23,7 +23,7 @@ type Props = {
     secret: string;
   };
   friends: Array<FriendType>;
-  suspended: Object;
+  suspended: Array<number>;
   user: {
     id: number;
   };
@@ -37,12 +37,7 @@ type Props = {
  */
 
 const Following = (props: Props) => {
-  const {
-    access,
-    friends,
-    // suspended,
-    user,
-  } = props;
+  const { access, friends, suspended, user } = props;
 
   const [timeframe, setTimeframe] = useState("week");
 
@@ -85,6 +80,17 @@ const Following = (props: Props) => {
             </span>
           </p>
         </div>
+
+        {suspended.length ? (
+          <div className="Following__suspended">
+            <p>
+              We also found <span>{suspended.length}</span> accounts that are
+              inactive or suspended but Twitter won't let us do anything about
+              them. <span className="material-icons">thumb_down</span>
+            </p>
+          </div>
+        ) : null}
+
         {inactive.length ? (
           <div className="Following__actions">
             <FormattedMessage id="Following.actions" />
@@ -119,25 +125,6 @@ const Following = (props: Props) => {
         ) : (
           <div className="Following__actions" />
         )}
-        {/* ) : suspended.length ? (
-          <React.Fragment>
-            <p>
-              We also found
-              <span className="Following__total">{suspended.length}</span>{" "}
-              accounts that are inactive or suspended.
-            </p>
-            <div className="Following__actions">
-              <Button
-                label="Unfollow All"
-                onClick={() => {
-                  if (window.confirm(getConfirmMessage(suspended.length))) {
-                    postMultiFriendshipsDestroy(access, suspended);
-                  }
-                }}
-              />
-            </div>
-          </React.Fragment>
-        ) : null} */}
       </div>
       <div className="Following__list">
         {inactive && inactive.length ? (

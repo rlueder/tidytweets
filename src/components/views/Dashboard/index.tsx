@@ -62,17 +62,17 @@ const Dashboard = (props: Props): JSX.Element => {
       case friends.data && !friends.data.length:
         return <Loading />;
       default:
-        // ids that are from suspended accounts and don't return any information
-        const SUSPENDED = difference(
+        // ids that are from inactive/suspended accounts and don't return any
+        // information
+        const suspended = difference(
           friends.ids,
           friends.data.map((item: Friend) => item.id)
         );
-        // console.log(SUSPENDED);
         return (
           <Following
             access={access}
             friends={friends.data}
-            suspended={SUSPENDED}
+            suspended={suspended}
             user={user}
           />
         );

@@ -81,6 +81,12 @@
     position: relative;
   }
 
+  svg {
+    margin-left: 0.5rem;
+  }
+}
+
+.Following__intro {
   p {
     font-size: 1.75rem;
 
@@ -89,8 +95,8 @@
     }
   }
 
-  svg {
-    margin-left: 0.5rem;
+  .Following__total {
+    color: $blue-base;
   }
 }
 
@@ -111,6 +117,15 @@
   }
 }
 
+.Following__suspended {
+  font-size: 1rem;
+  margin-top: 1rem;
+
+  .material-icons {
+    font-size: .875rem;
+  }
+ }
+
 .Following__timeframe {
   color: #fff;
   display: inline-block;
@@ -124,7 +139,6 @@
 }
 
 .Following__total {
-  color: $blue-base;
   display: inline-block;
   font-size: 1.25em;
   font-weight: bolder;

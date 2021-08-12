@@ -14,7 +14,5 @@ export const { Consumer, Provider, createSelector, mutate } = createState({
     error: "",
   },
   request: {},
-  user: {
-    data: {},
-  },
+  user: {},
 });

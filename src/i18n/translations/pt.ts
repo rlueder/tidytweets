@@ -22,9 +22,9 @@ const pt = {
   "LandingPage.intro--welcome": "Bem-vindo de volta ",
   "LandingPage.label": "Continue para Aplicativo",
   //
-  "Loading.paragaph--1":
+  "Loading.paragraph--1":
     "Analisando a lista de perfis que você segue no Twitter...",
-  "Loading.paragaph--2":
+  "Loading.paragraph--2":
     "(pode levar um pouco de tempo dependendo de quantos perfis você segue)",
   //
   "LogIn.label": "Autorizar com Twitter",

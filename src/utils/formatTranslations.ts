@@ -27,6 +27,7 @@ const formatTranslations = (translations: Array<Object>) => {
       if (el) {
         value = el[str[1]];
       }
+      return null;
     });
     result[key] = value;
   }

@@ -1,5 +1,8 @@
 import { mutate } from "store";
+
 import { TWITTER_CLIENT } from "../../constants";
+
+import type { User } from "definitions";
 
 /**
  * @async
@@ -14,8 +17,8 @@ import { TWITTER_CLIENT } from "../../constants";
 const getUserInfo = async (screenName: string) => {
   fetch(`${TWITTER_CLIENT}?endpoint=users_show&screen_name=${screenName}`)
     .then((response) => response.json())
-    .then((data: {}) => {
-      mutate((draft: { user: Object }) => {
+    .then((data: User) => {
+      mutate((draft) => {
         draft.user = data;
       });
       return data;

@@ -17,10 +17,10 @@ const Loading = (): JSX.Element => {
         </div>
         <div className="Loading__text">
           <p>
-            <FormattedMessage id="Loading.paragaph--1" />
+            <FormattedMessage id="Loading.paragraph--1" />
           </p>
           <p>
-            <FormattedMessage id="Loading.paragaph--2" />
+            <FormattedMessage id="Loading.paragraph--2" />
           </p>
         </div>
       </div>

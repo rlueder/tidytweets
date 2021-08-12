@@ -1,7 +1,7 @@
 import { TWITTER_CLIENT } from "../../constants";
 import { mutate } from "store";
 
-import type { State } from "definitions";
+import type { Request } from "definitions";
 
 /**
  * @async
@@ -15,7 +15,7 @@ import type { State } from "definitions";
 const getRequestToken = async () => {
   fetch(`${TWITTER_CLIENT}?endpoint=request_token`)
     .then((response) => response.json())
-    .then((data: State) => {
+    .then((data: Request) => {
       mutate((draft) => {
         draft.request = data;
       });

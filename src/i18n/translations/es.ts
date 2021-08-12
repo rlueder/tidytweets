@@ -43,8 +43,8 @@ const es = () => {
     },
     {
       Loading: {
-        "paragaph--1": "Analizando las cuentas que sigues en Twitter...",
-        "paragaph--2":
+        "paragraph--1": "Analizando las cuentas que sigues en Twitter...",
+        "paragraph--2":
           "(Puede llevar un poco de tiempo dependiendo de cuantas cuentas sigues)",
       },
     },

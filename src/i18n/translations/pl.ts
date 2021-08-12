@@ -22,9 +22,9 @@ const pl = {
   "LandingPage.intro--welcome": "Witaj ponownie,",
   "LandingPage.label": "Przejdź do Aplikacji",
   //
-  "Loading.paragaph--1":
+  "Loading.paragraph--1":
     "Analizowanie Twojej listy obserwowanych na Twitterze...",
-  "Loading.paragaph--2":
+  "Loading.paragraph--2":
     "(To może zająć chwilę w zależności od tego ile kont obserwujesz)",
   //
   "LogIn.label": "Zaloguj się przez Twitter",

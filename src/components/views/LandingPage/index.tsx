@@ -26,8 +26,6 @@ const LandingPage = (props: Props): JSX.Element => {
 
   const navigate = useNavigate();
 
-  // TODO first request sent by app, replace with SWR
-
   useEffect(() => {
     if (!username) {
       getRequestToken().catch((error: Error) => console.log(error));

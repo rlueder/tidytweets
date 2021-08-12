@@ -3,8 +3,6 @@ import { chunk as getChunks } from "lodash";
 import { mutate } from "store";
 import { usersLookup } from "utils";
 
-import type { State } from "definitions";
-
 /**
  * @async
  * @name getFriendsInfo

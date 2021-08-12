@@ -6,16 +6,16 @@ import { IntlProvider } from "react-intl";
 import { LandingPage, Dashboard } from "./index";
 import getTranslations from "i18n";
 
+import { Consumer, Provider } from "store";
+
+import type { Access, Friend, Request, User } from "definitions";
+
 import {
   selectAccess,
   selectFriends,
   selectRequest,
   selectUser,
 } from "selectors";
-
-import { Consumer, Provider } from "store";
-
-import type { Friend } from "definitions";
 
 import "./styles.scss";
 
@@ -43,39 +43,31 @@ const App = (): JSX.Element => {
           select={[selectAccess, selectFriends, selectRequest, selectUser]}
         >
           {(
-            access: {
-              oauth_token: string;
-              oauth_token_secret: string;
-              screen_name: string;
-            },
+            access: Access,
             friends: {
               data: Array<Friend>;
               ids: Array<number>;
             },
-            request: {
-              oauth_token: string;
-            },
-            user: {
-              id: number;
-            }
+            request: Request,
+            user: User
           ) => {
             return (
               <div className="App">
                 <Router>
                   <LandingPage
                     path="/"
-                    token={request.oauth_token}
-                    username={access.screen_name}
+                    token={request?.oauth_token}
+                    username={access?.screen_name}
                   />
                   <Dashboard
                     access={{
-                      key: access.oauth_token,
-                      secret: access.oauth_token_secret,
+                      key: access?.oauth_token,
+                      secret: access?.oauth_token_secret,
                     }}
                     friends={friends}
                     path="/dashboard"
                     user={user}
-                    username={access.screen_name}
+                    username={access?.screen_name}
                   />
                 </Router>
               </div>

@@ -26,14 +26,31 @@ export type Friend = {
 };
 
 /**
+ * Request
+ */
+
+export type Request = {
+  oauth_callback_confirmed: string;
+  oauth_token: string;
+  oauth_token_secret: string;
+};
+
+/**
+ * User
+ */
+
+export type User = {
+  id: number;
+  screen_name: string;
+};
+
+/**
  * State
  */
 
 export type State = {
   access: Access;
   friends: { data: Array<Friend>; error: string };
-  request: {};
-  user: {
-    data: Object;
-  };
+  request: Request;
+  user: User;
 };
