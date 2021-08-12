@@ -24,7 +24,7 @@ const postFriendshipsDestroy = async (
     `${TWITTER_CLIENT}?endpoint=friendships_destroy&access_key=${access.key}&access_secret=${access.secret}&user_id=${userId}`
   )
     .then((response) => response.json())
-    .then((data) => {
+    .then((data: Friend) => {
       // remove id that received success response
       mutate((draft) => {
         draft.friends.data = draft.friends.data.filter(
@@ -33,7 +33,7 @@ const postFriendshipsDestroy = async (
       });
       return data;
     })
-    .catch((error) => {
+    .catch((error: Error) => {
       console.log(error);
     });
 };

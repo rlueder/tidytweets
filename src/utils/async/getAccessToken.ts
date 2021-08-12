@@ -2,6 +2,7 @@ import localforage from "localforage";
 
 import { TWITTER_CLIENT } from "../../constants";
 
+import type { Access } from "definitions";
 import { mutate } from "store";
 import { getUserInfo, getFriendsIds } from "utils";
 
@@ -21,14 +22,14 @@ const getAccessToken = async (token: string, verifier: string) => {
     `${TWITTER_CLIENT}?endpoint=access_token&token=${token}&verifier=${verifier}`
   )
     .then((response) => response.json())
-    .then((data) => {
+    .then((data: Access) => {
       localforage.setItem("access", data);
       mutate((draft) => {
         draft.access = data;
       });
       return data;
     })
-    .then((data) => {
+    .then((data: { screen_name: string }) => {
       getUserInfo(data.screen_name);
       getFriendsIds(data.screen_name);
     });

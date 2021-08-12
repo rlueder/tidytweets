@@ -17,7 +17,7 @@ import type { State } from "definitions";
  */
 
 const getFriendsInfo = async (username: string, ids: Array<number>) => {
-  let promises = [];
+  let promises: Array<Promise<Object>> = [];
 
   const chunks = getChunks(ids, 50);
 
@@ -40,7 +40,7 @@ const getFriendsInfo = async (username: string, ids: Array<number>) => {
       );
     }
     return response;
-  } catch (error) {
+  } catch (error: any) {
     mutate((draft) => {
       draft.friends.error = error;
     });

@@ -26,7 +26,7 @@ const friendshipsDestroy = async (
   if (!response.ok) {
     Promise.reject(new Error("fail")).then(
       () => null, // not called
-      (error) => console.log(error)
+      (error: Error) => console.log(error)
     );
     throw Error(response.status.toString());
   }
@@ -40,7 +40,7 @@ const postMultiFriendshipsDestroy = async (
   },
   userIds: Array<number>
 ) => {
-  let promises = [];
+  let promises: Array<Promise<Array<Friend>>> = [];
   for (const userId of userIds) {
     promises.push(friendshipsDestroy(access, userId));
   }
@@ -56,7 +56,7 @@ const postMultiFriendshipsDestroy = async (
         });
       }
     }
-  } catch (error) {
+  } catch (error: any) {
     mutate((draft) => {
       draft.friends.error = error;
     });

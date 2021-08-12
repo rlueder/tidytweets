@@ -19,7 +19,7 @@ type Props = {
 const Button = (props: Props): JSX.Element => {
   const { children, disabled, label, type, onClick } = props;
 
-  let className;
+  let className: string;
   switch (true) {
     case disabled:
       className = "Button--disabled";

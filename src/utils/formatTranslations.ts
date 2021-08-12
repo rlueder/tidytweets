@@ -14,7 +14,7 @@ import flatMapDeep from "lodash/flatMapDeep";
 const formatTranslations = (translations: Array<Object>) => {
   const result: { [key: string]: string } = {};
   const keys = flatMapDeep(translations, (item) =>
-    Object.values(item).map((val) =>
+    Object.values(item).map((val: Object) =>
       Object.keys(val).map((str) => `${Object.keys(item)}.${str}`)
     )
   );
@@ -23,7 +23,7 @@ const formatTranslations = (translations: Array<Object>) => {
     let value = "";
     const str = key.split(".");
     translations.map((obj: { [key: string]: any }) => {
-      const el = obj[str[0]];
+      const el: { [key: string]: string } = obj[str[0]];
       if (el) {
         value = el[str[1]];
       }

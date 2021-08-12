@@ -36,7 +36,7 @@ const getInactiveFriends = (friends: Array<Friend>, timeframe: string) => {
     // no default
   }
 
-  let inactiveFriends = [];
+  let inactiveFriends: Array<Friend> = [];
 
   if (friends?.length) {
     for (let friend of friends) {

@@ -11,7 +11,7 @@ export { default as getRequestToken } from "./async/getRequestToken";
 export { default as getTokenAndVerifier } from "./async/getTokenAndVerifier";
 export { default as getUserInfo } from "./async/getUserInfo";
 export { default as usersLookup } from "./async/usersLookup";
-// export { default as verifyCredentials } from "./async/verifyCredentials";
+export { default as verifyCredentials } from "./async/verifyCredentials";
 
 export { default as postFriendshipsDestroy } from "./async/postFriendshipsDestroy";
 export { default as postMultiFriendshipsDestroy } from "./async/postMultiFriendshipsDestroy";

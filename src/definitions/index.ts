@@ -1,4 +1,15 @@
 /**
+ * Access
+ */
+
+export type Access = {
+  oauth_token: string;
+  oauth_token_secret: string;
+  screen_name: string;
+  user_id: string;
+};
+
+/**
  * Friend
  */
 
@@ -19,11 +30,7 @@ export type Friend = {
  */
 
 export type State = {
-  access: {
-    oauth_token: string;
-    oauth_token_secret: string;
-    screen_name: string;
-  };
+  access: Access;
   friends: { data: Array<Friend>; error: string };
   request: {};
   user: {
