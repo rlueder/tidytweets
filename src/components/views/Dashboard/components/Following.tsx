@@ -72,7 +72,7 @@ const Following = (props: Props) => {
               className="Following__timeframe"
               onClick={() => {
                 setSelected([]); // clear selections
-                cycleTimeframes(timeframe, setTimeframe);
+                cycleTimeframes(inactive.length, timeframe, setTimeframe);
               }}
             >
               {timeframe}
