@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useNavigate } from "@reach/router";
+import { createBrowserHistory } from "history";
 import { FormattedMessage } from "react-intl";
 
 import { Button } from "components/index";
@@ -18,14 +18,13 @@ type Props = {
 
 const LogIn = (props: Props): JSX.Element => {
   const { token } = props;
-  const navigate = useNavigate();
+  const history = createBrowserHistory();
   return (
     <Button
       label={<FormattedMessage id="LogIn.label" />}
       onClick={() =>
-        navigate(
-          `https://api.twitter.com/oauth/authorize?oauth_token=${token}`,
-          { replace: true }
+        history.push(
+          `https://api.twitter.com/oauth/authorize?oauth_token=${token}`
         )
       }
     />

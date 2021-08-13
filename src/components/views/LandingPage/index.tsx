@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
-import { useNavigate } from "@reach/router";
-import { hot } from "react-hot-loader/root";
+import { useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 
 import { Button, Footer, LogIn, LogOut } from "components";
@@ -10,13 +9,13 @@ import { getRequestToken } from "utils";
 import "./styles.scss";
 
 type Props = {
-  path: string;
   token: string;
   username: string;
 };
 
 /**
- * @function LandingPage
+ * @name LandingPage
+ * @type {Function}
  * @param {Object} props
  * @returns JSX.Element
  */
@@ -86,4 +85,4 @@ const LandingPage = (props: Props): JSX.Element => {
   );
 };
 
-export default hot(LandingPage);
+export default LandingPage;

@@ -1,9 +1,7 @@
 import React from "react";
 
-import { useLocation } from "@reach/router";
-import { hot } from "react-hot-loader/root";
-
 import difference from "lodash/difference";
+import { useLocation } from "react-router-dom";
 
 import { Following, Header, Loading } from "components";
 import { getAccessToken, getFriendsInfo, getTokenAndVerifier } from "utils";
@@ -21,7 +19,6 @@ type Props = {
     data: Array<Friend>;
     ids: Array<number>;
   };
-  path: string;
   user: {
     id: number;
   };
@@ -42,6 +39,7 @@ const Dashboard = (props: Props): JSX.Element => {
 
   React.useEffect(() => {
     const SEARCH_PARAMS = new URLSearchParams(location.search);
+
     const { token, verifier } = getTokenAndVerifier(SEARCH_PARAMS);
     // access token
     if (token && verifier && !username) {
@@ -87,4 +85,4 @@ const Dashboard = (props: Props): JSX.Element => {
   );
 };
 
-export default hot(Dashboard);
+export default Dashboard;

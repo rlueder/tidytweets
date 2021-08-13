@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import { Router } from "@reach/router";
 import { IntlProvider } from "react-intl";
+import { Routes, Route } from "react-router-dom";
 
 import { LandingPage, Dashboard } from "./index";
-import getTranslations from "i18n";
 
+import getTranslations from "i18n";
 import { Consumer, Provider } from "store";
 
 import type { Access, Friend, Request, User } from "definitions";
@@ -53,23 +53,31 @@ const App = (): JSX.Element => {
           ) => {
             return (
               <div className="App">
-                <Router>
-                  <LandingPage
+                <Routes>
+                  <Route
                     path="/"
-                    token={request?.oauth_token}
-                    username={access?.screen_name}
+                    element={
+                      <LandingPage
+                        token={request?.oauth_token}
+                        username={access?.screen_name}
+                      />
+                    }
                   />
-                  <Dashboard
-                    access={{
-                      key: access?.oauth_token,
-                      secret: access?.oauth_token_secret,
-                    }}
-                    friends={friends}
+                  <Route
                     path="/dashboard"
-                    user={user}
-                    username={access?.screen_name}
+                    element={
+                      <Dashboard
+                        access={{
+                          key: access?.oauth_token,
+                          secret: access?.oauth_token_secret,
+                        }}
+                        friends={friends}
+                        user={user}
+                        username={access?.screen_name}
+                      />
+                    }
                   />
-                </Router>
+                </Routes>
               </div>
             );
           }}

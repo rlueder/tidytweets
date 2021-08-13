@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 
-import { hot } from "react-hot-loader/root";
 import { FormattedMessage } from "react-intl";
 
 import difference from "lodash/difference";
@@ -165,4 +164,4 @@ const Following = (props: Props) => {
   );
 };
 
-export default hot(Following);
+export default Following;

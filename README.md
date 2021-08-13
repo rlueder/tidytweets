@@ -162,6 +162,9 @@ You can read more about Netlify site deploys and SemVer here:
 
 - [react-intl](https://formatjs.io/docs/react-intl) - internationalize your web apps on the client & server.
 
+- [react-router](https://github.com/ReactTraining/react-router/) - 
+  declarative routing for React.
+
 - [twitter-lite](https://github.com/draftbit/twitter-lite) - a tiny, full-featured, flexible client / server library for the Twitter API.
 
 ## 6. Credits and Community

@@ -29,15 +29,14 @@
     "ts-coverage": "typescript-coverage-report --strict --threshold=95"
   },
   "dependencies": {
-    "@reach/router": "^1.3.4",
     "date-fns": "^2.23.0",
+    "history": "^5.0.0",
     "localforage": "^1.9.0",
     "react": "^17.0.2",
     "react-copy-write": "^0.8.0",
-    "react-countup": "^5.2.0",
     "react-dom": "^17.0.2",
-    "react-hot-loader": "^4.13.0",
     "react-intl": "^5.20.7",
+    "react-router-dom": "^6.0.0-beta.0",
     "react-scripts": "^4.0.3",
     "swr": "^0.5.6",
     "twitter-lite": "^1.1.0"
@@ -64,7 +63,7 @@
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "lodash": "^4.17.21",
-    "netlify-cli": "^6.1.0",
+    "netlify-cli": "^6.3.2",
     "node-sass": "^6.0.1",
     "prettier": "^2.3.2",
     "prettier-stylelint": "^0.4.2",

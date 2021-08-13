@@ -1,12 +1,12 @@
 /**
- * @function getTokenAndVerifier
+ * @name getTokenAndVerifier
+ * @type {Function}
  * @summary Parses and returns token and verifier values from redirect URL parameters.
  * @see {@link https://developer.twitter.com/en/docs/basics/authentication/api-reference/request_token}
  * @param {URLSearchParams} searchParams
  * @returns {Object}
  * @returns {string} Object.token
  * @returns {string} Object.verifier
- * @exports getTokenAndVerifier
  */
 
 const getTokenAndVerifier = (searchParams: URLSearchParams) => {

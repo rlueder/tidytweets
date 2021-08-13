@@ -1,16 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import { Link } from "@reach/router";
-import { hot } from "react-hot-loader/root";
-
-import { LogOut } from "components/index";
-
+import { LogOut } from "components";
 import "./styles.scss";
 
 /**
- * @function Header
+ * @name Header
+ * @type {Function}
  * @returns JSX.Element
- * @exports Header
  */
 
 const Header = (): JSX.Element => {
@@ -24,4 +21,4 @@ const Header = (): JSX.Element => {
   );
 };
 
-export default hot(Header);
+export default Header;

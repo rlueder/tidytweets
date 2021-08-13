@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useNavigate } from "@reach/router";
+import { useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import localforage from "localforage";
 
@@ -24,7 +24,7 @@ const LogOut = (): JSX.Element => {
           mutate((draft: { access: Object }) => {
             draft.access = {};
           });
-          navigate("/").catch((error: Error) => console.log(error));
+          navigate("/");
         });
       }}
     />
