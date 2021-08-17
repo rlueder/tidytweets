@@ -6,7 +6,7 @@ import flatMapDeep from "lodash/flatMapDeep";
  * @summary Takes an array of translations and returns a flat string expected by react-intl
  * @see {@link https://formatjs.io/docs/react-intl/components/#formattedmessage}
  * @param {Array<Object>} translations
- * @return {Object}
+ * @return {string}
  */
 
 // TODO this works but could probably be DRYer

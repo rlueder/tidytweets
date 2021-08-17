@@ -8,13 +8,13 @@ import { getUserInfo, getFriendsIds } from "utils";
 
 /**
  * @async
- * @function getAccessToken
+ * @name getAccessToken
+ * @type {Function}
  * @summary Requests authentication from Twitter, saves response to local storage and app state, fires getUserInfo and getFriendsIds.
  * @see {@link https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token}
  * @param {string} token
  * @param {string} verifier
  * @returns {Object} data
- * @exports getAccessToken
  */
 
 const getAccessToken = async (token: string, verifier: string) => {

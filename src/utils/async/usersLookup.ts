@@ -2,7 +2,8 @@ import { TWITTER_CLIENT } from "../../constants";
 
 /**
  * @async
- * @function usersLookup
+ * @name usersLookup
+ * @type {Function}
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup}
  * @param {string} screenName
  * @param {number} userId

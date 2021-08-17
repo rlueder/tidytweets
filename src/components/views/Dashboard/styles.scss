@@ -33,7 +33,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  //height: 10rem;
+  min-height: 3.5rem; // so items won't "jump" when action buttons are not displayed
   justify-content: center;
   width: 100%;
 }
@@ -132,13 +132,17 @@
 
 .Following__timeframe {
   color: #fff;
-  display: inline-block;
   margin-left: 0.5rem;
   text-decoration: underline;
+  width: inherit;
 
   &:hover {
     color: $blue-base;
     cursor: pointer;
+  }
+
+  span {
+    margin-left: 0.25rem;
   }
 }
 

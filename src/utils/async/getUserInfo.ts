@@ -6,12 +6,12 @@ import type { User } from "definitions";
 
 /**
  * @async
- * @function getUserInfo
+ * @name getUserInfo
+ * @type {Function}
  * @summary Returns information on logged-in user saving it to state.user
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show}
  * @param {string} screenName
  * @returns {Object} data
- * @exports getUserInfo
  */
 
 const getUserInfo = async (screenName: string) => {

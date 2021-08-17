@@ -1,3 +1,5 @@
+import { TIMEFRAMES } from "../constants";
+
 /**
  * @name cycleTimeframes
  * @type {Function}
@@ -13,15 +15,6 @@ const cycleTimeframes = (
   timeframe: string,
   setTimeframe: Function
 ) => {
-  const TIMEFRAMES = [
-    "week",
-    "2 weeks",
-    "month",
-    "3 months",
-    "6 months",
-    "year",
-  ];
-
   let index = TIMEFRAMES.findIndex((element) => element === timeframe);
 
   // when at last item or no more inactive profiles reset count

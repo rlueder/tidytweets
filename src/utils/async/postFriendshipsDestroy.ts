@@ -5,12 +5,12 @@ import type { Friend } from "definitions";
 
 /**
  * @async
- * @function postFriendshipsDestroy
+ * @name postFriendshipsDestroy
+ * @type {Function}
  * @summary Unfollows the user specified by USER_ID
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy}
  * @param {Object} access
  * @param {string} userId
- * @exports postFriendshipsDestroy
  */
 
 const postFriendshipsDestroy = async (

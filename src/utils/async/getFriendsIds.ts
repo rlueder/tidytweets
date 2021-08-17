@@ -4,13 +4,13 @@ import { TWITTER_CLIENT } from "../../constants";
 
 /**
  * @async
- * @function getFriendsIds
+ * @name getFriendsIds
+ * @type {Function}
  * @summary Returns an array of string IDs limited to 5,000 items from Twitter, saves to app state under state.friends.ids
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-ids}
  * @param {string} screenName
  * @param {number} [count]
  * @returns {Array<string>} data
- * @exports getFriendsIds
  */
 
 const getFriendsIds = async (screenName: string, count: number = 5000) => {

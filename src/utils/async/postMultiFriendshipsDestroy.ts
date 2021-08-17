@@ -6,7 +6,8 @@ import { TWITTER_CLIENT } from "../../constants";
 
 /**
  * @async
- * @function postMultiFriendshipsDestroy
+ * @name postMultiFriendshipsDestroy
+ * @type {Function}
  * @summary Unfollows multiple users from USER_IDS
  * @see {@link https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy}
  * @param {Object} access
