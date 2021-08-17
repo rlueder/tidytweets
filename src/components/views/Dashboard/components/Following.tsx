@@ -92,7 +92,6 @@ const Following = (props: Props) => {
 
         {inactive.length ? (
           <div className="Following__actions">
-            <FormattedMessage id="Following.actions" />
             <div className="Following__buttons">
               <Button
                 disabled={!selected.length}
@@ -125,6 +124,7 @@ const Following = (props: Props) => {
           <div className="Following__actions" />
         )}
       </div>
+
       <div className="Following__list">
         {inactive && inactive.length ? (
           inactive.map((friend) => {

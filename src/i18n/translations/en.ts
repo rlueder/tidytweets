@@ -13,8 +13,7 @@ const en = () => {
         actions: "What would you want to do next?",
         "empty__paragraph--1": "Looks tidy already!",
         "empty__paragraph--2": "Try a different time frame above.",
-        intro:
-          "You're following {total} accounts that have not been active in the last",
+        intro: "{total} accounts haven't been active last",
         "unfollow--all": "Unfollow All",
         "unfollow--selected": "Unfollow Selected",
       },

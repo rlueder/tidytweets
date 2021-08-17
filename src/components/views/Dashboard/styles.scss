@@ -20,7 +20,7 @@
 
 %following {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
   height: calc(100vh - 3rem - 1px);
   width: 100vw;
 }
@@ -33,8 +33,9 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 10rem;
+  //height: 10rem;
   justify-content: center;
+  width: 100%;
 }
 
 .Following__buttons {
@@ -42,7 +43,7 @@
   grid-gap: 0.5rem;
   grid-template-columns: 1fr 1fr;
   margin-top: 1rem;
-  padding: 0 1rem;
+  //padding: 0 1rem;
 }
 
 .Following__icon {
@@ -75,7 +76,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 1rem;
+  padding-top: 0;
 
   > div {
     position: relative;
@@ -110,6 +112,7 @@
   flex-direction: column;
   height: 100%;
   padding: 0 1rem;
+  text-align: center;
 
   p {
     font-size: 1.5rem;
@@ -118,11 +121,12 @@
 }
 
 .Following__suspended {
-  font-size: 1rem;
+  font-size: .875rem;
   margin-top: 1rem;
 
   .material-icons {
     font-size: .875rem;
+    margin-left: .25rem;
   }
  }
 
